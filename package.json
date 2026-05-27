@@ -10,7 +10,9 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "axios": "^1.16.1",
     "markdown-it": "^14.2.0",
+    "netlify-cli": "^26.0.2",
     "pinia": "^3.0.4",
     "router-view": "^1.1.7",
     "vue": "beta",

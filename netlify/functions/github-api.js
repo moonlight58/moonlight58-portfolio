@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 // Cache storage
 const cache = {
@@ -9,7 +9,7 @@ const cache = {
 // Cache duration in milliseconds (1 minute)
 const CACHE_DURATION = 60 * 1000;
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   // Extract username from query parameters (handle both formats)
   let username;
   
@@ -30,14 +30,14 @@ exports.handler = async (event) => {
   
   const tokens = {
     moonlight58: process.env.TOKEN_API_GITHUB_MOONLIGHT58,
-    "grothlin-iut90": process.env.TOKEN_API_GITHUB_GROTHLIN_IUT90,
+    "grothlin-iut90": process.env.TOKEN_API_GITHUB_GROTHLIN90,
   };
   
   const token = tokens[username];
   
   if (!token) {
     console.error(`Token not found for username: ${username}`);
-    console.error(`Available env vars: TOKEN_API_GITHUB_MOONLIGHT58=${process.env.TOKEN_API_GITHUB_MOONLIGHT58 ? 'SET' : 'NOT SET'}, TOKEN_API_GITHUB_GROTHLIN_IUT90=${process.env.TOKEN_API_GITHUB_GROTHLIN_IUT90 ? 'SET' : 'NOT SET'}`);
+    console.error(`Available env vars: TOKEN_API_GITHUB_MOONLIGHT58=${process.env.TOKEN_API_GITHUB_MOONLIGHT58 ? 'SET' : 'NOT SET'}, TOKEN_API_GITHUB_GROTHLIN90=${process.env.TOKEN_API_GITHUB_GROTHLIN90 ? 'SET' : 'NOT SET'}`);
     return {
       statusCode: 400,
       body: JSON.stringify({ error: `Invalid username or token not configured for: ${username}` }),

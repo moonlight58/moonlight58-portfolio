@@ -155,7 +155,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { getPublicProjectsWithDescription, clearProjectsCache } from '@/services/githubService.js'
 import { useI18n } from 'vue-i18n'
 
@@ -245,6 +245,12 @@ const load = async (force = false) => {
     loading.value = false
   }
 }
+
+watch(locale, () => {
+  if (rawProjects.value.length > 0) {
+    parseProjects()
+  }
+})
 
 const refresh = () => {
   clearProjectsCache()
