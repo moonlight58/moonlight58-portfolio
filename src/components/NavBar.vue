@@ -29,15 +29,15 @@ const closeMobileMenu = () => {
     <RouterLink to="/" class="nav__logo">GR</RouterLink>
 
     <nav class="nav__links" aria-label="Primary navigation">
-      <a href="#work" @click="closeMobileMenu" class="nav__link">
+      <RouterLink :to="{ path: '/', hash: '#work' }" class="nav__link">
         {{ $t('nav.work') }}
-      </a>
-      <a href="#skills" @click="closeMobileMenu" class="nav__link">
+      </RouterLink>
+      <RouterLink :to="{ path: '/', hash: '#skills' }" class="nav__link">
         {{ $t('nav.skills') }}
-      </a>
-      <a href="#contact" @click="closeMobileMenu" class="nav__link">
+      </RouterLink>
+      <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__link">
         {{ $t('nav.contact') }}
-      </a>
+      </RouterLink>
     </nav>
 
     <div class="nav__right">
@@ -63,15 +63,15 @@ const closeMobileMenu = () => {
       :class="{ 'nav__mobile--open': mobileOpen }"
       aria-label="Mobile navigation"
     >
-      <a href="#work" class="nav__mobile-link" @click="closeMobileMenu">
+      <RouterLink :to="{ path: '/', hash: '#work' }" class="nav__mobile-link" @click="closeMobileMenu">
         {{ $t('nav.work') }}
-      </a>
-      <a href="#skills" class="nav__mobile-link" @click="closeMobileMenu">
+      </RouterLink>
+      <RouterLink :to="{ path: '/', hash: '#skills' }" class="nav__mobile-link" @click="closeMobileMenu">
         {{ $t('nav.skills') }}
-      </a>
-      <a href="#contact" class="nav__mobile-link" @click="closeMobileMenu">
+      </RouterLink>
+      <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__mobile-link" @click="closeMobileMenu">
         {{ $t('nav.contact') }}
-      </a>
+      </RouterLink>
     </nav>
   </header>
 </template>
