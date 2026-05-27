@@ -10,6 +10,6 @@ export default createI18n({
   fallbackLocale: 'fr',
   messages: {
     en,
-    fr
-  }
+    fr,
+  },
 })

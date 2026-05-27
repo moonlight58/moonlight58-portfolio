@@ -28,7 +28,7 @@
       "focusTitle": "ÉTUDES",
       "focus": "3ème année de BUT* Informatique",
       "statusTitle": "STATUT",
-      "status": "En stage à ANI & Low-Tech (12 Jan - 30 Avr)",
+      "status": "Stage à ANI & Low-Tech terminé (12 Jan - 30 Avr)",
       "locationTitle": "LOCALISATION",
       "butNote": "* BUT = Bachelor Universitaire de Technologie"
     },
@@ -216,7 +216,7 @@
       },
       "spotcli": {
         "description": "Une interface en ligne de commande pour Spotify, permettant aux utilisateurs de contrôler leur musique et gérer leurs playlists directement depuis le terminal.",
-        "status": "En Développement"
+        "status": "Archivé"
       },
       "dotic": {
         "description": "Une application Python pour créer et gérer des motifs de points dans une grille. Elle permet aux utilisateurs de générer, visualiser et analyser des motifs de points pour diverses applications.",

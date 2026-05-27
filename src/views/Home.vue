@@ -1,66 +1,6 @@
 <template>
-  <div class="portfolio">
-    <!-- ══ NAV ══════════════════════════════════════════════════════════ -->
-    <header class="nav" :class="{ 'nav--scrolled': isScrolled }">
-      <RouterLink to="/" class="nav__logo">GR</RouterLink>
-
-      <nav class="nav__links" aria-label="Primary navigation">
-        <RouterLink :to="{ path: '/', hash: '#work' }" class="nav__link">
-          {{ $t('nav.work') }}
-        </RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#skills' }" class="nav__link">
-          {{ $t('nav.skills') }}
-        </RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__link">
-          {{ $t('nav.contact') }}
-        </RouterLink>
-      </nav>
-
-      <div class="nav__right">
-        <button
-          class="lang-toggle"
-          @click="changeLang($i18n.locale === 'fr' ? 'en' : 'fr')"
-          :aria-label="`Switch to ${$i18n.locale === 'fr' ? 'English' : 'French'}`"
-        >
-          {{ $i18n.locale === 'fr' ? 'EN' : 'FR' }}
-        </button>
-        <button
-          class="nav__burger"
-          @click="mobileOpen = !mobileOpen"
-          :aria-expanded="mobileOpen"
-          aria-label="Toggle menu"
-        >
-          <span></span><span></span>
-        </button>
-      </div>
-
-      <nav
-        class="nav__mobile"
-        :class="{ 'nav__mobile--open': mobileOpen }"
-        aria-label="Mobile navigation"
-      >
-        <RouterLink
-          :to="{ path: '/', hash: '#work' }"
-          class="nav__mobile-link"
-          @click="mobileOpen = false"
-          >{{ $t('nav.work') }}</RouterLink
-        >
-        <RouterLink
-          :to="{ path: '/', hash: '#skills' }"
-          class="nav__mobile-link"
-          @click="mobileOpen = false"
-          >{{ $t('nav.skills') }}</RouterLink
-        >
-        <RouterLink
-          :to="{ path: '/', hash: '#contact' }"
-          class="nav__mobile-link"
-          @click="mobileOpen = false"
-          >{{ $t('nav.contact') }}</RouterLink
-        >
-      </nav>
-    </header>
-
-    <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+  <div>
+    <!--  HERO  -->
     <section class="hero" aria-labelledby="hero-name">
       <div class="hero__inner">
         <div class="hero__text">
@@ -96,7 +36,7 @@
       </div>
     </section>
 
-    <!-- ══ WORK ══════════════════════════════════════════════════════════ -->
+    <!--  WORK  -->
     <section id="work" class="section" aria-labelledby="work-heading">
       <div class="section__inner">
         <header class="section__header">
@@ -177,7 +117,7 @@
       </div>
     </section>
 
-    <!-- ══ SKILLS ══════════════════════════════════════════════════════════ -->
+    <!--  SKILLS  -->
     <section id="skills" class="section section--tinted" aria-labelledby="skills-heading">
       <div class="section__inner">
         <header class="section__header">
@@ -203,7 +143,7 @@
       </div>
     </section>
 
-    <!-- ══ CONTACT ══════════════════════════════════════════════════════════ -->
+    <!--  CONTACT  -->
     <section id="contact" class="section" aria-labelledby="contact-heading">
       <div class="section__inner section__inner--narrow">
         <h2 class="section__title" id="contact-heading">{{ $t('home.contact.title') }}</h2>
@@ -320,7 +260,7 @@
       </div>
     </section>
 
-    <!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+    <!--  FOOTER  -->
     <footer class="footer">
       <div class="footer__inner">
         <span class="footer__copy">© {{ new Date().getFullYear() }} Gaël Röthlin</span>
@@ -342,7 +282,7 @@
       </div>
     </footer>
 
-    <!-- ══ PROJECT MODAL ══════════════════════════════════════════════════ -->
+    <!--  PROJECT MODAL  -->
     <ProjectModal
       :isOpen="modalOpen"
       :projectName="selectedProject?.name?.toLowerCase()"
@@ -353,26 +293,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ProjectModal from '@/components/ProjectModal.vue'
 
-const { t, locale } = useI18n()
-
-// ── Nav state ──────────────────────────────────────────────────────────────
-const isScrolled = ref(false)
-const mobileOpen = ref(false)
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 24
-}
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onBeforeUnmount(() => window.removeEventListener('scroll', handleScroll))
-
-const changeLang = (lang) => {
-  locale.value = lang
-  localStorage.setItem('preferred-language', lang)
-}
+const { t } = useI18n()
 
 // ── Modal ──────────────────────────────────────────────────────────────────
 const modalOpen = ref(false)
@@ -505,22 +430,18 @@ const skillCategories = computed(() => [
       {
         name: 'Vue.js',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-        tier: 'expert',
       },
       {
         name: 'CSS',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-        tier: 'expert',
       },
       {
         name: 'Quasar',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/quasar/quasar-plain.svg',
-        tier: 'proficient',
       },
       {
         name: 'Babylon.js',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babylonjs/babylonjs-original.svg',
-        tier: 'learning',
       },
     ],
   },
@@ -531,32 +452,26 @@ const skillCategories = computed(() => [
       {
         name: 'Python',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-        tier: 'expert',
       },
       {
         name: 'JavaScript',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-        tier: 'expert',
       },
       {
         name: 'Node.js',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-        tier: 'proficient',
       },
       {
         name: 'C',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
-        tier: 'proficient',
       },
       {
         name: 'Java',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        tier: 'proficient',
       },
       {
         name: 'PHP',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-        tier: 'learning',
       },
     ],
   },
@@ -582,12 +497,10 @@ const skillCategories = computed(() => [
       {
         name: 'Bash',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg',
-        tier: 'proficient',
       },
       {
         name: 'Kubernetes',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
-        tier: 'learning',
       },
     ],
   },
@@ -598,22 +511,18 @@ const skillCategories = computed(() => [
       {
         name: 'MySQL',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-        tier: 'expert',
       },
       {
         name: 'MongoDB',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-        tier: 'proficient',
       },
       {
         name: 'Figma',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-        tier: 'proficient',
       },
       {
         name: 'Netlify',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg',
-        tier: 'proficient',
       },
     ],
   },
@@ -621,264 +530,9 @@ const skillCategories = computed(() => [
 </script>
 
 <style scoped>
-/* Google Fonts — loaded inline so the component is self-contained */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
-
-/* ══════════════════════════════════════════════════════════════════════
-   DESIGN TOKENS
-══════════════════════════════════════════════════════════════════════ */
-.portfolio {
-  --bg: #fafaf8;
-  --bg-tint: #f4f2ee;
-  --bg-inset: #edeae4;
-  --text: #1c1917;
-  --text-2: #44403c;
-  --text-3: #78716c;
-  --border: rgba(28, 25, 23, 0.1);
-  --border-mid: rgba(28, 25, 23, 0.18);
-  --accent: #c2693a;
-  --accent-light: #f5e8e0;
-  --font-serif: 'Lora', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'DM Mono', 'Fira Code', monospace;
-  --max-w: 1160px;
-  --section-gap: 120px;
-
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ══ Reset helpers ══════════════════════════════════════════════════ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-img {
-  display: block;
-  max-width: 100%;
-}
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-p {
-  margin: 0;
-}
-button {
-  cursor: pointer;
-}
-
-/* ══ Scrollbar ══════════════════════════════════════════════════════ */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-tint);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-mid);
-  border-radius: 3px;
-}
-
-/* ══════════════════════════════════════════════════════════════════════
-   GLOBAL BUTTONS
-══════════════════════════════════════════════════════════════════════ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s,
-    transform 0.15s;
-  border: 1.5px solid transparent;
-  text-decoration: none;
-}
-
-.btn--primary {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-.btn--primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.btn--ghost {
-  background: transparent;
-  color: var(--text);
-  border-color: var(--border-mid);
-}
-.btn--ghost:hover {
-  border-color: var(--text);
-  transform: translateY(-1px);
-}
-
-.btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* ══════════════════════════════════════════════════════════════════════
-   NAV
-══════════════════════════════════════════════════════════════════════ */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-  background: var(--bg);
-  border-bottom: 1px solid transparent;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
-}
-
-.nav--scrolled {
-  border-bottom-color: var(--border);
-  box-shadow: 0 1px 12px rgba(28, 25, 23, 0.05);
-}
-
-.nav__logo {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  margin-right: auto;
-  transition: color 0.2s;
-}
-.nav__logo:hover {
-  color: var(--accent);
-}
-
-.nav__links {
-  display: flex;
-  gap: 32px;
-}
-
-.nav__link {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-3);
-  transition: color 0.2s;
-  position: relative;
-}
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.25s ease;
-}
-.nav__link:hover,
-.nav__link.router-link-active {
-  color: var(--text);
-}
-.nav__link:hover::after,
-.nav__link.router-link-active::after {
-  width: 100%;
-}
-
-.nav__right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: 40px;
-}
-
-.lang-toggle {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 10px;
-  background: transparent;
-  border: 1px solid var(--border-mid);
-  color: var(--text-3);
-  border-radius: 3px;
-  transition:
-    border-color 0.2s,
-    color 0.2s;
-  letter-spacing: 0.05em;
-}
-.lang-toggle:hover {
-  border-color: var(--text);
-  color: var(--text);
-}
-
-.nav__burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  padding: 4px;
-}
-.nav__burger span {
-  display: block;
-  width: 22px;
-  height: 1.5px;
-  background: var(--text);
-  transition: transform 0.2s;
-}
-
-.nav__mobile {
-  display: none;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: 24px 40px 32px;
-  flex-direction: column;
-  gap: 20px;
-}
-.nav__mobile--open {
-  display: flex;
-}
-
-.nav__mobile-link {
-  font-size: 18px;
-  font-family: var(--font-serif);
-  color: var(--text-2);
-  transition: color 0.2s;
-}
-.nav__mobile-link:hover {
-  color: var(--accent);
-}
-
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    HERO
-══════════════════════════════════════════════════════════════════════ */
+ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -988,9 +642,9 @@ button {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    SECTION SHARED
-══════════════════════════════════════════════════════════════════════ */
+ */
 .section {
   padding: var(--section-gap) 40px;
 }
@@ -1050,9 +704,9 @@ button {
   border-bottom: 1px solid var(--border);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    PROJECTS
-══════════════════════════════════════════════════════════════════════ */
+ */
 .projects {
   display: flex;
   flex-direction: column;
@@ -1181,9 +835,9 @@ button {
   color: var(--accent);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    INTERNSHIPS
-══════════════════════════════════════════════════════════════════════ */
+ */
 .internships {
   margin-bottom: 72px;
 }
@@ -1272,9 +926,9 @@ button {
   transform: translateX(4px);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    EDUCATION
-══════════════════════════════════════════════════════════════════════ */
+ */
 .education-list {
   display: flex;
   flex-direction: column;
@@ -1327,9 +981,9 @@ button {
   line-height: 1.65;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    SKILLS
-══════════════════════════════════════════════════════════════════════ */
+ */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1384,9 +1038,9 @@ button {
   color: var(--text-3);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    CONTACT
-══════════════════════════════════════════════════════════════════════ */
+ */
 .contact-lead {
   font-size: 17px;
   color: var(--text-2);
@@ -1499,9 +1153,9 @@ button {
   color: #b91c1c;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    FOOTER
-══════════════════════════════════════════════════════════════════════ */
+ */
 .footer {
   padding: 32px 40px;
   border-top: 1px solid var(--border);
@@ -1542,9 +1196,9 @@ button {
   color: var(--text);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
+/* 
    RESPONSIVE
-══════════════════════════════════════════════════════════════════════ */
+ */
 @media (max-width: 1024px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1636,7 +1290,7 @@ button {
   }
 }
 
-/* ══ Reduced motion ══════════════════════════════════════════════════ */
+/*  Reduced motion  */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

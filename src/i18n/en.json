@@ -28,7 +28,7 @@
       "focusTitle": "FOCUS",
       "focus": "3rd year of BUT* in Computer Science",
       "statusTitle": "STATUS",
-      "status": "Internship at ANI & Low-Tech (12 Jan - 30 Apr)",
+      "status": "Internship at ANI & Low-Tech finished (12 Jan - 30 Apr)",
       "locationTitle": "LOCATION",
       "butNote": "* BUT = University Bachelor of Technology"
     },
@@ -138,7 +138,8 @@
             "sudo": {
               "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">sudo</span> - Execute a command with superuser privileges (not really in this terminal :) )",
               "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">sudo</span> [command]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This command is used in real terminals to execute commands with elevated privileges. However, in this portfolio terminal, it is just for fun and will not actually grant any superuser access. It serves as an Easter egg for users who try to use it, providing humorous responses instead of performing any real privileged operations."}
+              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This command is used in real terminals to execute commands with elevated privileges. However, in this portfolio terminal, it is just for fun and will not actually grant any superuser access. It serves as an Easter egg for users who try to use it, providing humorous responses instead of performing any real privileged operations."
+            }
           },
           "internship": {
             "ani": {
@@ -215,7 +216,7 @@
       },
       "spotcli": {
         "description": "A command-line interface for Spotify, allowing users to control their music and manage playlists directly from the terminal.",
-        "status": "In Development"
+        "status": "Archived"
       },
       "dotic": {
         "description": "A Python application for creating and managing dot patterns in a grid. It allows users to generate, visualize and analyze dot patterns for various applications.",
