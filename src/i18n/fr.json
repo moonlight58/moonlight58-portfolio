@@ -51,137 +51,7 @@
       "projects": "Mes projets",
       "why_desc": "Ce site est développé dans le cadre de mon projet de Portfolio durant les trois années du BUT. Il sera continuellement mis à jour pour refléter mes projets académiques et personnels.",
       "viewProject": "VOIR_LE_PROJET",
-      "viewAllProjects": "VOIR_TOUS_LES_PROJETS",
-      "terminal": {
-        "help": {
-          "name": "Commandes disponibles :",
-          "description": "&nbsp;&nbsp;<span class=\"cmd-name\">help</span>                 — affiche cette liste de commandes disponibles",
-          "whoami": "&nbsp;&nbsp;<span class=\"cmd-name\">whoami</span>               — affiche qui je suis",
-          "nitch": "&nbsp;&nbsp;<span class=\"cmd-name\">nitch</span>                — affiche des informations personnels (inspiré de neofetch)",
-          "ls": "&nbsp;&nbsp;<span class=\"cmd-name\">ls</span>                   — liste les fichiers",
-          "cat": "&nbsp;&nbsp;<span class=\"cmd-name\">cat &lt;fichier&gt;</span>        — affiche le contenu d'un fichier",
-          "internship": "&nbsp;&nbsp;<span class=\"cmd-name\">stage &lt;organisation&gt;</span> — affiche les détails de mes stages",
-          "man": "&nbsp;&nbsp;<span class=\"cmd-name\">man &lt;commande&gt;</span>       — affiche le manuel d'une commande",
-          "clear": "&nbsp;&nbsp;<span class=\"cmd-dim\">clear</span>                — efface le terminal",
-          "errors": {
-            "catMissingOperand": "cat : argument manquant",
-            "catFileNotFound": "Fichier ou répertoire introuvable",
-            "rmFileNotFound": "impossible de supprimer",
-            "rm": "rm : il n'est pas possible de supprimer le répertoire racine sans sudo",
-            "rmNuking": "Bien essayé quand même >:(",
-            "sudoAuth": "Vraiment ? Pourquoi donc ?",
-            "sudoNuking": "Suppression du système...",
-            "sudoKidding": "Je plaisante, je ne ferai pas ça :)",
-            "sudoCommandNotFound": "sudo : commande non trouvée",
-            "internshipMissingOperand": "stage : argument manquant",
-            "bashCommandNotFound": "bash : commande non trouvée",
-            "manCommandNotFound": "man : commande non trouvée",
-            "manMissingOperand": "man : argument manquant"
-          }
-        },
-        "whoami": {
-          "description": "développeur full-stack - passionné de cybersécurité - amoureux de l'open-source",
-          "current": "actuellement : 3ème année BUT Informatique à l'Université de Franche-Comté",
-          "location": "localisation : Besançon, FR"
-        },
-        "command": {
-          "man": {
-            "header": "Manuel pour la commande :",
-            "name": "NOM",
-            "synopsis": "SYNOPSIS",
-            "description": "DESCRIPTION",
-            "help": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">help</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">help</span> [command]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande affiche une liste des commandes disponibles ou des informations détaillées sur une commande spécifique lorsqu'elle est utilisée avec un argument. Elle sert de guide pour aider les utilisateurs à comprendre comment interagir avec le terminal et quelles commandes ils peuvent utiliser pour explorer le contenu de ce site portfolio."
-            },
-            "whoami": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Corpsey3_shy: <span class=\"cmd-name\">whoami</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">whoami</span> [options]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande affiche un bref résumé de qui je suis, y compris mon rôle de développeur full-stack, mon enthousiasme pour la cybersécurité et les projets open-source, mon statut académique actuel en tant qu'étudiant en 3ème année d'informatique à l'Université de Franche-Comté, et ma localisation à Besançon, France."
-            },
-            "ls": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">ls</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">ls</span> [options] [directory]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande liste les fichiers dans le répertoire actuel. Dans ce terminal de portfolio, elle affichera une liste de fichiers qui représentent différentes sections du site web, telles que 'pourquoi_ce_portfolio.txt', 'mes_projets.txt', etc. Chaque fichier peut être lu avec la commande 'cat' pour en savoir plus sur cette section."
-            },
-            "cat": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">cat</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">cat</span> [options] [file...]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande lit le contenu d'un fichier spécifié et l'affiche dans le terminal. Dans ce terminal de portfolio, vous pouvez utiliser 'cat' suivi du nom d'un fichier (par exemple, 'cat pourquoi_ce_portfolio.txt') pour lire plus d'informations sur cette section du site web."
-            },
-            "internship": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">internship</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">internship</span> [organization] [options]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande est un alias anglais pour 'stage' et fournit la même fonctionnalité. Elle permet aux utilisateurs de voir les détails de mes stages en spécifiant le nom de l'organisation."
-            },
-            "stage": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">stage</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">stage</span> [organisation] [options]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande fournit des informations détaillées sur mes stages. Lorsqu'elle est utilisée avec le nom d'une organisation (par exemple, 'stage ANI'), elle affichera la mission, la durée et la description du stage que j'ai réalisé dans cette organisation."
-            },
-            "nitch": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">nitch</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">nitch</span> [options]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande affiche un résumé stylisé de mes informations personnelles, y compris mon nom, mon âge, les langages de programmation que je connais, mon diplôme et mon statut actuel."
-            },
-            "clear": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-dim\">clear</span>",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-dim\">clear</span>",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande efface tout le texte de l'écran du terminal, offrant une toile propre pour de nouvelles commandes et sorties. Elle n'affecte aucune donnée ou état sous-jacent, mais supprime simplement l'affichage actuel du texte dans la fenêtre du terminal."
-            },
-            "rm": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">rm</span> - Supprimer des fichiers ou des répertoires (pas vraiment dans ce terminal :) )",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">rm</span> [options] [file...]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande est généralement utilisée pour supprimer des fichiers ou des répertoires dans un terminal réel. Cependant, dans ce terminal de portfolio, elle est juste pour le plaisir et ne supprimera rien du tout. Elle sert d'Easter Egg pour les utilisateurs qui essaient de l'utiliser, fournissant des réponses humoristiques au lieu d'effectuer une véritable suppression de fichier."
-            },
-            "sudo": {
-              "name": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">sudo</span> - Exécuter une commande avec des privilèges de superutilisateur (pas vraiment dans ce terminal :) )",
-              "synopsis": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"cmd-name\">sudo</span> [command]",
-              "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette commande est utilisée dans les terminaux réels pour exécuter des commandes avec des privilèges élevés. Cependant, dans ce terminal de portfolio, elle est juste pour le plaisir et ne donnera pas réellement d'accès superutilisateur. Elle sert d'Easter Egg pour les utilisateurs qui essaient de l'utiliser, fournissant des réponses humoristiques au lieu d'effectuer de véritables opérations privilégiées."
-            }
-          },
-          "internship": {
-            "ani": {
-              "company": "Entreprise : ANI & Low-Tech",
-              "duration": "Durée : Janvier 2026 - Avril 2026",
-              "description": "Mission : Assistance technique au CROUS BFC, intégration au service ANI & Low-Tech, développement d'une solution IA locale."
-            },
-            "euphron": {
-              "company": "Entreprise : Euphron (Learning Centre Claude Oytana)",
-              "duration": "Durée : Avril 2025 - Mai 2025",
-              "description": "Mission : Création d'une application de troc d'objets sportif pour les étudiants en STAPS de l'Université de Franche-Comté."
-            }
-          },
-          "nitch": {
-            "years": "ans",
-            "months": "mois",
-            "firstname": {
-              "label": " prénom",
-              "value": "Gaël"
-            },
-            "lastname": {
-              "label": " nom",
-              "value": "Röthlin"
-            },
-            "age": {
-              "label": "󱑁 âge"
-            },
-            "lang": {
-              "label": " langues",
-              "value": "FRA, ENG, NOR (en apprentissage)"
-            },
-            "degree": {
-              "label": "󰑴 diplôme",
-              "value": "Bachelor Universitaire de Technologie Informatique (en cours)"
-            },
-            "status": {
-              "label": "󱖫 statut",
-              "text": "En stage à ANI & Low-Tech"
-            }
-          } 
-        }
-      }
+      "viewAllProjects": "VOIR_TOUS_LES_PROJETS"
     },
     "internship": {
       "ani": {
@@ -245,42 +115,126 @@
   "internshipPage": {
     "ani": {
       "hero": {
-        "title": "ANI & Low-Tech",
+        "eyebrow": "RAPPORT_DE_STAGE",
+        "title": "Innov Crous",
         "jobTitleLabel": "RÔLE",
-        "jobTitle": "Stage • Technique & Développement",
+        "jobTitle": "Stage Technique & Développement · ANI & Low-Tech",
         "locationLabel": "LOCALISATION",
-        "location": "ANI & Low-Tech • Dijon, France",
+        "location": "CROUS BFC · Learning Centre Claude Oytana · Besançon / Dijon",
         "durationLabel": "DURÉE",
-        "duration": "12 janvier - 30 avril 2026 • 15+ semaines",
+        "duration": "12 janvier – 30 avril 2026 · 15+ semaines",
         "statusLabel": "STATUT",
-        "status": "EN COURS"
+        "status": "TERMINÉ"
       },
       "context": {
-        "sectionNumber": "01",
         "title": "Contexte & Mission",
-        "subtitle": "Mission et enjeux du projet",
-        "description1": "Je réalise actuellement un stage de 15+ semaines à ANI & Low-Tech à Dijon, France, à partir du 12 janvier 2026. ANI & Low-Tech est une organisation dédiée à la technologie accessible et à l'innovation numérique en se concentrant sur la durabilité et l'inclusivité.",
-        "description2": "Ma mission englobe l'assistance technique au CROUS BFC (centre d'accueil des étudiants), l'intégration au service ANI & Low-Tech, et le développement d'une solution IA locale adaptée aux besoins de l'organisation.",
-        "objective1Title": "Support technique",
-        "objective1Desc": "Fournir une assistance aux utilisateurs du CROUS BFC",
-        "objective2Title": "Intégration au service",
-        "objective2Desc": "S'intégrer aux opérations d'ANI & Low-Tech",
-        "objective3Title": "Développer une solution IA",
-        "objective3Desc": "Créer une IA locale adaptée aux besoins de l'organisation et du CROUS BFC",
-        "objective4Title": "Rendre le FabLab plus accessible à tout le monde",
-        "objective4Desc": "Retravailler les outils de la salle d'immersion et de l'OpenLab"
+        "description1": "J'ai effectué un stage de plus de 15 semaines au sein du service Animation Numérique et Innovante & Low-Tech (ANI & Low-Tech) du Crous Bourgogne Franche-Comté, basé au Learning Centre Claude Oytana de Besançon. Le service a pour mission de développer des activités innovantes au profit des étudiants, en s'appuyant sur un Fablab, une salle d'immersion en réalité virtuelle et un Serious Game Lab.",
+        "description2": "Le fil rouge de ce stage , « Innov Crous : Rendre le numérique attractif au cœur des résidences » , répond à un besoin de modernisation de l'image du Crous. L'enjeu est de transformer des processus souvent austères en expériences fluides, immersives et collaboratives pour les étudiants.",
+        "pillar1Title": "Pilier Immersif",
+        "pillar1Desc": "Développement de l'Open3D-Viewer, visionneuse 3D web compatible réalité virtuelle pour la salle d'immersion.",
+        "pillar2Title": "Pilier Interactif",
+        "pillar2Desc": "Appui technique au projet IA Annie, assistant administratif local pour les usagers du Crous.",
+        "pillar3Title": "Pilier Collaboratif",
+        "pillar3Desc": "Portage de projet au Crunch Time de l'UTBM, événement de co-conception avec les étudiants.",
+        "missionLabel": "Approche Low-Tech",
+        "missionText": "L'ensemble des projets s'inscrit dans une philosophie low-tech assumée : solutions simples, économes en ressources, sans dépendance aux services cloud externes, favorisant la durabilité et la maîtrise des coûts."
       },
-      "role": {
-        "sectionNumber": "02",
-        "title": "Mon rôle",
-        "subtitle": "Responsabilités & tâches",
-        "description": "Tout au long de ce stage, je développe une compréhension approfondie de l'organisation tout en contribuant à plusieurs initiatives techniques et fonctions de support.",
-        "responsibility1Title": "Assistance technique",
-        "responsibility1Desc": "Fournir du support aux utilisateurs du CROUS BFC et d'ANI & Low-Tech, résoudre les problèmes techniques et optimiser les flux de travail.",
-        "responsibility2Title": "Développement IA",
-        "responsibility2Desc": "Concevoir et implémenter une solution IA locale répondant aux besoins spécifiques de l'organisation sans dépendre de services cloud externes.",
-        "responsibility3Title": "Intégration au service",
-        "responsibility3Desc": "Comprendre les processus de l'organisation et s'intégrer de manière transparente à l'équipe ANI & Low-Tech."
+      "org": {
+        "title": "Organisme d'accueil",
+        "description": "Le stage s'est déroulé dans un écosystème institutionnel à trois niveaux, chacun jouant un rôle distinct dans le contexte des projets.",
+        "entity1Title": "Crous BFC",
+        "entity1Desc": "Établissement public sous tutelle du ministère de l'Enseignement supérieur. Gère logement, restauration et vie étudiante sur Besançon, Dijon, Belfort, Montbéliard et Le Creusot.",
+        "entity2Title": "Service ANI & Low-Tech",
+        "entity2Desc": "Service culturel et numérique du Crous piloté par Michel HAVOT. Accompagnement numérique, animation du Fablab, Serious Game Lab et organisation des Cités Internationales du Jeu.",
+        "entity3Title": "Learning Centre Claude Oytana",
+        "entity3Desc": "Site de travail quotidien, fruit d'un partenariat Crous/Université. Abrite la salle VR, le Fablab, le Serious Game Lab et des espaces de travail ouverts à la communauté universitaire."
+      },
+      "open3d": {
+        "title": "Open3D-Viewer",
+        "description": "Aucun outil ne permettait de charger et visualiser des modèles 3D scientifiques depuis un navigateur web en mode réalité virtuelle dans la salle d'immersion. Le besoin a été exprimé par les géologues de l'université (formats PLY/OBJ à haute résolution) et par les enseignants en médecine et STAPS (visualisation anatomique interactive en cours).",
+        "techTitle": "Choix techniques",
+        "tech1Title": "Fork du projet LUMC",
+        "tech1Desc": "Plutôt que de partir de zéro, le parti pris a été de forker open3dviewer du Leiden University Medical Centre, basé sur BabylonJS. Approche low-tech : pas de build tool, chargement via CDN uniquement. Hébergé sous moonlight58/open3D-viewer, licence GPL-3.0.",
+        "tech2Title": "BabylonJS + WebXR",
+        "tech2Desc": "Moteur de rendu 3D JavaScript open source. L'API WebXR standard permet le mode réalité virtuelle directement dans le navigateur, sans installation. Compatible avec les Oculus Quest 2 de la salle d'immersion.",
+        "challengesTitle": "Défis techniques",
+        "challenge1Title": "Support PLY & OBJ",
+        "challenge1Desc": "Le projet d'origine ne supportait que le GLB. L'intégration des loaders additionnels BabylonJS a révélé des contraintes importantes : le PLY pour Gaussian Splatting exige un schéma très spécifique (Spherical Harmonics, quaternion de rotation, opacité encodée). Les textures EXR ne sont pas supportées nativement pour les meshes standards.",
+        "challenge2Title": "Contrainte HTTPS pour WebXR",
+        "challenge2Desc": "Les casques VR n'acceptent WebXR qu'en contexte HTTPS sécurisé, rendant les tests locaux HTTP impossibles. Solution : utilisation de ngrok pour créer un tunnel HTTPS public vers le serveur local de développement.",
+        "deliverablesTitle": "Fonctionnalités livrées",
+        "deliverable1Title": "Multi-formats",
+        "deliverable1Desc": "Chargement de modèles GLB, PLY et OBJ via paramètre URL, testé avec les modèles réels des géologues.",
+        "deliverable2Title": "Navigation interactive",
+        "deliverable2Desc": "Rotation, zoom et déplacement à la souris, au clavier et au toucher. Compatible mobile et tablette.",
+        "deliverable3Title": "Mode réalité virtuelle",
+        "deliverable3Desc": "Mode WebXR fonctionnel, testé en conditions réelles avec les Oculus Quest 2 de la salle d'immersion.",
+        "deliverable4Title": "Gestion des sous-modèles",
+        "deliverable4Desc": "Interface de toggle permettant d'afficher ou masquer des sous-parties du modèle. Utile pour les structures anatomiques.",
+        "repoTitle": "Code source",
+        "repoDesc": "Projet open source sous licence GPL-3.0, disponible sur GitHub : "
+      },
+      "annie": {
+        "title": "IA Annie",
+        "description": "Annie est une intelligence artificielle locale conçue pour assister les étudiants et le personnel dans leurs démarches administratives Crous (logement, bourses, services). Déployée sur l'infrastructure du Crous, sans dépendance cloud, elle répond à des exigences de souveraineté des données et de maîtrise des coûts.",
+        "stackTitle": "Stack technique",
+        "infraTitle": "Infrastructure",
+        "infra1Name": "Ollama",
+        "infra1Desc": "Serveur d'inférence de modèles de langage, exécution locale sans cloud",
+        "infra2Name": "Open-WebUI",
+        "infra2Desc": "Interface web open source pour interagir avec Ollama",
+        "infra3Name": "Docker",
+        "infra3Desc": "Containerisation pour l'environnement de développement",
+        "infra4Name": "Kubernetes",
+        "infra4Desc": "Orchestration des conteneurs pour la stack de production",
+        "contribTitle": "Mes contributions",
+        "contrib1Name": "Environnement de dev",
+        "contrib1Desc": "Mise en place et documentation d'un environnement commun stable pour l'équipe",
+        "contrib2Name": "Schémas d'architecture",
+        "contrib2Desc": "Documentation des stacks dev (Docker) et production (Kubernetes)",
+        "contrib3Name": "Analyse de runtime",
+        "contrib3Desc": "Mesures de performance du modèle Mistral 3B en CPU-only (5 runs par protocole)",
+        "contrib4Name": "Direction artistique",
+        "contrib4Desc": "Document de direction artistique et création des SVG animés de la mascotte Annie",
+        "perfTitle": "Analyse de performance (Mistral 3B · CPU-only)",
+        "perfDesc": "L'analyse visait à mesurer les temps de réponse en configuration CPU-only, cohérente avec la philosophie Low-Tech du prototypage. Trois familles de mesures, cinq runs chacune, médianes issues directement de l'API Ollama.",
+        "perf1Value": "84 s",
+        "perf1Label": "Cold start\n(1er appel)",
+        "perf2Value": "27 s",
+        "perf2Label": "Warm start\n(régime)",
+        "perf3Value": "5,5 t/s",
+        "perf3Label": "Débit de\ngénération",
+        "perf4Value": "3,1×",
+        "perf4Label": "Facteur\ncold/warm",
+        "mascotTitle": "Identité visuelle - Mascotte Annie",
+        "mascotDesignTitle": "Direction artistique",
+        "mascotDesignDesc": "Un chat rouge (#E30613, couleur officielle du logo Crous) , animal universellement perçu comme proche et apaisant. Un chat vivait réellement sur le campus du Crous avant d'être adopté, ancrant le personnage dans une histoire locale. Une pièce de puzzle évoque la mission du service ANI autour du jeu et de la coopération. Trois SVG vectoriels créés : état neutre, bouche ouverte, bouche fermée , les deux derniers forment une animation alternée simulant la parole lors de la génération."
+      },
+      "crunch": {
+        "title": "Crunch Time · UTBM",
+        "description": "J'ai représenté le Crous BFC en tant que porteur de projet lors du Crunch Time de Montbéliard, événement organisé à l'UTBM. Ce format hackathon-idéation réunit des étudiants de diverses formations autour de projets soumis par des structures partenaires.",
+        "obj1Title": "Validation des orientations",
+        "obj1Desc": "Soumettre les projets Innov Crous à l'évaluation du public cible (étudiants) pour identifier les fonctionnalités non anticipées et les problèmes d'ergonomie.",
+        "obj2Title": "Réseautage institutionnel",
+        "obj2Desc": "Représenter le service ANI & Low-Tech dans un contexte externe, pratiquer la communication de projets numériques auprès d'un public non spécialiste.",
+        "outcomeLabel": "Bilan",
+        "outcomeText": "Les retours collectés lors des ateliers ont directement alimenté la feuille de route du service : nouvelles fonctionnalités identifiées, angles oubliés, orientations à affiner. La posture de porteur de projet a mobilisé des compétences de communication et d'animation distinctes du développement logiciel."
+      },
+      "learning": {
+        "title": "Bilan & Apprentissages",
+        "technicalTitle": "Compétences techniques",
+        "technical1": "Maîtrise de BabylonJS pour le développement 3D web (moteur de rendu, WebXR, gestion des loaders)",
+        "technical2": "Gestion des formats 3D complexes (GLB, PLY, OBJ) et de leurs contraintes spécifiques",
+        "technical3": "Mise en place d'environnements containerisés (Docker, Kubernetes)",
+        "technical4": "Analyse de performance d'un LLM local : protocole de mesure rigoureux, interprétation des métriques Ollama",
+        "technical5": "Utilisation de ngrok pour les tests VR en environnement sécurisé",
+        "softTitle": "Compétences transférables",
+        "soft1": "Autonomie complète sur un projet de développement de bout en bout",
+        "soft2": "Contribution efficace à un projet collectif (IA Annie) sans en être le pilote",
+        "soft3": "Communication de projets techniques auprès d'un public non spécialiste",
+        "soft4": "Contact avec les utilisateurs finaux et adaptation aux besoins réels d'usage",
+        "reflectionTitle": "Recul critique",
+        "reflectionDesc": "Ce stage m'a confirmé que la qualité technique d'un outil ne suffit pas : l'ergonomie et l'adéquation aux besoins réels des utilisateurs sont aussi essentielles. La gestion simultanée de trois projets aux niveaux de responsabilité très différents , développeur principal, contributeur, porteur de projet , a été la principale complexité et la principale richesse de cette expérience."
       }
     },
     "euphron": {
