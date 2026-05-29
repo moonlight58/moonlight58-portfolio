@@ -379,6 +379,14 @@ const projects = computed(() => [
     status: t('home.projects.sagittarius.status'),
   },
   {
+    name: 'Pluto',
+    image:
+      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/pluto_kb.jpg',
+    description: t('home.projects.pluto.description'),
+    tech: ['Ergogen', 'ZMK', 'KiCAD', '3D Printing'],
+    status: t('home.projects.pluto.status'),
+  },
+  {
     name: 'SpotCLI',
     image:
       'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/spotcli.png',
@@ -386,14 +394,7 @@ const projects = computed(() => [
     tech: ['C', 'libcurl', 'Spotify API'],
     status: t('home.projects.spotcli.status'),
   },
-  {
-    name: 'DotIC',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/dotic.png',
-    description: t('home.projects.dotic.description'),
-    tech: ['Python', 'OpenCV', 'Pillow'],
-    status: t('home.projects.dotic.status'),
-  },
+  
 ])
 
 const internships = computed(() => [
@@ -741,6 +742,7 @@ const skillCategories = computed(() => [
 
 .project__image {
   width: 100%;
+  height: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   transition:

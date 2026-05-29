@@ -88,8 +88,8 @@
         "description": "A command-line interface for Spotify, allowing users to control their music and manage playlists directly from the terminal.",
         "status": "Archived"
       },
-      "dotic": {
-        "description": "A Python application for creating and managing dot patterns in a grid. It allows users to generate, visualize and analyze dot patterns for various applications.",
+      "pluto": {
+        "description": "A mechanical keyboard designed and built by myself. It is based on the Ergogen software which allowed me to design the PCB and chassis of the keyboard, was designed with KiCAD, ZMK and FreeCAD before being 3D printed.",
         "status": "Completed"
       }
     },

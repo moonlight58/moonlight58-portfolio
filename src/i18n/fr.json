@@ -88,8 +88,8 @@
         "description": "Une interface en ligne de commande pour Spotify, permettant aux utilisateurs de contrôler leur musique et gérer leurs playlists directement depuis le terminal.",
         "status": "Archivé"
       },
-      "dotic": {
-        "description": "Une application Python pour créer et gérer des motifs de points dans une grille. Elle permet aux utilisateurs de générer, visualiser et analyser des motifs de points pour diverses applications.",
+      "pluto": {
+        "description": "Un clavier mécanique personnalisé, conçu et fabriqué par moi-même. Il est basé sur le logiciel Ergogen qui a permis de concevoir le PCB et le chassis du clavier, a été conçu avec KiCAD, ZMK et FreeCAD avant d'être imprimé en 3D.",
         "status": "Terminé"
       }
     },

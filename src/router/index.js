@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Projects from '../views/Projects.vue'
 import EuphronInternship from '../views/EuphronInternship.vue'
 import ANIInternship from '../views/ANIInternship.vue'
+import Pluto from '../components/Plutoproject.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,11 @@ const router = createRouter({
       path: '/projects',
       name: 'Projects',
       component: Projects,
+    },
+    {
+      path: '/pluto',
+      name: 'Pluto',
+      component: Pluto,
     },
     {
       path: '/internship/euphron',
