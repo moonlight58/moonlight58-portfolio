@@ -4,6 +4,7 @@ import Projects from '../views/Projects.vue'
 import EuphronInternship from '../views/EuphronInternship.vue'
 import ANIInternship from '../views/ANIInternship.vue'
 import Pluto from '../components/Plutoproject.vue'
+import Sagittarius from '../components/Sagittariusproject.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/pluto',
       name: 'Pluto',
       component: Pluto,
+    },
+    {
+      path: '/sagittarius',
+      name: 'Sagittarius',
+      component: Sagittarius,
     },
     {
       path: '/internship/euphron',

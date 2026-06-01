@@ -122,7 +122,17 @@
         "type": "Clavier mécanique split",
         "keysLabel": "Touches",
         "keys": "touches par moitié"
-      }
+      },
+      "improvement": {
+        "1": {
+          "title": "Amélioration de la stabilité du firmware",
+          "desc": "Après les premiers tests, j'ai identifié des problèmes de stabilité avec le firmware ZMK, notamment des plantages aléatoires. J'ai corrigé plusieurs bugs critiques dans le code source de ZMK, améliorant ainsi la fiabilité du clavier."
+        },
+        "2": {
+          "title": "Amélioration de la qualité du chassis du clavier",
+          "desc": "Le premier prototype imprimé en 3D présentait des problèmes de solidité et de finition. Ça m'a permit au moins d'itérer sur le design du boîtier, mais pour passer au niveau supérieur j'aimerais m'orienter vers une fabrication CNC ou un moulage pour obtenir une qualité de finition professionnelle et une durabilité accrue."
+        }
+       }
     }
   },
   "internshipPage": {

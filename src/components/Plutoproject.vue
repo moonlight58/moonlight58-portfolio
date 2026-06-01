@@ -476,6 +476,29 @@
         </div>
       </section>
 
+      <section id="improvement" class="pluto-section" aria-labelledby="h-improvement">
+        <div class="pluto-section__inner">
+          <header class="section-header">
+            <span class="section-header__num" aria-hidden="true">08</span>
+            <h2 class="section-header__title" id="h-improvement">
+              <span v-if="$i18n.locale === 'fr'">Améliorations possibles</span>
+              <span v-else>Possible improvements</span>
+            </h2>
+          </header>
+
+          <div class="improvement-grid">
+            <div class="improvement-card" v-for="item in improvementItems" :key="item.id">
+              <span class="improvement-card__domain">
+                {{ $t(`projectsPage.pluto.improvement.${item.id}.title`) }}
+              </span>
+              <p class="improvement-card__text">
+                {{ $t(`projectsPage.pluto.improvement.${item.id}.desc`) }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
@@ -535,6 +558,11 @@ const learningItems = [
     fr: 'ZMK est déclaratif et bien documenté. Configurer un clavier split sans fil demande de comprendre comment les deux moitiés communiquent.',
     en: 'ZMK is declarative and well-documented. Configuring a wireless split requires understanding how both halves communicate.',
   },
+]
+
+const improvementItems = [
+  { id: '1' },
+  { id: '2' },
 ]
 </script>
 
@@ -776,6 +804,7 @@ const learningItems = [
   color: var(--text-2);
   margin: 0 0 40px;
   max-width: 720px;
+  text-align: justify;
 }
 
 /* ── Two-col ── */
@@ -797,6 +826,7 @@ const learningItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
 }
 
 .text-block strong {
@@ -833,6 +863,7 @@ const learningItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
 }
 
 .genesis-text strong {
@@ -952,6 +983,7 @@ const learningItems = [
   font-size: 14px;
   color: var(--text-2);
   line-height: 1.75;
+  text-align: justify;
 }
 
 .callout--accent {
@@ -1062,6 +1094,48 @@ const learningItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
+}
+
+.improvement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.improvement-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 24px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.improvement-card:hover {
+  border-color: var(--border-mid);
+  background: var(--bg-tint);
+  transform: translateY(-2px);
+}
+
+.improvement-card__domain {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.improvement-card__text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-2);
+  margin: 0;
+  text-align: justify;
 }
 
 /* ── Back footer ── */
@@ -1075,6 +1149,38 @@ const learningItems = [
   margin: 0 auto;
 }
 
+.improvement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.improvement-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.improvement-list strong {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.improvement-list p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-2);
+  margin: 0;
+  text-align: justify;
+}
+
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
@@ -1085,6 +1191,7 @@ const learningItems = [
   .image-pair { grid-template-columns: 1fr; }
   .print-gallery { grid-template-columns: 1fr; }
   .final-gallery { grid-template-columns: 1fr; }
+  .improvement-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
