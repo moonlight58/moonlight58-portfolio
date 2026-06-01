@@ -89,7 +89,7 @@
         "status": "Archived"
       },
       "pluto": {
-        "description": "A mechanical keyboard designed and built by myself. It is based on the Ergogen software which allowed me to design the PCB and chassis of the keyboard, was designed with KiCAD, ZMK and FreeCAD before being 3D printed.",
+        "description": "A custom split mechanical keyboard I designed and built from scratch with Ergogen, KiCAD, FreeCAD, ZMK, and a 3D-printed PETG case.",
         "status": "Completed"
       }
     },
@@ -109,6 +109,19 @@
         "preventSpam": "To prevent spam, you'll need to wait",
         "success": "MESSAGE_SENT_SUCCESSFULLY",
         "error": "ERROR_SENDING_MESSAGE"
+      }
+    }
+  },
+  "projectsPage": {
+    "pluto": {
+      "hero": {
+        "eyebrow": "Personal hardware project",
+        "statusLabel": "Status",
+        "status": "Finished",
+        "typeLabel": "Type",
+        "type": "Split mechanical keyboard",
+        "keysLabel": "Keys",
+        "keys": "keys per half"
       }
     }
   },

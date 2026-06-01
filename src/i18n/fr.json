@@ -89,7 +89,7 @@
         "status": "Archivé"
       },
       "pluto": {
-        "description": "Un clavier mécanique personnalisé, conçu et fabriqué par moi-même. Il est basé sur le logiciel Ergogen qui a permis de concevoir le PCB et le chassis du clavier, a été conçu avec KiCAD, ZMK et FreeCAD avant d'être imprimé en 3D.",
+        "description": "Un clavier mécanique split que j'ai conçu et fabriqué de zéro avec Ergogen, KiCAD, FreeCAD, ZMK et un boîtier en PETG imprimé en 3D.",
         "status": "Terminé"
       }
     },
@@ -109,6 +109,19 @@
         "preventSpam": "Pour éviter le spam, vous devrez attendre",
         "success": "MESSAGE_ENVOYÉ_AVEC_SUCCÈS",
         "error": "ERREUR_LORS_DE_L'ENVOI"
+      }
+    }
+  },
+  "projectsPage": {
+    "pluto": {
+      "hero": {
+        "eyebrow": "Projet hardware personnel",
+        "statusLabel": "Statut",
+        "status": "Terminé",
+        "typeLabel": "Type",
+        "type": "Clavier mécanique split",
+        "keysLabel": "Touches",
+        "keys": "touches par moitié"
       }
     }
   },

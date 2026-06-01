@@ -48,18 +48,18 @@
           </aside>
         </div>
 
-        <!-- Hero image — final result -->
+        <!-- Hero image - final result -->
         <div class="pluto-hero__image-wrap">
           <img
-            src="../assets/projects/pluto/pluto-final-1.jpg"
-            alt="Pluto keyboard — final result"
+            src="../assets/projects/pluto/pluto-final-1.jpeg"
+            alt="Pluto keyboard final result"
             class="pluto-hero__image"
             loading="eager"
           />
           <div class="pluto-hero__image-caption">
-            <span aria-hidden="true">Fig. 00 —</span>
-            <span v-if="$i18n.locale === 'fr'">Résultat final — les deux moitiés assemblées</span>
-            <span v-else>Final result — both halves assembled</span>
+            <span aria-hidden="true">Fig. 00:</span>
+            <span v-if="$i18n.locale === 'fr'">Résultat final, les deux moitiés assemblées</span>
+            <span v-else>Final result, both halves assembled</span>
           </div>
         </div>
       </div>
@@ -81,17 +81,17 @@
           <div class="genesis-layout">
             <div class="genesis-text">
               <p v-if="$i18n.locale === 'fr'">
-                Après des mois à taper sur un clavier standard, mes poignets ont commencé à se manifester. La douleur n'était pas invalidante, mais suffisamment présente pour que je commence à chercher une solution sérieuse. Acheter un clavier ergonomique du commerce ne m'intéressait pas — trop cher pour ce que c'est, et surtout, rien ne correspondait exactement à ce que je voulais.
+                Après des mois à taper sur un clavier standard, mes poignets ont commencé à tirer. Ce n'était pas une douleur bloquante, mais elle revenait assez souvent pour que je cherche une vraie solution. Acheter un clavier ergonomique tout fait ne m'attirait pas : c'était cher, et aucun modèle ne correspondait vraiment à ce que je voulais.
               </p>
               <p v-else>
-                After months of typing on a standard keyboard, my wrists started to complain. The pain wasn't debilitating, but persistent enough to push me toward a serious solution. Buying an off-the-shelf ergonomic keyboard wasn't appealing — too expensive, and nothing matched exactly what I had in mind.
+                After months of typing on a standard keyboard, my wrists started hurting. It wasn't serious pain, but it came back often enough that I wanted a real fix. Buying an off-the-shelf ergonomic keyboard didn't appeal to me: it was expensive, and none of the models matched what I had in mind.
               </p>
 
               <p v-if="$i18n.locale === 'fr'">
-                Le cahier des charges que je me suis fixé était précis : clavier <strong>split</strong> pour repositionner les poignets naturellement, profil <strong>fin</strong> pour ne pas surélever les mains, <strong>bluetooth</strong> pour ne pas ajouter de câbles sur le bureau, et <strong>facilement transportable</strong>. 30 touches en disposition colonnaire — chaque colonne alignée sur la longueur naturelle d'un doigt.
+                Je voulais un clavier <strong>split</strong> pour placer mes poignets plus naturellement, un profil <strong>fin</strong> pour ne pas lever les mains, du <strong>bluetooth</strong> pour éviter les câbles sur le bureau, et un format <strong>facile à transporter</strong>. J'ai retenu 30 touches en disposition colonnaire, pour chaque moitié, avec chaque colonne alignée sur la longueur naturelle d'un doigt.
               </p>
               <p v-else>
-                My requirements were specific: a <strong>split</strong> layout to reposition wrists naturally, a <strong>slim</strong> profile to avoid raising the hands, <strong>bluetooth</strong> to keep the desk cable-free, and <strong>portable</strong>. 30 keys in a column-staggered layout — each column aligned to the natural reach of a finger.
+                I wanted a <strong>split</strong> layout so my wrists could sit more naturally, a <strong>slim</strong> profile so my hands would stay low, <strong>bluetooth</strong> to keep cables off the desk, and a <strong>portable</strong> shape. I settled on 30 keys, for each half, in a column-staggered layout, with each column aligned to the natural reach of a finger.
               </p>
             </div>
 
@@ -102,7 +102,8 @@
               </h3>
               <ul class="specs-list">
                 <li>
-                  <span class="specs-list__key">Layout</span>
+                  <span v-if="$i18n.locale === 'fr'" class="specs-list__key">Configuration</span>
+                  <span v-else class="specs-list__key">Layout</span>
                   <span class="specs-list__val">30 keys · 6×5 col-stagger</span>
                 </li>
                 <li>
@@ -145,29 +146,29 @@
           <div class="two-col">
             <div class="text-block">
               <p v-if="$i18n.locale === 'fr'">
-                Tout commence avec <strong>Ergogen</strong> — un outil qui permet de définir un layout de clavier en YAML et de générer automatiquement les footprints KiCAD, les points de placement, et même un preview 2D. Plutôt que de dessiner manuellement chaque position de touche, je décris la géométrie du clavier de manière déclarative.
+                J'ai commencé avec <strong>Ergogen</strong>, un outil qui décrit un clavier en YAML puis génère les footprints KiCAD, les points de placement et une prévisualisation 2D. Au lieu de placer les touches une par une, j'écris la géométrie du clavier dans un fichier.
               </p>
               <p v-else>
-                Everything starts with <strong>Ergogen</strong> — a tool that lets you define a keyboard layout in YAML and automatically generate KiCAD footprints, placement points, and a 2D preview. Rather than manually drawing each key position, I describe the keyboard geometry declaratively.
+                I started with <strong>Ergogen</strong>, a tool that describes a keyboard in YAML and generates KiCAD footprints, placement points, and a 2D preview. Instead of placing every key by hand, I write the keyboard geometry in a file.
               </p>
 
               <p v-if="$i18n.locale === 'fr'">
-                Le layout colonnaire (<em>column stagger</em>) est la décision clé : chaque colonne est décalée verticalement pour correspondre à la longueur naturelle de chaque doigt. L'annulaire et l'auriculaire sont plus courts — leurs colonnes descendent légèrement. Ça paraît subtil sur papier, ça change radicalement l'ergonomie en pratique.
+                Le layout colonnaire (<em>column stagger</em>) décale chaque colonne verticalement selon la longueur des doigts. L'annulaire et l'auriculaire sont plus courts, donc leurs colonnes descendent un peu. Sur le dessin, la différence semble légère. À l'usage, elle se sent tout de suite.
               </p>
               <p v-else>
-                The column stagger is the key design decision: each column is offset vertically to match the natural length of each finger. The ring and pinky fingers are shorter — their columns drop slightly. It looks subtle on paper, it makes a radical ergonomic difference in practice.
+                The column stagger offsets each column vertically to match finger length. The ring and pinky fingers are shorter, so those columns sit a little lower. On paper it looks subtle. In use, it is immediately noticeable.
               </p>
             </div>
 
             <figure class="project-figure">
               <img
-                src="../assets/projects/pluto/pluto-ergogen.jpg"
+                src="../assets/projects/pluto/pluto-ergogen.png"
                 alt="Ergogen layout preview"
                 class="project-figure__img"
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 01 —</span>
+                <span aria-hidden="true">Fig. 01:</span>
                 <span v-if="$i18n.locale === 'fr'">Preview du layout généré par Ergogen</span>
                 <span v-else>Layout preview generated by Ergogen</span>
               </figcaption>
@@ -185,22 +186,22 @@
           </header>
 
           <p class="section-lead" v-if="$i18n.locale === 'fr'">
-            Ergogen génère les footprints — KiCAD s'occupe du reste. Le fichier exporté contient déjà les empreintes des switches et des diodes positionnées selon le layout. Il reste à tracer les routes électriques (les pistes qui connectent chaque composant) et à vérifier les règles de design (DRC) avant d'envoyer en fabrication.
+            Ergogen génère les footprints, puis KiCAD prend la suite. Le fichier exporté contient déjà les empreintes des switches et des diodes, placées selon le layout. Il reste à tracer les pistes qui connectent les composants et à lancer le DRC avant l'envoi en fabrication.
           </p>
           <p class="section-lead" v-else>
-            Ergogen generates the footprints — KiCAD handles the rest. The exported file already contains switch and diode footprints positioned according to the layout. What remains is routing the electrical connections and running the design rule check (DRC) before sending to fabrication.
+            Ergogen generates the footprints, then KiCAD takes over. The exported file already contains switch and diode footprints placed according to the layout. From there, I route the traces between components and run the design rule check before sending the PCB to fabrication.
           </p>
 
           <div class="image-pair">
             <figure class="project-figure">
               <img
-                src="../assets/projects/pluto/pluto-kicad-schematic.jpg"
+                src="../assets/projects/pluto/pluto-kicad-schematic.png"
                 alt="KiCAD schematic"
                 class="project-figure__img"
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 02 —</span>
+                <span aria-hidden="true">Fig. 02:</span>
                 <span v-if="$i18n.locale === 'fr'">Schéma électrique KiCAD</span>
                 <span v-else>KiCAD electrical schematic</span>
               </figcaption>
@@ -208,13 +209,13 @@
 
             <figure class="project-figure">
               <img
-                src="../assets/projects/pluto/pluto-kicad-pcb.jpg"
+                src="../assets/projects/pluto/pluto-kicad-pcb.png"
                 alt="KiCAD PCB layout"
                 class="project-figure__img"
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 03 —</span>
+                <span aria-hidden="true">Fig. 03:</span>
                 <span v-if="$i18n.locale === 'fr'">Layout PCB final dans KiCAD</span>
                 <span v-else>Final PCB layout in KiCAD</span>
               </figcaption>
@@ -223,16 +224,32 @@
 
           <blockquote class="callout callout--success">
             <span class="callout__label">
-              <span v-if="$i18n.locale === 'fr'">Soudure — première fois</span>
-              <span v-else>Soldering — first time</span>
+              <span v-if="$i18n.locale === 'fr'">Première soudure</span>
+              <span v-else>First soldering pass</span>
             </span>
             <span v-if="$i18n.locale === 'fr'">
-              C'était ma première expérience de soudure sur PCB. Les diodes SMD demandent de la précision mais la technique s'acquiert vite. Résultat : le clavier a fonctionné du premier coup. Testé au multimètre sur chaque connexion, puis confirmé en tapant — zéro problème.
+              C'était ma première soudure sur PCB. Les diodes SMD demandent de la précision, mais le geste vient assez vite. Le clavier a fonctionné du premier coup : chaque connexion a été testée au multimètre, puis confirmée en tapant.
             </span>
             <span v-else>
-              This was my first PCB soldering experience. SMD diodes require precision but the technique comes quickly. Result: the keyboard worked on the first try. Tested with a multimeter on every connection, then confirmed by typing — zero issues.
+              This was my first time soldering a PCB. SMD diodes need precision, but the motion comes quickly. The keyboard worked on the first try: I checked every connection with a multimeter, then confirmed it by typing.
             </span>
           </blockquote>
+
+          <figure class="project-figure" style="margin-top: 32px;">
+            <img
+              src="../assets/projects/pluto/pluto-soldering.png"
+              alt="PCB soldering process"
+              class="project-figure__img"
+              style="height: 600px; object-fit: cover; object-position: top;"
+              loading="lazy"
+            />
+            <figcaption>
+              <span aria-hidden="true">Fig. 04:</span>
+              <span v-if="$i18n.locale === 'fr'">Soudure des diodes SMD sur le PCB</span>
+              <span v-else>Soldering SMD diodes on the PCB</span>
+            </figcaption>
+          </figure>
+          
         </div>
       </section>
 
@@ -250,17 +267,17 @@
           <div class="two-col">
             <div class="text-block">
               <p v-if="$i18n.locale === 'fr'">
-                Ergogen génère également un fichier de base pour le chassis. FreeCAD prend le relais pour finaliser les détails — tolérances pour les switches, fixations du PCB, espace pour la batterie et le microcontrôleur.
+                Ergogen génère aussi une base pour le chassis. J'ai ensuite finalisé le modèle dans FreeCAD : tolérances des switches, fixations du PCB, espace pour la batterie et le microcontrôleur.
               </p>
               <p v-else>
-                Ergogen also generates a base file for the case. FreeCAD takes over to finalize the details — switch tolerances, PCB mounts, space for the battery and microcontroller.
+                Ergogen also generates a base for the case. I finished the model in FreeCAD: switch tolerances, PCB mounts, and space for the battery and microcontroller.
               </p>
 
               <p v-if="$i18n.locale === 'fr'">
-                Le choix du <strong>PETG</strong> plutôt que du PLA est délibéré : le nice!nano peut chauffer sous charge, et le PLA fond autour de 60°C. Le PETG tient jusqu'à ~80°C et reste suffisamment rigide. Le tradeoff : le PETG est plus exigeant à imprimer — il adhère au plateau moins facilement et nécessite des paramètres précis.
+                J'ai choisi le <strong>PETG</strong> plutôt que le PLA parce que le nice!nano peut chauffer sous charge, et le PLA ramollit autour de 60°C. Le PETG tient jusqu'à environ 80°C et reste assez rigide. En échange, il est plus difficile à imprimer : l'adhérence au plateau est moins simple et les réglages doivent être précis.
               </p>
               <p v-else>
-                Choosing <strong>PETG</strong> over PLA was deliberate: the nice!nano can heat up under load, and PLA softens around 60°C. PETG holds up to ~80°C and stays rigid enough. The tradeoff: PETG is more demanding to print — it adheres to the bed less easily and requires precise settings.
+                I chose <strong>PETG</strong> instead of PLA because the nice!nano can heat up under load, and PLA softens around 60°C. PETG holds up to about 80°C and stays rigid enough. The downside is print difficulty: bed adhesion is less forgiving, and the settings need to be dialed in.
               </p>
             </div>
 
@@ -272,7 +289,7 @@
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 04 —</span>
+                <span aria-hidden="true">Fig. 05:</span>
                 <span v-if="$i18n.locale === 'fr'">Modèle 3D du chassis dans FreeCAD</span>
                 <span v-else>3D chassis model in FreeCAD</span>
               </figcaption>
@@ -292,25 +309,39 @@
                 <span v-else>4–5 attempts before the right result</span>
               </span>
               <span v-if="$i18n.locale === 'fr'">
-                Les imprimantes disponibles avaient des buses usées et des profils de température mal calibrés pour le PETG. Chaque itération m'a permis d'ajuster — température du lit, vitesse d'impression, rétractation. Le PETG demande une patience que le PLA ne demande pas.
+                Les imprimantes disponibles avaient des buses usées et des profils de température mal réglés pour le PETG. À chaque essai, j'ai ajusté la température du lit, la vitesse d'impression et la rétractation. Le PETG demande plus de patience que le PLA.
               </span>
               <span v-else>
-                The available printers had worn nozzles and poorly calibrated temperature profiles for PETG. Each iteration let me adjust — bed temperature, print speed, retraction. PETG demands patience that PLA doesn't.
+                The available printers had worn nozzles and temperature profiles that were not tuned for PETG. After each attempt, I adjusted bed temperature, print speed, and retraction. PETG takes more patience than PLA.
               </span>
             </blockquote>
 
             <div class="print-gallery">
-              <figure class="project-figure" v-for="n in 2" :key="n">
+              <figure class="project-figure">
                 <img
-                  :src="`../assets/projects/pluto/pluto-print-attempt.jpg`"
-                  :alt="`Print attempt ${n}`"
+                  src="../assets/projects/pluto/pluto-first-print.jpg"
+                  alt="First print attempt"
                   class="project-figure__img"
                   loading="lazy"
                 />
                 <figcaption>
-                  <span aria-hidden="true">Fig. 0{{ n + 4 }} —</span>
-                  <span v-if="$i18n.locale === 'fr'">Tentative d'impression {{ n }}</span>
-                  <span v-else>Print attempt {{ n }}</span>
+                  <span aria-hidden="true">Fig. 06:</span>
+                  <span v-if="$i18n.locale === 'fr'">Première tentative d'impression</span>
+                  <span v-else>First print attempt</span>
+                </figcaption>
+              </figure>
+
+              <figure class="project-figure">
+                <img
+                  src="../assets/projects/pluto/pluto-last-print.jpg"
+                  alt="Last print attempt"
+                  class="project-figure__img"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <span aria-hidden="true">Fig. 07:</span>
+                  <span v-if="$i18n.locale === 'fr'">Dernière tentative d'impression</span>
+                  <span v-else>Last print attempt</span>
                 </figcaption>
               </figure>
             </div>
@@ -329,17 +360,17 @@
           <div class="two-col">
             <div class="text-block">
               <p v-if="$i18n.locale === 'fr'">
-                <strong>ZMK</strong> est le firmware open-source de référence pour les claviers sans fil. Il fonctionne sur le nice!nano (nRF52840) et gère la communication bluetooth, la gestion de batterie et la détection des touches via une matrice de diodes.
+                <strong>ZMK</strong> est un firmware open-source très utilisé pour les claviers sans fil. Il fonctionne sur le nice!nano (nRF52840) et gère le bluetooth, la batterie et la détection des touches via une matrice de diodes.
               </p>
               <p v-else>
-                <strong>ZMK</strong> is the go-to open-source firmware for wireless keyboards. It runs on the nice!nano (nRF52840) and handles bluetooth communication, battery management, and key detection through a diode matrix.
+                <strong>ZMK</strong> is a widely used open-source firmware for wireless keyboards. It runs on the nice!nano (nRF52840) and handles bluetooth, battery management, and key detection through a diode matrix.
               </p>
 
               <p v-if="$i18n.locale === 'fr'">
-                La config est déclarative — un fichier <code>.keymap</code> et un fichier de définition de la carte. Le layout est volontairement simple : une couche principale avec les 30 touches, et les caractères spéciaux accessibles via des combos ou des layers activés en hold. Moins de couches = moins de charge mentale.
+                La config repose sur un fichier <code>.keymap</code> et un fichier de définition de la carte. J'ai gardé un layout simple : une couche principale de 30 touches, avec les caractères spéciaux accessibles par combos ou par layers maintenus. Moins de couches, moins de charge mentale.
               </p>
               <p v-else>
-                The config is declarative — a <code>.keymap</code> file and a board definition file. The layout is intentionally simple: one main layer with 30 keys, and special characters accessible via combos or hold-activated layers. Fewer layers = less mental overhead.
+                The config lives in a <code>.keymap</code> file and a board definition file. I kept the layout simple: one main 30-key layer, with special characters reached through combos or hold layers. Fewer layers, less mental overhead.
               </p>
             </div>
 
@@ -351,7 +382,7 @@
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 07 —</span>
+                <span aria-hidden="true">Fig. 08:</span>
                 <span v-if="$i18n.locale === 'fr'">Visualisation du layout ZMK</span>
                 <span v-else>ZMK keymap visualization</span>
               </figcaption>
@@ -382,26 +413,26 @@
           <div class="final-gallery">
             <figure class="project-figure project-figure--large">
               <img
-                src="../assets/projects/pluto/pluto-final-1.jpg"
-                alt="Pluto keyboard final — top view"
+                src="../assets/projects/pluto/pluto-final-1.jpeg"
+                alt="Pluto keyboard final top view"
                 class="project-figure__img"
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 08 —</span>
-                <span v-if="$i18n.locale === 'fr'">Vue de dessus — les deux moitiés</span>
-                <span v-else>Top view — both halves</span>
+                <span aria-hidden="true">Fig. 09:</span>
+                <span v-if="$i18n.locale === 'fr'">Vue de dessus, les deux moitiés</span>
+                <span v-else>Top view, both halves</span>
               </figcaption>
             </figure>
             <figure class="project-figure project-figure--large">
               <img
                 src="../assets/projects/pluto/pluto-final-2.jpg"
-                alt="Pluto keyboard final — detail"
+                alt="Pluto keyboard final detail"
                 class="project-figure__img"
                 loading="lazy"
               />
               <figcaption>
-                <span aria-hidden="true">Fig. 09 —</span>
+                <span aria-hidden="true">Fig. 10:</span>
                 <span v-if="$i18n.locale === 'fr'">Détail du chassis imprimé en PETG</span>
                 <span v-else>Detail of the PETG-printed case</span>
               </figcaption>
@@ -436,10 +467,10 @@
               <span v-else>Looking back</span>
             </span>
             <span v-if="$i18n.locale === 'fr'">
-              Ce projet m'a appris que le hardware est impitoyable — contrairement au software, on ne peut pas "undo" une soudure ratée ou une pièce mal imprimée. Chaque décision a un coût physique. C'est précisément ce qui rend le résultat satisfaisant : le clavier existe, il fonctionne, et je l'utilise tous les jours.
+              Ce projet m'a rappelé que le hardware pardonne peu. Contrairement au software, on ne peut pas annuler une soudure ratée ou une pièce mal imprimée. Chaque décision finit par exister quelque part sur la table. C'est aussi ce qui rend le résultat satisfaisant : le clavier existe, il fonctionne, et je l'utilise tous les jours.
             </span>
             <span v-else>
-              This project taught me that hardware is unforgiving — unlike software, you can't undo a bad solder joint or a misprint. Every decision has a physical cost. That's precisely what makes the result satisfying: the keyboard exists, it works, and I use it every day.
+              This project reminded me that hardware does not forgive much. Unlike software, you cannot undo a bad solder joint or a failed print. Every decision ends up somewhere on the table. That is also what makes the result satisfying: the keyboard exists, it works, and I use it every day.
             </span>
           </blockquote>
         </div>
@@ -468,8 +499,8 @@ const firmwareItems = [
   },
   {
     name: 'nice!nano v2',
-    fr: 'Microcontrôleur nRF52840 — BT 5.0 + gestion batterie intégrée',
-    en: 'nRF52840 microcontroller — BT 5.0 + built-in battery management',
+    fr: 'Microcontrôleur nRF52840, BT 5.0 et gestion batterie intégrée',
+    en: 'nRF52840 microcontroller, BT 5.0 and built-in battery management',
   },
   {
     name: 'Keymap',
@@ -486,8 +517,8 @@ const firmwareItems = [
 const learningItems = [
   {
     domain: 'PCB Design',
-    fr: 'KiCAD depuis zéro — schémas, routage, DRC. La logique des matrices de diodes pour éviter le ghosting.',
-    en: 'KiCAD from scratch — schematics, routing, DRC. The logic of diode matrices to prevent ghosting.',
+    fr: 'KiCAD depuis zéro : schémas, routage, DRC, et matrices de diodes pour éviter le ghosting.',
+    en: 'KiCAD from scratch: schematics, routing, DRC, and diode matrices to prevent ghosting.',
   },
   {
     domain: 'Soldering',
@@ -496,8 +527,8 @@ const learningItems = [
   },
   {
     domain: '3D Printing',
-    fr: 'Le PETG est capricieux — chaque imprimante demande une calibration spécifique. La patience est la compétence principale.',
-    en: 'PETG is finicky — every printer needs specific calibration. Patience is the main skill.',
+    fr: 'Le PETG est capricieux. Chaque imprimante demande sa propre calibration, et la patience compte autant que les réglages.',
+    en: 'PETG is finicky. Every printer needs its own calibration, and patience matters as much as the settings.',
   },
   {
     domain: 'Firmware',
@@ -960,7 +991,7 @@ const learningItems = [
 /* ── Firmware ── */
 .firmware-detail {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);

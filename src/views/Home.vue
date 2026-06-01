@@ -371,20 +371,20 @@ onBeforeUnmount(() => {
 // ── Data ───────────────────────────────────────────────────────────────────
 const projects = computed(() => [
   {
-    name: 'Sagittarius',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/sagittarius.png',
-    description: t('home.projects.sagittarius.description'),
-    tech: ['Ollama', 'Vue 3'],
-    status: t('home.projects.sagittarius.status'),
-  },
-  {
     name: 'Pluto',
     image:
       'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/pluto_kb.jpg',
     description: t('home.projects.pluto.description'),
     tech: ['Ergogen', 'ZMK', 'KiCAD', '3D Printing'],
     status: t('home.projects.pluto.status'),
+  },
+  {
+    name: 'Sagittarius',
+    image:
+      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/sagittarius.png',
+    description: t('home.projects.sagittarius.description'),
+    tech: ['Ollama', 'Vue 3'],
+    status: t('home.projects.sagittarius.status'),
   },
   {
     name: 'SpotCLI',
