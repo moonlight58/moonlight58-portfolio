@@ -56,7 +56,6 @@
         <div class="sag-hero__image-wrap">
           <img
             src="@/assets/projects/sagittarius/sagittarius-cover.png"
-            style=""
             alt="Sagittarius interface preview"
             class="sag-hero__image"
             loading="eager"
@@ -161,7 +160,25 @@
               </div>
               <p class="arch-block__desc">{{ $t(`projectsPage.sagittarius.architecture.${block.key}.desc`) }}</p>
             </div>
-          </div>
+          </div> 
+                                                                  
+          <figure class="project-figure" style="margin-top: 32px; width: fit-content;">
+            <img                                              
+              src="@/assets/projects/sagittarius/sagittarius-code.png"
+              alt="Sagittarius code workspace"                
+              class="project-figure__img"                    
+              loading="lazy"                                  
+            />                                                
+            <figcaption>                                      
+              <span aria-hidden="true">Fig. 02:</span>        
+              <span v-if="$i18n.locale === 'fr'">             
+                Workspace Code avec coloration syntaxique     
+              </span>                                         
+              <span v-else>                                   
+                Code workspace with syntax-highlighted output 
+              </span>                                         
+            </figcaption>                                     
+          </figure>
 
           <blockquote class="callout callout--accent" style="margin-top: 40px;">
             <span class="callout__label">
@@ -199,6 +216,25 @@
               <span class="stack-row__desc">{{ $t(`projectsPage.sagittarius.stack.${item.key}.desc`) }}</span>
             </div>
           </div>
+
+          <figure class="project-figure" style="margin-top: 40px; width: fit-content;">
+            <img                                              
+              src="@/assets/projects/sagittarius/sagittarius-models.png"
+              alt="Sagittarius model selector"               
+              class="project-figure__img"                    
+              loading="lazy"                                  
+            />                                                
+            <figcaption>                                      
+              <span aria-hidden="true">Fig. 03:</span>        
+              <span v-if="$i18n.locale === 'fr'">             
+                Sélection du modèle — Mistral, LLaMA, Gemma  
+              </span>                                         
+              <span v-else>                                   
+                Model selector — Mistral, LLaMA, Gemma        
+              </span>                                         
+            </figcaption>                                     
+          </figure>                                           
+
         </div>
       </section>
 
@@ -317,8 +353,7 @@ const tools = ['Vue 3', 'Ollama', 'CSS', 'Vue Router']
 const workspaces = [
   { key: 'code',     icon: '{}',  planned: false },
   { key: 'mail',     icon: '@',   planned: false },
-  { key: 'chat',     icon: '✦',   planned: false },
-  { key: 'calendar', icon: '🗓',   planned: true },
+  { key: 'calendar', icon: '🗓',   planned: false },
   { key: 'notes',    icon: '✎',   planned: true },
 ]
 
@@ -602,6 +637,7 @@ const nextItems = [
   color: var(--text-2);
   margin: 0 0 40px;
   max-width: 720px;
+  text-align: justify;
 }
 
 /* ── Prose column (genesis) ── */
@@ -617,6 +653,7 @@ const nextItems = [
   line-height: 1.85;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
 }
 
 /* ── Workspaces ── */
@@ -655,7 +692,7 @@ const nextItems = [
 
 .workspace-card__icon {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--accent);
   width: 28px;
@@ -688,6 +725,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-3);
   margin: 0;
+  text-align: justify;
 }
 
 /* ── Highlights ── */
@@ -729,6 +767,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
 }
 
 /* ── Architecture ── */
@@ -786,6 +825,7 @@ const nextItems = [
   color: var(--text-2);
   margin: 0;
   padding-left: calc(11px + 16px + 20px); /* align with title */
+  text-align: justify;
 }
 
 /* ── Callout ── */
@@ -906,6 +946,36 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
+}
+
+/* ── Project figure (for screenshots) ── */
+.project-figure {
+  margin: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-figure__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-inset);
+  transition: border-color 0.2s;
+}
+.project-figure__img:hover {
+  border-color: var(--border-mid);
+}
+
+.project-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
 }
 
 /* ── Next steps ── */
@@ -948,6 +1018,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
+  text-align: justify;
 }
 
 /* ── Source ── */

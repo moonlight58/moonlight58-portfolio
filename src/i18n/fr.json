@@ -163,19 +163,14 @@
           "name": "Mail",
           "desc": "Un assistant de rédaction pour les e-mails professionnels. Le contexte de l'espace de travail maintient un ton et un style cohérents tout au long d'une session."
         },
-        "chat": {
-          "name": "Chat",
-          "desc": "Une interface de conversation généraliste. Pas de cadrage de tâche — juste un espace épuré pour réfléchir à voix haute ou poser n'importe quelle question."
-        },
         "calendar": {
           "name": "Calendrier",
-          "desc": "Prochain espace de travail prévu. Permettra la planification, les rappels et la synthèse d'événements directement depuis l'assistant. Et agir comme un calendrier intelligent et connecté.",
-          "badge": "Prévu"
+          "desc": "Planification intelligente, rappels et gestion d'événements directement depuis l'assistant. Intégration prévue avec les données de calendrier locales pour une expérience fluide."
         },
         "notes": {
           "name": "Notes",
           "desc": "Un espace de travail pour la prise de notes assistée par IA, avec organisation par tags et recherche intelligente.",
-          "badge": "Prévu"
+          "badge": "en developpement"
         }
       },
       "highlights": {
@@ -249,19 +244,19 @@
         "title": "Ce que j'ai appris",
         "streaming": {
           "domain": "Interface streaming",
-          "text": "Consommer une réponse HTTP en streaming et la refléter en temps réel dans le DOM demande une coordination précise. Chaque fragment doit être parsé et ajouté sans déclencher un re-rendu complet. Obtenir le bon comportement de défilement — rester en bas pendant la génération, mais sans parasiter la position de l'utilisateur s'il remonte — a demandé plusieurs itérations."
+          "text": "Consommer une réponse HTTP en streaming et la refléter en temps réel dans le DOM demande une coordination précise — chaque fragment parsé et ajouté sans re-rendu complet, avec un défilement qui reste en bas sans parasiter l'utilisateur s'il remonte."
         },
         "state": {
           "domain": "Conception de l'état",
-          "text": "Gérer plusieurs fils de conversation indépendants sans librairie d'état globale m'a poussé à réfléchir attentivement à la responsabilité des composants. Chaque espace possède son historique comme un ref local ; le routeur ne le réinitialise pas à la navigation parce que les composants restent en vie."
+          "text": "Gérer plusieurs fils de conversation indépendants sans librairie d'état globale m'a poussé à réfléchir à la responsabilité des composants. Chaque espace possède son historique en ref local, conservé entre les navigations."
         },
         "product": {
           "domain": "Design produit",
-          "text": "Présenter une fonctionnalité techniquement complexe — sélection de modèle, inférence locale, isolation des espaces de travail — de manière naturelle plutôt qu'écrasante était le défi de design le plus difficile. L'interface cache la configuration derrière des valeurs par défaut sensées."
+          "text": "Cacher la complexité technique — sélection de modèle, inférence locale, isolation des espaces — derrière des valeurs par défaut sensées était le défi de design le plus difficile. L'interface doit paraître simple même quand la mécanique ne l'est pas."
         },
         "css": {
           "domain": "Architecture CSS",
-          "text": "Construire une interface soignée en thème sombre sans librairie de composants signifiait concevoir un système de tokens dès le départ. Des variables cohérentes d'espacement, d'échelle typographique et de couleurs ont rendu les espaces de travail suivants beaucoup plus rapides à construire."
+          "text": "Concevoir un système de tokens dès le départ (espacement, échelle typographique, variables couleur) a rendu chaque nouvel espace de travail bien plus rapide à construire sans dériver du style global."
         }
       },
       "status": {

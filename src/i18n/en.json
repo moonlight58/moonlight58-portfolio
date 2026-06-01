@@ -163,14 +163,14 @@
           "name": "Mail",
           "desc": "A drafting assistant for professional emails. Workspace context keeps the tone and style consistent across a session."
         },
-        "chat": {
-          "name": "Chat",
-          "desc": "A general-purpose conversation interface. No task framing — just a clean space to think out loud or ask anything."
-        },
         "calendar": {
           "name": "Calendar",
-          "desc": "Planned next workspace. Will allow scheduling, reminders, and event summarisation directly from the assistant.",
-          "badge": "Planned"
+          "desc": "Enable smart scheduling, reminders, and event synthesis directly from the assistant. Act as a smart and connected calendar."
+        },
+        "notes": {
+          "name": "Notes",
+          "desc": "A scratchpad for quick thoughts, brainstorming, and to-do lists. Markdown support allows for organised note-taking and formatting.",
+          "badge": "in development"
         }
       },
       "highlights": {
@@ -244,19 +244,19 @@
         "title": "What I learned",
         "streaming": {
           "domain": "Streaming UI",
-          "text": "Consuming a streamed HTTP response and reflecting it in real time in the DOM requires careful coordination. Each chunk must be parsed and appended without triggering a full re-render. Getting scroll behaviour right — staying at the bottom during generation, but not hijacking the user's position if they scroll up — took several iterations."
+          "text": "Consuming a streamed HTTP response and reflecting it live in the DOM requires careful coordination — each chunk parsed and appended without a full re-render, scroll behaviour that stays at the bottom during generation but doesn't hijack the user if they scroll up."
         },
         "state": {
           "domain": "State design",
-          "text": "Managing multiple independent conversation threads without a global state library pushed me to think carefully about component ownership. Each workspace owns its history as a local ref; the router does not reset it on navigation because the components are kept alive."
+          "text": "Managing multiple independent conversation threads without a global state library pushed me to think carefully about component ownership. Each workspace owns its history as a local ref, kept alive across router navigation."
         },
         "product": {
           "domain": "Product design",
-          "text": "Presenting technically complex functionality — model selection, local inference, workspace isolation — in a way that feels natural rather than overwhelming was the hardest design challenge. The interface hides configuration behind sensible defaults."
+          "text": "Hiding technical complexity — model selection, local inference, workspace isolation — behind sensible defaults was the hardest design challenge. The interface should feel simple even when the machinery underneath isn't."
         },
         "css": {
           "domain": "CSS architecture",
-          "text": "Building a polished dark-theme interface without a component library meant designing a token system from the start. Consistent spacing, type scale, and colour variables made the later workspaces much faster to build."
+          "text": "Designing a token system from the start (spacing, type scale, colour variables) made each new workspace significantly faster to build without drifting from the overall feel."
         }
       },
       "status": {
