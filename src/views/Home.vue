@@ -68,13 +68,10 @@
               <ul class="project__tech" aria-label="Technologies used">
                 <li v-for="t in project.tech" :key="t">{{ t }}</li>
               </ul>
-              <button
-                class="project__cta"
-                @click="openModal(project)"
-                :aria-label="`Read more about ${project.name}`"
-              >
+              <!-- redirect to project page and not modal because deprecated -->
+              <RouterLink :to="`/${project.name.toLowerCase()}`" class="project__cta">
                 {{ $t('home.body.viewProject') }} →
-              </button>
+              </RouterLink>
             </div>
           </article>
         </div>
@@ -279,7 +276,8 @@
 <script setup>
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
-import ProjectModal from '@/components/ProjectModal.vue'
+import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
+import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
 
 const { t } = useI18n()
 
@@ -350,16 +348,14 @@ onBeforeUnmount(() => {
 const projects = computed(() => [
   {
     name: 'Pluto',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/pluto_kb.jpg',
+    image: plutoProjectImage,
     description: t('home.projects.pluto.description'),
     tech: ['Ergogen', 'ZMK', 'KiCAD', '3D Printing'],
     status: t('home.projects.pluto.status'),
   },
   {
     name: 'Sagittarius',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/sagittarius.png',
+    image: sagittariusProjectImage,
     description: t('home.projects.sagittarius.description'),
     tech: ['Ollama', 'Vue 3'],
     status: t('home.projects.sagittarius.status'),
