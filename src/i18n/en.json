@@ -131,6 +131,10 @@
         "2": {
           "title": "Case redesign",
           "desc": "The first 3D-printed prototype had issues with strength and finish. At least it allowed me to refine the case design, but to take it to the next level, I’d like to move toward CNC machining or injection molding to achieve a professional-grade finish and greater durability."
+        },
+        "3": {
+          "title": "Adding custom components",
+          "desc": "To improve the ergonomics and functionality of the keyboard, I will add custom components such as a trackpad on the right half and induction chargers to reduce the need for frequent plugging in."
         }
       }
     },

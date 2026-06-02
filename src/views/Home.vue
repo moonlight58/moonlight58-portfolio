@@ -677,6 +677,7 @@ const skillCategories = computed(() => [
 
 .subsection-title {
   font-family: var(--font-serif);
+  width: 100vh;
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--text);
