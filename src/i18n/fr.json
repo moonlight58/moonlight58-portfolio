@@ -20,7 +20,7 @@
       "panel": {
         "marker": "CATÉGORIE",
         "info": "MODULES_CHARGÉS"
-       }
+      }
     },
     "panel": {
       "roleTitle": "RÔLE",
@@ -88,8 +88,8 @@
         "description": "Une interface en ligne de commande pour Spotify, permettant aux utilisateurs de contrôler leur musique et gérer leurs playlists directement depuis le terminal.",
         "status": "Archivé"
       },
-      "dotic": {
-        "description": "Une application Python pour créer et gérer des motifs de points dans une grille. Elle permet aux utilisateurs de générer, visualiser et analyser des motifs de points pour diverses applications.",
+      "pluto": {
+        "description": "Un clavier mécanique split que j'ai conçu et fabriqué de zéro avec Ergogen, KiCAD, FreeCAD, ZMK et un boîtier en PETG imprimé en 3D.",
         "status": "Terminé"
       }
     },
@@ -109,6 +109,172 @@
         "preventSpam": "Pour éviter le spam, vous devrez attendre",
         "success": "MESSAGE_ENVOYÉ_AVEC_SUCCÈS",
         "error": "ERREUR_LORS_DE_L'ENVOI"
+      }
+    }
+  },
+  "projectsPage": {
+    "pluto": {
+      "hero": {
+        "eyebrow": "Projet hardware personnel",
+        "statusLabel": "Statut",
+        "status": "Terminé",
+        "typeLabel": "Type",
+        "type": "Clavier mécanique split",
+        "keysLabel": "Touches",
+        "keys": "touches par moitié"
+      },
+      "improvement": {
+        "1": {
+          "title": "Amélioration de la stabilité du firmware",
+          "desc": "Après les premiers tests, j'ai identifié des problèmes de stabilité avec le firmware ZMK, notamment des plantages aléatoires. J'ai corrigé plusieurs bugs critiques dans le code source de ZMK, améliorant ainsi la fiabilité du clavier."
+        },
+        "2": {
+          "title": "Amélioration de la qualité du chassis du clavier",
+          "desc": "Le premier prototype imprimé en 3D présentait des problèmes de solidité et de finition. Ça m'a permit au moins d'itérer sur le design du boîtier, mais pour passer au niveau supérieur j'aimerais m'orienter vers une fabrication CNC ou un moulage pour obtenir une qualité de finition professionnelle et une durabilité accrue."
+        }
+      }
+    },
+    "sagittarius": {
+      "hero": {
+        "eyebrow": "Projet logiciel personnel",
+        "subtitle": "Un assistant IA privé, indépendant du modèle, qui fonctionne entièrement sur votre machine.",
+        "statusLabel": "Statut",
+        "status": "En développement",
+        "typeLabel": "Type",
+        "type": "Application web · Assistant IA",
+        "stackLabel": "Stack",
+        "previewLabel": "Démo en ligne",
+        "preview": "sagittarius.grothlin.fr"
+      },
+      "genesis": {
+        "title": "Genèse",
+        "p1": "La plupart des assistants IA viennent avec un abonnement, une politique de données et un serveur quelque part qui possède vos conversations. Ça m'agaçait. Je voulais quelque chose qui fonctionne comme un vrai assistant — rapide, contextuel, toujours disponible — mais où rien ne quitte jamais ma machine.",
+        "p2": "Sagittarius a commencé comme une expérience personnelle : pouvais-je construire un assistant IA pleinement fonctionnel qui tourne localement, ne coûte rien au-delà du matériel, et reste suffisamment soigné pour être vraiment utilisé au quotidien ? La réponse s'est avérée être oui.",
+        "p3": "Le nom vient de la constellation de l'Archer — toujours pointée vers l'avant, intentionnelle, précise. C'est ce que je voulais que l'outil ressente."
+      },
+      "workspaces": {
+        "title": "Espaces de travail",
+        "intro": "L'application est organisée autour d'espaces de travail — des environnements dédiés, chacun adapté à une tâche précise. Chaque espace conserve son propre historique de conversation, de sorte que changer de contexte n'efface pas ce qui précède.",
+        "code": {
+          "name": "Code",
+          "desc": "Un assistant qui aide à écrire, expliquer et déboguer du code. Les réponses sont rendues avec de la coloration syntaxique et du formatage Markdown."
+        },
+        "mail": {
+          "name": "Mail",
+          "desc": "Un assistant de rédaction pour les e-mails professionnels. Le contexte de l'espace de travail maintient un ton et un style cohérents tout au long d'une session."
+        },
+        "calendar": {
+          "name": "Calendrier",
+          "desc": "Planification intelligente, rappels et gestion d'événements directement depuis l'assistant. Intégration prévue avec les données de calendrier locales pour une expérience fluide."
+        },
+        "notes": {
+          "name": "Notes",
+          "desc": "Un espace de travail pour la prise de notes assistée par IA, avec organisation par tags et recherche intelligente.",
+          "badge": "en developpement"
+        }
+      },
+      "highlights": {
+        "title": "Points forts",
+        "privacy": {
+          "name": "Vie privée totale",
+          "desc": "Tout le traitement IA se fait sur votre machine via Ollama, un moteur de modèles open source. Aucune donnée ne quitte l'appareil."
+        },
+        "model": {
+          "name": "Flexibilité des modèles",
+          "desc": "Compatible avec n'importe quel modèle Ollama — Mistral, LLaMA, Gemma, Phi, et bien d'autres. Changeable à tout moment sans redémarrer."
+        },
+        "streaming": {
+          "name": "Streaming en temps réel",
+          "desc": "Les réponses s'affichent mot par mot, comme une vraie conversation. Implémenté avec l'API de streaming Ollama et l'état réactif de Vue."
+        },
+        "markdown": {
+          "name": "Rendu Markdown",
+          "desc": "Les réponses de l'IA sont rendues avec un support Markdown complet : titres, listes, code inline et blocs de code avec coloration syntaxique."
+        },
+        "history": {
+          "name": "Historique par espace",
+          "desc": "Chaque espace de travail maintient son propre fil de conversation indépendant. Le contexte est préservé entre les sessions."
+        },
+        "theme": {
+          "name": "Thème sombre personnalisé",
+          "desc": "Une interface sombre conçue à la main avec une barre latérale, une zone de saisie responsive et des transitions fluides — sans librairie de composants."
+        }
+      },
+      "architecture": {
+        "title": "Architecture",
+        "intro": "Sagittarius est un frontend Vue 3 qui communique directement avec une instance Ollama locale. Il n'y a pas de backend propre — l'architecture est délibérément plate.",
+        "frontend": {
+          "title": "Frontend",
+          "desc": "Construit avec Vue 3 en Composition API et script setup. L'état est géré avec des refs réactifs et des composables — pas de Pinia, pas de Vuex. Le routeur gère la navigation entre espaces de travail ; chaque espace est un composant indépendant qui possède sa liste de messages."
+        },
+        "ollama": {
+          "title": "Intégration Ollama",
+          "desc": "Ollama expose une API HTTP locale. Sagittarius appelle l'endpoint /api/chat avec l'historique complet de la conversation à chaque tour, puis lit la réponse en streaming ligne par ligne pour mettre à jour l'interface en temps réel."
+        },
+        "streaming": {
+          "title": "Implémentation du streaming",
+          "desc": "La réponse en streaming est un flux JSON délimité par des sauts de ligne. Chaque fragment est parsé, et le delta de contenu est ajouté au message courant. L'effet de curseur et le défilement automatique s'exécutent à chaque fragment, donnant l'impression de frappe."
+        },
+        "note": "Garder l'architecture plate était un choix délibéré. Un backend ajouterait de la latence, une dépendance de déploiement et de la complexité sans bénéfice visible pour l'utilisateur. Le modèle tournant localement est le seul serveur qui compte."
+      },
+      "stack": {
+        "title": "Stack",
+        "vue": {
+          "name": "Vue 3",
+          "desc": "Composition API, script setup, état réactif"
+        },
+        "css": {
+          "name": "CSS pur",
+          "desc": "Styles écrits à la main, thème sombre, sans librairie UI"
+        },
+        "ollama": {
+          "name": "Ollama",
+          "desc": "Moteur de modèles local, API HTTP en streaming"
+        },
+        "markdown": {
+          "name": "Markdown-it",
+          "desc": "Rendu Markdown et blocs de code"
+        },
+        "router": {
+          "name": "Vue Router",
+          "desc": "Navigation entre espaces, mode history"
+        }
+      },
+      "learning": {
+        "title": "Ce que j'ai appris",
+        "streaming": {
+          "domain": "Interface streaming",
+          "text": "Consommer une réponse HTTP en streaming et la refléter en temps réel dans le DOM demande une coordination précise — chaque fragment parsé et ajouté sans re-rendu complet, avec un défilement qui reste en bas sans parasiter l'utilisateur s'il remonte."
+        },
+        "state": {
+          "domain": "Conception de l'état",
+          "text": "Gérer plusieurs fils de conversation indépendants sans librairie d'état globale m'a poussé à réfléchir à la responsabilité des composants. Chaque espace possède son historique en ref local, conservé entre les navigations."
+        },
+        "product": {
+          "domain": "Design produit",
+          "text": "Cacher la complexité technique — sélection de modèle, inférence locale, isolation des espaces — derrière des valeurs par défaut sensées était le défi de design le plus difficile. L'interface doit paraître simple même quand la mécanique ne l'est pas."
+        },
+        "css": {
+          "domain": "Architecture CSS",
+          "text": "Concevoir un système de tokens dès le départ (espacement, échelle typographique, variables couleur) a rendu chaque nouvel espace de travail bien plus rapide à construire sans dériver du style global."
+        }
+      },
+      "status": {
+        "title": "Statut & prochaines étapes",
+        "current": "Les fonctionnalités principales sont complètes et utilisées au quotidien. Les trois espaces de travail principaux — Code, Mail et Chat — sont fonctionnels avec streaming des réponses, rendu Markdown et historique par session.",
+        "next1": {
+          "title": "Espace de travail Calendrier",
+          "desc": "Le prochain espace planifié. Permettra l'intégration avec des données de calendrier locales pour la planification, les rappels et la gestion d'événements en langage naturel."
+        },
+        "next2": {
+          "title": "Support des pièces jointes",
+          "desc": "Possibilité de déposer un fichier dans la conversation et de faire raisonner le modèle sur son contenu — utile pour la revue de code, la synthèse de documents et l'analyse de données."
+        },
+        "next3": {
+          "title": "Prompt système par espace",
+          "desc": "Chaque espace de travail porterait un prompt système personnalisable, rendant le comportement de l'assistant plus ciblé sans que l'utilisateur ait à répéter ses instructions."
+        },
+        "reflection": "Ce projet a changé ma façon de penser les outils que je construis pour moi-même. Le seuil d'exigence pour un logiciel à usage quotidien est bien plus élevé que pour une démo. Chaque aspérité devient une friction que l'on ressent chaque jour."
       }
     }
   },

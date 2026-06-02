@@ -68,13 +68,10 @@
               <ul class="project__tech" aria-label="Technologies used">
                 <li v-for="t in project.tech" :key="t">{{ t }}</li>
               </ul>
-              <button
-                class="project__cta"
-                @click="openModal(project)"
-                :aria-label="`Read more about ${project.name}`"
-              >
+              <!-- redirect to project page and not modal because deprecated -->
+              <RouterLink :to="`/${project.name.toLowerCase()}`" class="project__cta">
                 {{ $t('home.body.viewProject') }} →
-              </button>
+              </RouterLink>
             </div>
           </article>
         </div>
@@ -266,28 +263,6 @@
       </div>
     </section>
 
-    <!--  FOOTER  -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <span class="footer__copy">© {{ new Date().getFullYear() }} Gaël Röthlin</span>
-        <nav class="footer__nav" aria-label="Footer navigation">
-          <RouterLink :to="{ path: '/', hash: '#work' }" class="footer__link">{{
-            $t('nav.work')
-          }}</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#skills' }" class="footer__link">{{
-            $t('nav.skills')
-          }}</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#contact' }" class="footer__link">{{
-            $t('nav.contact')
-          }}</RouterLink>
-          <RouterLink to="/projects" class="footer__link">{{
-            $t('footer.projectsLink')
-          }}</RouterLink>
-        </nav>
-        <span class="footer__credit">{{ $t('footer.credit') }}</span>
-      </div>
-    </footer>
-
     <!--  PROJECT MODAL  -->
     <ProjectModal
       :isOpen="modalOpen"
@@ -301,7 +276,8 @@
 <script setup>
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
-import ProjectModal from '@/components/ProjectModal.vue'
+import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
+import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
 
 const { t } = useI18n()
 
@@ -371,9 +347,15 @@ onBeforeUnmount(() => {
 // ── Data ───────────────────────────────────────────────────────────────────
 const projects = computed(() => [
   {
+    name: 'Pluto',
+    image: plutoProjectImage,
+    description: t('home.projects.pluto.description'),
+    tech: ['Ergogen', 'ZMK', 'KiCAD', '3D Printing'],
+    status: t('home.projects.pluto.status'),
+  },
+  {
     name: 'Sagittarius',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/sagittarius.png',
+    image: sagittariusProjectImage,
     description: t('home.projects.sagittarius.description'),
     tech: ['Ollama', 'Vue 3'],
     status: t('home.projects.sagittarius.status'),
@@ -386,14 +368,7 @@ const projects = computed(() => [
     tech: ['C', 'libcurl', 'Spotify API'],
     status: t('home.projects.spotcli.status'),
   },
-  {
-    name: 'DotIC',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/dotic.png',
-    description: t('home.projects.dotic.description'),
-    tech: ['Python', 'OpenCV', 'Pillow'],
-    status: t('home.projects.dotic.status'),
-  },
+  
 ])
 
 const internships = computed(() => [
@@ -741,6 +716,7 @@ const skillCategories = computed(() => [
 
 .project__image {
   width: 100%;
+  height: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   transition:
@@ -1160,49 +1136,6 @@ const skillCategories = computed(() => [
 }
 
 /* 
-   FOOTER
- */
-.footer {
-  padding: 32px 40px;
-  border-top: 1px solid var(--border);
-  background: var(--bg);
-}
-
-.footer__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.footer__copy,
-.footer__credit {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-3);
-  letter-spacing: 0.04em;
-}
-
-.footer__nav {
-  display: flex;
-  gap: 24px;
-}
-
-.footer__link {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-3);
-  letter-spacing: 0.04em;
-  transition: color 0.2s;
-}
-.footer__link:hover {
-  color: var(--text);
-}
-
-/* 
    RESPONSIVE
  */
 @media (max-width: 1024px) {
@@ -1250,9 +1183,6 @@ const skillCategories = computed(() => [
   .section {
     padding: 80px 20px;
   }
-  .footer {
-    padding: 24px 20px;
-  }
 
   .hero__meta {
     flex-direction: column;
@@ -1283,16 +1213,6 @@ const skillCategories = computed(() => [
 
   .form-row {
     grid-template-columns: 1fr;
-  }
-
-  .footer__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .footer__nav {
-    flex-wrap: wrap;
-    gap: 16px;
   }
 }
 

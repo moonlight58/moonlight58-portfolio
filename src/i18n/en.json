@@ -88,8 +88,8 @@
         "description": "A command-line interface for Spotify, allowing users to control their music and manage playlists directly from the terminal.",
         "status": "Archived"
       },
-      "dotic": {
-        "description": "A Python application for creating and managing dot patterns in a grid. It allows users to generate, visualize and analyze dot patterns for various applications.",
+      "pluto": {
+        "description": "A custom split mechanical keyboard I designed and built from scratch with Ergogen, KiCAD, FreeCAD, ZMK, and a 3D-printed PETG case.",
         "status": "Completed"
       }
     },
@@ -109,6 +109,172 @@
         "preventSpam": "To prevent spam, you'll need to wait",
         "success": "MESSAGE_SENT_SUCCESSFULLY",
         "error": "ERROR_SENDING_MESSAGE"
+      }
+    }
+  },
+  "projectsPage": {
+    "pluto": {
+      "hero": {
+        "eyebrow": "Personal hardware project",
+        "statusLabel": "Status",
+        "status": "Finished",
+        "typeLabel": "Type",
+        "type": "Split mechanical keyboard",
+        "keysLabel": "Keys",
+        "keys": "keys per half"
+      },
+      "improvement": {
+        "1": {
+          "title": "Firmware optimisation",
+          "desc": "After initial testing, I identified stability issues with the ZMK firmware, including random crashes. I fixed several critical bugs in the ZMK source code, thereby improving the keyboard's reliability"
+        },
+        "2": {
+          "title": "Case redesign",
+          "desc": "The first 3D-printed prototype had issues with strength and finish. At least it allowed me to refine the case design, but to take it to the next level, I’d like to move toward CNC machining or injection molding to achieve a professional-grade finish and greater durability."
+        }
+      }
+    },
+    "sagittarius": {
+      "hero": {
+        "eyebrow": "Personal software project",
+        "subtitle": "A private, model-agnostic AI assistant that runs entirely on your own machine.",
+        "statusLabel": "Status",
+        "status": "In Development",
+        "typeLabel": "Type",
+        "type": "Web application · AI assistant",
+        "stackLabel": "Stack",
+        "previewLabel": "Live preview",
+        "preview": "sagittarius.grothlin.fr"
+      },
+      "genesis": {
+        "title": "Genesis",
+        "p1": "Most AI assistants come with a subscription, a data policy, and a server somewhere that owns your conversations. That frustrated me. I wanted something that worked like a proper assistant — fast, contextual, always available — but where nothing ever left my machine.",
+        "p2": "Sagittarius started as a personal experiment: could I build a fully functional AI assistant that runs locally, costs nothing beyond hardware, and still feels polished enough to actually use every day? The answer turned out to be yes.",
+        "p3": "The name comes from the archer constellation — always pointing forward, purposeful, precise. That is what I wanted the tool to feel like."
+      },
+      "workspaces": {
+        "title": "Workspaces",
+        "intro": "The application is organised around workspaces — dedicated environments each tailored to a specific task. Every workspace keeps its own conversation history, so switching contexts does not erase what came before.",
+        "code": {
+          "name": "Code",
+          "desc": "An assistant that helps write, explain, and debug code. Responses are rendered with syntax-highlighted blocks and Markdown formatting."
+        },
+        "mail": {
+          "name": "Mail",
+          "desc": "A drafting assistant for professional emails. Workspace context keeps the tone and style consistent across a session."
+        },
+        "calendar": {
+          "name": "Calendar",
+          "desc": "Enable smart scheduling, reminders, and event synthesis directly from the assistant. Act as a smart and connected calendar."
+        },
+        "notes": {
+          "name": "Notes",
+          "desc": "A scratchpad for quick thoughts, brainstorming, and to-do lists. Markdown support allows for organised note-taking and formatting.",
+          "badge": "in development"
+        }
+      },
+      "highlights": {
+        "title": "Key highlights",
+        "privacy": {
+          "name": "Full privacy",
+          "desc": "All AI processing happens on your machine via Ollama, an open-source local model runner. No data leaves the device."
+        },
+        "model": {
+          "name": "Model flexibility",
+          "desc": "Works with any Ollama-compatible model — Mistral, LLaMA, Gemma, Phi, and more. Switchable at any time without restarting."
+        },
+        "streaming": {
+          "name": "Real-time streaming",
+          "desc": "Responses stream word by word, the way a real conversation feels. Implemented with the Ollama streaming API and Vue reactive state."
+        },
+        "markdown": {
+          "name": "Markdown rendering",
+          "desc": "AI responses are rendered with full Markdown support: headings, lists, inline code, and syntax-highlighted code blocks."
+        },
+        "history": {
+          "name": "Per-workspace history",
+          "desc": "Each workspace maintains its own independent conversation thread. Context is preserved across sessions."
+        },
+        "theme": {
+          "name": "Custom dark theme",
+          "desc": "A hand-crafted dark interface with a sidebar, responsive input bar, and smooth transitions — no component library."
+        }
+      },
+      "architecture": {
+        "title": "Architecture",
+        "intro": "Sagittarius is a Vue 3 frontend that communicates directly with a local Ollama instance. There is no backend of its own — the architecture is deliberately flat.",
+        "frontend": {
+          "title": "Frontend",
+          "desc": "Built with Vue 3 using the Composition API and script setup. State is managed with reactive refs and composables — no Pinia, no Vuex. The router handles workspace switching; each workspace is an independent component that owns its message list."
+        },
+        "ollama": {
+          "title": "Ollama integration",
+          "desc": "Ollama exposes a local HTTP API. Sagittarius calls the /api/chat endpoint with the full conversation history on each turn, then reads the streamed response line by line to update the UI in real time."
+        },
+        "streaming": {
+          "title": "Streaming implementation",
+          "desc": "The streaming response is a newline-delimited JSON stream. Each chunk is parsed, and the content delta is appended to the current message. The cursor effect and scroll-to-bottom run on each chunk, giving the typing impression."
+        },
+        "note": "Keeping the architecture flat was a deliberate choice. A backend would add latency, a deployment dependency, and complexity for no user-facing benefit. The model running locally is the only server that matters."
+      },
+      "stack": {
+        "title": "Stack",
+        "vue": {
+          "name": "Vue 3",
+          "desc": "Composition API, script setup, reactive state"
+        },
+        "css": {
+          "name": "Custom CSS",
+          "desc": "Hand-written styles, dark theme, no UI library"
+        },
+        "ollama": {
+          "name": "Ollama",
+          "desc": "Local model runner, streaming HTTP API"
+        },
+        "markdown": {
+          "name": "Markdown-it",
+          "desc": "Markdown and code block rendering"
+        },
+        "router": {
+          "name": "Vue Router",
+          "desc": "Workspace navigation, history mode"
+        }
+      },
+      "learning": {
+        "title": "What I learned",
+        "streaming": {
+          "domain": "Streaming UI",
+          "text": "Consuming a streamed HTTP response and reflecting it live in the DOM requires careful coordination — each chunk parsed and appended without a full re-render, scroll behaviour that stays at the bottom during generation but doesn't hijack the user if they scroll up."
+        },
+        "state": {
+          "domain": "State design",
+          "text": "Managing multiple independent conversation threads without a global state library pushed me to think carefully about component ownership. Each workspace owns its history as a local ref, kept alive across router navigation."
+        },
+        "product": {
+          "domain": "Product design",
+          "text": "Hiding technical complexity — model selection, local inference, workspace isolation — behind sensible defaults was the hardest design challenge. The interface should feel simple even when the machinery underneath isn't."
+        },
+        "css": {
+          "domain": "CSS architecture",
+          "text": "Designing a token system from the start (spacing, type scale, colour variables) made each new workspace significantly faster to build without drifting from the overall feel."
+        }
+      },
+      "status": {
+        "title": "Status & next steps",
+        "current": "Core functionality is complete and in daily use. The three main workspaces — Code, Mail, and Chat — are functional with streaming responses, Markdown rendering, and per-session history.",
+        "next1": {
+          "title": "Calendar workspace",
+          "desc": "The next planned workspace. Will integrate with local calendar data to allow scheduling, reminders, and natural language event management."
+        },
+        "next2": {
+          "title": "File attachment support",
+          "desc": "Ability to drop a file into the conversation and have the model reason over its content — useful for code review, document summarisation, and data analysis."
+        },
+        "next3": {
+          "title": "System prompt per workspace",
+          "desc": "Each workspace would carry a customisable system prompt, making the assistant's behaviour more targeted without requiring the user to repeat instructions."
+        },
+        "reflection": "This project changed how I think about tools I build for myself. The bar for daily-use software is much higher than for a demo. Every rough edge becomes friction you feel every day."
       }
     }
   },
