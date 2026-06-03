@@ -89,11 +89,30 @@
         </div>
       </section>
 
-      <!-- ── 02 · WORKSPACES ──────────────────────────────────────────── -->
-      <section id="workspaces" class="sag-section sag-section--tinted" aria-labelledby="h-workspaces">
+      <!-- ── 02 · CONSTRAINTS ─────────────────────────────────────────── -->
+      <section id="constraints" class="sag-section sag-section--tinted" aria-labelledby="h-constraints">
         <div class="sag-section__inner">
           <header class="section-header">
             <span class="section-header__num" aria-hidden="true">02</span>
+            <h2 class="section-header__title" id="h-constraints">
+              {{ $t('projectsPage.sagittarius.highlights.title') }}
+            </h2>
+          </header>
+
+          <div class="highlights-grid">
+            <div v-for="h in highlights" :key="h.key" class="highlight-card">
+              <span class="highlight-card__label">{{ $t(`projectsPage.sagittarius.highlights.${h.key}.name`) }}</span>
+              <p class="highlight-card__desc">{{ $t(`projectsPage.sagittarius.highlights.${h.key}.desc`) }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 03 · WORKSPACES ──────────────────────────────────────────── -->
+      <section id="workspaces" class="sag-section" aria-labelledby="h-workspaces">
+        <div class="sag-section__inner">
+          <header class="section-header">
+            <span class="section-header__num" aria-hidden="true">03</span>
             <h2 class="section-header__title" id="h-workspaces">
               {{ $t('projectsPage.sagittarius.workspaces.title') }}
             </h2>
@@ -116,25 +135,6 @@
                 </span>
               </div>
               <p class="workspace-card__desc">{{ $t(`projectsPage.sagittarius.workspaces.${ws.key}.desc`) }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 03 · KEY HIGHLIGHTS ──────────────────────────────────────── -->
-      <section id="highlights" class="sag-section" aria-labelledby="h-highlights">
-        <div class="sag-section__inner">
-          <header class="section-header">
-            <span class="section-header__num" aria-hidden="true">03</span>
-            <h2 class="section-header__title" id="h-highlights">
-              {{ $t('projectsPage.sagittarius.highlights.title') }}
-            </h2>
-          </header>
-
-          <div class="highlights-grid">
-            <div v-for="h in highlights" :key="h.key" class="highlight-card">
-              <span class="highlight-card__label">{{ $t(`projectsPage.sagittarius.highlights.${h.key}.name`) }}</span>
-              <p class="highlight-card__desc">{{ $t(`projectsPage.sagittarius.highlights.${h.key}.desc`) }}</p>
             </div>
           </div>
         </div>
