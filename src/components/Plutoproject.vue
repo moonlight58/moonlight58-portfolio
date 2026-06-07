@@ -126,6 +126,10 @@
                   <span class="specs-list__key">Chassis</span>
                   <span class="specs-list__val">FreeCAD → FDM print</span>
                 </li>
+                <li>
+                  <span class="specs-list__key">Battery</span>
+                  <span class="specs-list__val">2× PS3 · 1800 mAh</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -372,6 +376,13 @@
               <p v-else>
                 The config lives in a <code>.keymap</code> file and a board definition file. I kept the layout simple: one main 30-key layer, with special characters reached through combos or hold layers. Fewer layers, less mental overhead.
               </p>
+
+              <p v-if="$i18n.locale === 'fr'">
+                La durée de vie de la batterie était aussi quelque chose que je voulais soigner. La plupart des claviers bluetooth gamer ont un rétroéclairage LED qui réduit l'autonomie de moitié, parfois plus si c'est du RGB. J'ai décidé de ne pas en mettre. Avec deux batteries de manette PS3 de 1800 mAh chacune, le clavier tient jusqu'à trois mois sans recharge.
+              </p>
+              <p v-else>
+                Battery life was something I also wanted to get right. Most Bluetooth gaming keyboards have LED backlighting that cuts autonomy in half, sometimes worse with RGB. I chose not to include any. With two PS3 controller batteries at 1800 mAh each, the keyboard lasts up to three months between charges.
+              </p>
             </div>
 
             <figure class="project-figure">
@@ -460,6 +471,19 @@
               </p>
             </div>
           </div>
+
+          <blockquote class="callout callout--info" style="margin-top: 20px;">
+            <span class="callout__label">
+              <span v-if="$i18n.locale === 'fr'">Autonomie</span>
+              <span v-else>Battery life</span>
+            </span>
+            <span v-if="$i18n.locale === 'fr'">
+              La durée de vie de la batterie était aussi quelque chose que je voulais soigner. La plupart des claviers bluetooth gamer ont un rétroéclairage LED qui réduit l'autonomie de moitié, parfois plus si c'est du RGB. J'ai décidé de ne pas en mettre. Avec deux batteries de manette PS3 de 1800 mAh chacune, le clavier tient jusqu'à trois mois sans recharge.
+            </span>
+            <span v-else>
+              Battery life was something I also wanted to get right. Most Bluetooth gaming keyboards have LED backlighting that cuts autonomy in half, sometimes worse with RGB. I chose not to include any. With two PS3 controller batteries at 1800 mAh each, the keyboard lasts up to three months between charges.
+            </span>
+          </blockquote>
 
           <blockquote class="callout callout--accent" style="margin-top: 40px;">
             <span class="callout__label">
@@ -1017,9 +1041,18 @@ const improvementItems = [
   margin-bottom: 8px;
 }
 
+.callout--info {
+  border-left-color: #2563a8;
+  background: #eaf1fb;
+  border-radius: 0 4px 4px 0;
+  color: #1a3a5c;
+}
+
 .callout--accent .callout__label { color: var(--accent); }
 .callout--success .callout__label { color: #2e7d52; }
 .callout--warning .callout__label { color: #b45309; }
+.callout--info .callout__label { color: #2563a8; }
+
 
 /* ── Firmware ── */
 .firmware-detail {
