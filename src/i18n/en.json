@@ -131,13 +131,17 @@
         "2": {
           "title": "Case redesign",
           "desc": "The first 3D-printed prototype had issues with strength and finish. At least it allowed me to refine the case design, but to take it to the next level, I’d like to move toward CNC machining or injection molding to achieve a professional-grade finish and greater durability."
+        },
+        "3": {
+          "title": "Adding custom components",
+          "desc": "To improve the ergonomics and functionality of the keyboard, I will add custom components such as a trackpad on the right half and induction chargers to reduce the need for frequent plugging in."
         }
       }
     },
     "sagittarius": {
       "hero": {
         "eyebrow": "Personal software project",
-        "subtitle": "A private, model-agnostic AI assistant that runs entirely on your own machine.",
+        "subtitle": "A local AI assistant I built to keep my tools and conversations on my own machine.",
         "statusLabel": "Status",
         "status": "In Development",
         "typeLabel": "Type",
@@ -148,84 +152,84 @@
       },
       "genesis": {
         "title": "Genesis",
-        "p1": "Most AI assistants come with a subscription, a data policy, and a server somewhere that owns your conversations. That frustrated me. I wanted something that worked like a proper assistant — fast, contextual, always available — but where nothing ever left my machine.",
-        "p2": "Sagittarius started as a personal experiment: could I build a fully functional AI assistant that runs locally, costs nothing beyond hardware, and still feels polished enough to actually use every day? The answer turned out to be yes.",
-        "p3": "The name comes from the archer constellation — always pointing forward, purposeful, precise. That is what I wanted the tool to feel like."
+        "p1": "I use AI assistants often, especially to understand code, or unblock an idea. But I did not like depending on a subscription, a remote service, and a data policy I do not really control.",
+        "p2": "Sagittarius started from a simple need: an assistant I could run at home, with the models I choose, without sending my conversations elsewhere. I was not trying to build an AI showcase. I wanted a tool clean enough to actually use.",
+        "p3": "The project therefore stayed deliberately personal. Each choice comes from a concrete use case: reduce friction, keep control, and avoid adding complexity just to make the project look bigger."
       },
       "workspaces": {
-        "title": "Workspaces",
-        "intro": "The application is organised around workspaces — dedicated environments each tailored to a specific task. Every workspace keeps its own conversation history, so switching contexts does not erase what came before.",
+        "title": "The experience I built",
+        "intro": "I organised the application around workspaces because I did not want to mix a code question, an email draft, and a more general conversation in the same thread. Each workspace keeps its own context and history.",
         "code": {
           "name": "Code",
-          "desc": "An assistant that helps write, explain, and debug code. Responses are rendered with syntax-highlighted blocks and Markdown formatting."
+          "desc": "The workspace I use to explain a piece of code, investigate an error, or ask a technical question without losing the thread of the current project."
         },
         "mail": {
           "name": "Mail",
-          "desc": "A drafting assistant for professional emails. Workspace context keeps the tone and style consistent across a session."
+          "desc": "A dedicated space for cleaner wording: rewriting a message, keeping a professional tone, or preparing a reply without mixing it with everything else."
         },
         "calendar": {
           "name": "Calendar",
-          "desc": "Enable smart scheduling, reminders, and event synthesis directly from the assistant. Act as a smart and connected calendar."
+          "desc": "A workspace designed for planning and reminders. The goal is to reason over my local calendar without going through an external service."
         },
         "notes": {
           "name": "Notes",
-          "desc": "A scratchpad for quick thoughts, brainstorming, and to-do lists. Markdown support allows for organised note-taking and formatting.",
+          "desc": "A workspace still in development for capturing ideas, preparing lists, and making quick notes easier to find again.",
           "badge": "in development"
         }
       },
       "highlights": {
-        "title": "Key highlights",
+        "title": "What I really wanted",
         "privacy": {
-          "name": "Full privacy",
-          "desc": "All AI processing happens on your machine via Ollama, an open-source local model runner. No data leaves the device."
+          "name": "Keep the data at home",
+          "desc": "The starting point was non-negotiable: conversations had to stay on my machine. Ollama lets me run the model locally, without an application server in between."
         },
         "model": {
-          "name": "Model flexibility",
-          "desc": "Works with any Ollama-compatible model — Mistral, LLaMA, Gemma, Phi, and more. Switchable at any time without restarting."
+          "name": "Choose the model for the task",
+          "desc": "I wanted to test Mistral, LLaMA, Gemma, or other models without rebuilding the application. The model becomes a setting, not a fixed dependency."
         },
         "streaming": {
-          "name": "Real-time streaming",
-          "desc": "Responses stream word by word, the way a real conversation feels. Implemented with the Ollama streaming API and Vue reactive state."
+          "name": "See the answer arrive immediately",
+          "desc": "Even locally, waiting for a full response quickly feels slow. Streaming makes the tool more pleasant because the answer starts taking shape right away."
         },
         "markdown": {
-          "name": "Markdown rendering",
-          "desc": "AI responses are rendered with full Markdown support: headings, lists, inline code, and syntax-highlighted code blocks."
+          "name": "Read code and notes properly",
+          "desc": "Without Markdown and syntax highlighting, the assistant becomes painful to use for code. I treated rendering as a core part of the experience."
         },
         "history": {
-          "name": "Per-workspace history",
-          "desc": "Each workspace maintains its own independent conversation thread. Context is preserved across sessions."
+          "name": "Avoid losing context",
+          "desc": "I wanted to switch between uses without starting from scratch. Each workspace keeps its own thread, which keeps the intentions separated."
         },
         "theme": {
-          "name": "Custom dark theme",
-          "desc": "A hand-crafted dark interface with a sidebar, responsive input bar, and smooth transitions — no component library."
+          "name": "Build an interface I want to open",
+          "desc": "Because this is a personal tool, the interface matters a lot. I wrote it in custom CSS to keep control over the details without adding a full UI library."
         }
       },
       "architecture": {
-        "title": "Architecture",
-        "intro": "Sagittarius is a Vue 3 frontend that communicates directly with a local Ollama instance. There is no backend of its own — the architecture is deliberately flat.",
+        "title": "How local mode works",
+        "intro": "Sagittarius is a Vue 3 frontend that communicates directly with a local Ollama instance. I kept the architecture simple because the project did not need an additional backend.",
         "frontend": {
           "title": "Frontend",
-          "desc": "Built with Vue 3 using the Composition API and script setup. State is managed with reactive refs and composables — no Pinia, no Vuex. The router handles workspace switching; each workspace is an independent component that owns its message list."
+          "desc": "The application is built with Vue 3, the Composition API, and script setup. State stays local to components when possible: each workspace owns its messages and context without forcing a global state library."
         },
         "ollama": {
           "title": "Ollama integration",
-          "desc": "Ollama exposes a local HTTP API. Sagittarius calls the /api/chat endpoint with the full conversation history on each turn, then reads the streamed response line by line to update the UI in real time."
+          "desc": "Ollama exposes a local HTTP API. Sagittarius sends the conversation history to /api/chat, then reads the streamed response to display text as it is generated."
         },
         "streaming": {
           "title": "Streaming implementation",
-          "desc": "The streaming response is a newline-delimited JSON stream. Each chunk is parsed, and the content delta is appended to the current message. The cursor effect and scroll-to-bottom run on each chunk, giving the typing impression."
+          "desc": "The response arrives as newline-delimited JSON fragments. Each fragment is parsed, appended to the current message, then reflected in the interface without waiting for the full generation to finish."
         },
-        "note": "Keeping the architecture flat was a deliberate choice. A backend would add latency, a deployment dependency, and complexity for no user-facing benefit. The model running locally is the only server that matters."
+        "note": "I could have added a backend to make the architecture look more conventional, but it would mostly have added latency, deployment work, and maintenance. For this project, the important server is already there: Ollama, running on the machine."
       },
       "stack": {
-        "title": "Stack",
+        "title": "Interface and stack choices",
         "vue": {
           "name": "Vue 3",
           "desc": "Composition API, script setup, reactive state"
         },
         "css": {
           "name": "Custom CSS",
-          "desc": "Hand-written styles, dark theme, no UI library"
+          "desc": "Hand-written styles to keep the interface light and controlled"
         },
         "ollama": {
           "name": "Ollama",
@@ -241,7 +245,7 @@
         }
       },
       "learning": {
-        "title": "What I learned",
+        "title": "Difficulties and learnings",
         "streaming": {
           "domain": "Streaming UI",
           "text": "Consuming a streamed HTTP response and reflecting it live in the DOM requires careful coordination — each chunk parsed and appended without a full re-render, scroll behaviour that stays at the bottom during generation but doesn't hijack the user if they scroll up."
@@ -251,8 +255,8 @@
           "text": "Managing multiple independent conversation threads without a global state library pushed me to think carefully about component ownership. Each workspace owns its history as a local ref, kept alive across router navigation."
         },
         "product": {
-          "domain": "Product design",
-          "text": "Hiding technical complexity — model selection, local inference, workspace isolation — behind sensible defaults was the hardest design challenge. The interface should feel simple even when the machinery underneath isn't."
+          "domain": "Designing a daily-use tool",
+          "text": "The hard part was not only making local AI work, but reducing the small frictions that make you abandon a tool after two days. A personal project is unforgiving: if something gets in the way, I feel it every time I use it."
         },
         "css": {
           "domain": "CSS architecture",
@@ -260,8 +264,8 @@
         }
       },
       "status": {
-        "title": "Status & next steps",
-        "current": "Core functionality is complete and in daily use. The three main workspaces — Code, Mail, and Chat — are functional with streaming responses, Markdown rendering, and per-session history.",
+        "title": "Where the project stands",
+        "current": "Sagittarius is usable in its current state, especially for code, writing, and general conversations. It is still evolving: some ideas are already integrated, others are still only sketches or prototypes.",
         "next1": {
           "title": "Calendar workspace",
           "desc": "The next planned workspace. Will integrate with local calendar data to allow scheduling, reminders, and natural language event management."

@@ -5,6 +5,7 @@ import EuphronInternship from '../views/EuphronInternship.vue'
 import ANIInternship from '../views/ANIInternship.vue'
 import Pluto from '../components/Plutoproject.vue'
 import Sagittarius from '../components/Sagittariusproject.vue'
+import SpotCLI from '../components/SpotCLIproject.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/sagittarius',
       name: 'Sagittarius',
       component: Sagittarius,
+    },
+    {
+      path: '/spotcli',
+      name: 'SpotCLI',
+      component: SpotCLI,
     },
     {
       path: '/internship/euphron',

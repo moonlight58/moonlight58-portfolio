@@ -262,14 +262,6 @@
         </div>
       </div>
     </section>
-
-    <!--  PROJECT MODAL  -->
-    <ProjectModal
-      :isOpen="modalOpen"
-      :projectName="selectedProject?.name?.toLowerCase()"
-      :language="$i18n.locale"
-      @close="closeModal"
-    />
   </div>
 </template>
 
@@ -280,18 +272,6 @@ import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
 import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
 
 const { t } = useI18n()
-
-// ── Modal ──────────────────────────────────────────────────────────────────
-const modalOpen = ref(false)
-const selectedProject = ref(null)
-const openModal = (p) => {
-  selectedProject.value = p
-  modalOpen.value = true
-}
-const closeModal = () => {
-  modalOpen.value = false
-  selectedProject.value = null
-}
 
 // ── Contact form ───────────────────────────────────────────────────────────
 const showForm = ref(false)
@@ -677,6 +657,7 @@ const skillCategories = computed(() => [
 
 .subsection-title {
   font-family: var(--font-serif);
+  width: 100vh;
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--text);
