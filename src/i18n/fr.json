@@ -7,11 +7,6 @@
   },
   "home": {
     "skills": {
-      "tier": {
-        "expert": "EXPERT",
-        "proficient": "COMPÉTENT",
-        "learning": "EN APPRENTISSAGE"
-      },
       "legendTitle": "// ÉCHELLE_DE_COMPÉTENCE",
       "frontend": "FRONTEND",
       "backend": "BACKEND",

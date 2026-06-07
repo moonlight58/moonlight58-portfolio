@@ -137,20 +137,6 @@
         <p class="sync-note">{{ $t('projects.footer.synced') }}</p>
       </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <span class="footer__copy">© {{ new Date().getFullYear() }} Gaël Röthlin</span>
-        <nav class="footer__nav" aria-label="Footer navigation">
-          <RouterLink to="/" class="footer__link">{{ $t('common.back') }}</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#contact' }" class="footer__link">
-            {{ $t('nav.contact') }}
-          </RouterLink>
-        </nav>
-        <span class="footer__credit">{{ $t('footer.credit') }}</span>
-      </div>
-    </footer>
   </div>
 </template>
 
