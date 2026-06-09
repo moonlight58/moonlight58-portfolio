@@ -12,7 +12,7 @@
             <h1 class="spotcli-hero__title">spotCLI</h1>
             <p class="spotcli-hero__subtitle">
               <span v-if="$i18n.locale === 'fr'">
-                Un outil en ligne de commande pour contrôler Spotify depuis le terminal — sans ouvrir l'application.
+                Un outil en ligne de commande pour contrôler Spotify depuis le terminal - sans ouvrir l'application.
               </span>
               <span v-else>
                 A command-line tool to search Spotify and manage your library without ever opening the app.
@@ -68,18 +68,18 @@
           </aside>
         </div>
 
-        <!-- Hero image — terminal screenshot -->
+        <!-- Hero image - terminal screenshot -->
         <div class="spotcli-hero__image-wrap">
           <img
-            src="../assets/projects/spotcli/spotcli-hero.png"
+            src="../assets/projects/spotcli/spotcli-banner.png"
             alt="spotCLI running in a terminal"
             class="spotcli-hero__image"
             loading="eager"
           />
           <div class="spotcli-hero__image-caption">
             <span aria-hidden="true">Fig. 00:</span>
-            <span v-if="$i18n.locale === 'fr'">Mode interactif — menu principal avec 38 commandes</span>
-            <span v-else>Interactive mode — main menu with 38 commands</span>
+            <span v-if="$i18n.locale === 'fr'">spotCLI - bannière de lancement</span>
+            <span v-else>spotCLI - title banner</span>
           </div>
         </div>
       </div>
@@ -101,10 +101,10 @@
           <div class="genesis-layout">
             <div class="genesis-text">
               <p v-if="$i18n.locale === 'fr'">
-                Le déclencheur était simple : j'écoutais de la musique en travaillant et je voulais sauvegarder un morceau dans ma bibliothèque. Ouvrir Spotify, chercher la chanson, cliquer sur le cœur — le rituel prenait trente secondes et cassait la concentration. J'avais déjà un terminal ouvert. Je voulais taper une commande.
+                Le déclencheur était simple : j'écoutais de la musique en travaillant et je voulais sauvegarder un morceau dans ma bibliothèque. Ouvrir Spotify, chercher la chanson, cliquer sur le cœur - le rituel prenait trente secondes et cassait la concentration. J'avais déjà un terminal ouvert. Je voulais taper une commande.
               </p>
               <p v-else>
-                The trigger was simple: I was listening to music while working and wanted to save a track to my library. Open Spotify, find the song, click the heart — the whole ritual took thirty seconds and broke focus. I already had a terminal open. I wanted to type a command.
+                The trigger was simple: I was listening to music while working and wanted to save a track to my library. Open Spotify, find the song, click the heart - the whole ritual took thirty seconds and broke focus. I already had a terminal open. I wanted to type a command.
               </p>
 
               <p v-if="$i18n.locale === 'fr'">
@@ -119,6 +119,13 @@
               </p>
               <p v-else>
                 The project grew well beyond saving tracks: artist search, playlist management, playback control, device transfer. In the end, <strong>38 interactive commands</strong> covering nearly the full Spotify public API.
+              </p>
+
+              <p v-if="$i18n.locale === 'fr'">
+                L'idée n'était pas originale. J'utilisais <strong><a href="https://github.com/Rigellute/spotify-tui" target="_blank">spotify-tui</a></strong> de Rigellute, et c'est ce projet qui m'a donné l'élan : il m'a montré qu'un client Spotify en terminal était possible, et m'a donné envie de construire le mien alors que je ne connaissais presque rien aux TUI ni à l'API Spotify au départ. La majorité de ce qui suit, je l'ai appris en le faisant.
+              </p>
+              <p v-else>
+                The idea wasn't original. I'd been using <strong><a href="https://github.com/Rigellute/spotify-tui" target="_blank">spotify-tui</a></strong> by Rigellute, and that's the project that gave me the push: it showed me a terminal Spotify client was possible, and made me want to build my own even though I knew almost nothing about TUIs or the Spotify API when I started. Most of what follows, I learned by doing it.
               </p>
             </div>
 
@@ -163,120 +170,38 @@
         </div>
       </section>
 
-      <!-- ── 02 · ARCHITECTURE ─────────────────────────────────────────── -->
-      <section id="architecture" class="spotcli-section spotcli-section--tinted" aria-labelledby="h-architecture">
+      <!-- ── 02 · AUTH FLOW ────────────────────────────────────────────── -->
+      <section id="auth" class="spotcli-section spotcli-section--tinted" aria-labelledby="h-auth">
         <div class="spotcli-section__inner">
           <header class="section-header">
             <span class="section-header__num" aria-hidden="true">02</span>
-            <h2 class="section-header__title" id="h-architecture">
-              <span v-if="$i18n.locale === 'fr'">Architecture</span>
-              <span v-else>Architecture</span>
-            </h2>
-          </header>
-
-          <p class="section-lead" v-if="$i18n.locale === 'fr'">
-            Le projet suit une séparation stricte entre couches. Chaque domaine de l'API Spotify a son propre header et son propre fichier source. La couche HTTP est complètement isolée dans <code>http.c</code> — le reste du code ne touche jamais à curl directement.
-          </p>
-          <p class="section-lead" v-else>
-            The project enforces a strict layer separation. Each Spotify API domain has its own header and source file. The HTTP layer is fully contained in <code>http.c</code> — nothing else in the codebase touches curl directly.
-          </p>
-
-          <div class="arch-tree">
-            <div class="arch-tree__group" v-for="group in archGroups" :key="group.label">
-              <span class="arch-tree__group-label">{{ group.label }}</span>
-              <div class="arch-tree__files">
-                <div class="arch-tree__file" v-for="file in group.files" :key="file.name">
-                  <span class="arch-tree__filename">{{ file.name }}</span>
-                  <span class="arch-tree__filedesc">
-                    {{ $i18n.locale === 'fr' ? file.fr : file.en }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="two-col" style="margin-top: 48px;">
-            <div class="text-block">
-              <p v-if="$i18n.locale === 'fr'">
-                Chaque module expose un pattern identique : une fonction qui alloue et retourne une structure, et une fonction <code>spotify_free_*</code> correspondante qui libère la mémoire. C'est une convention simple, mais elle rend la gestion mémoire prévisible et facile à auditer.
-              </p>
-              <p v-else>
-                Every module exposes the same pattern: a function that allocates and returns a struct, and a matching <code>spotify_free_*</code> function that releases the memory. It is a simple convention, but it makes memory management predictable and easy to audit.
-              </p>
-
-              <p v-if="$i18n.locale === 'fr'">
-                Les parsers JSON sont centralisés dans <code>parsers.c</code>. Quand Spotify change un champ dans sa réponse, un seul endroit dans le code est à modifier. Les fonctions <code>parse_track_json</code>, <code>parse_artist_json</code>, <code>parse_playlist_json</code> sont réutilisées partout dans le projet.
-              </p>
-              <p v-else>
-                JSON parsers are centralized in <code>parsers.c</code>. When Spotify changes a field in its response, there is exactly one place to update. The <code>parse_track_json</code>, <code>parse_artist_json</code>, and <code>parse_playlist_json</code> functions are reused across the entire codebase.
-              </p>
-            </div>
-
-            <figure class="project-figure">
-              <img
-                src="../assets/projects/spotcli/spotcli-architecture.png"
-                alt="spotCLI header architecture diagram"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 01:</span>
-                <span v-if="$i18n.locale === 'fr'">Structure des headers — séparation par domaine API</span>
-                <span v-else>Header structure — separation by API domain</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 03 · AUTH FLOW ────────────────────────────────────────────── -->
-      <section id="auth" class="spotcli-section" aria-labelledby="h-auth">
-        <div class="spotcli-section__inner">
-          <header class="section-header">
-            <span class="section-header__num" aria-hidden="true">03</span>
             <h2 class="section-header__title" id="h-auth">
               <span v-if="$i18n.locale === 'fr'">Authentification OAuth 2.0</span>
               <span v-else>OAuth 2.0 Authentication</span>
             </h2>
           </header>
 
-          <div class="two-col">
-            <div class="text-block">
-              <p v-if="$i18n.locale === 'fr'">
-                L'authentification OAuth sur une application CLI pose un problème concret : après que l'utilisateur autorise l'application dans son navigateur, Spotify redirige vers une URL de callback. Il faut quelque chose qui écoute à cette adresse.
-              </p>
-              <p v-else>
-                OAuth authentication on a CLI application has a concrete problem: after the user authorizes the app in their browser, Spotify redirects to a callback URL. Something needs to be listening at that address.
-              </p>
+          <div class="text-block" style="max-width: 720px;">
+            <p v-if="$i18n.locale === 'fr'">
+              L'authentification OAuth sur une application CLI pose un problème concret : après que l'utilisateur autorise l'application dans son navigateur, Spotify redirige vers une URL de callback. Il faut quelque chose qui écoute à cette adresse.
+            </p>
+            <p v-else>
+              OAuth authentication on a CLI application has a concrete problem: after the user authorizes the app in their browser, Spotify redirects to a callback URL. Something needs to be listening at that address.
+            </p>
 
-              <p v-if="$i18n.locale === 'fr'">
-                J'ai écrit un serveur HTTP minimaliste en C pur — une socket POSIX qui écoute sur <code>127.0.0.1:8888</code>, accepte une connexion, lit la requête GET, extrait le code d'autorisation depuis les paramètres d'URL, renvoie une page HTML de confirmation, puis se ferme. Environ 70 lignes de code réseau sans dépendance externe.
-              </p>
-              <p v-else>
-                I wrote a minimal HTTP server in raw C — a POSIX socket that listens on <code>127.0.0.1:8888</code>, accepts one connection, reads the GET request, extracts the authorization code from the URL parameters, sends back an HTML confirmation page, then shuts down. About 70 lines of network code with no external dependency.
-              </p>
+            <p v-if="$i18n.locale === 'fr'">
+              J'ai écrit un serveur HTTP minimaliste en C pur - une socket POSIX qui écoute sur <code>127.0.0.1:8888</code>, accepte une connexion, lit la requête GET, extrait le code d'autorisation depuis les paramètres d'URL, renvoie une page HTML de confirmation, puis se ferme. Environ 70 lignes de code réseau sans dépendance externe.
+            </p>
+            <p v-else>
+              I wrote a minimal HTTP server in raw C - a POSIX socket that listens on <code>127.0.0.1:8888</code>, accepts one connection, reads the GET request, extracts the authorization code from the URL parameters, sends back an HTML confirmation page, then shuts down. About 70 lines of network code with no external dependency.
+            </p>
 
-              <p v-if="$i18n.locale === 'fr'">
-                Le token est ensuite stocké localement dans <code>~/.config/spotCLI/token.json</code> avec sa date d'obtention. À chaque démarrage, le programme vérifie si le token a expiré (marge de 5 minutes) et le rafraîchit automatiquement si nécessaire. L'utilisateur ne se reconnecte qu'une seule fois.
-              </p>
-              <p v-else>
-                The token is then stored locally in <code>~/.config/spotCLI/token.json</code> with its acquisition timestamp. On every startup, the program checks if the token is expired (with a 5-minute margin) and refreshes it automatically. The user only authenticates once.
-              </p>
-            </div>
-
-            <figure class="project-figure">
-              <img
-                src="../assets/projects/spotcli/spotcli-auth.png"
-                alt="OAuth flow in the terminal"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 02:</span>
-                <span v-if="$i18n.locale === 'fr'">Flux OAuth — affichage de l'URL, attente du callback, confirmation</span>
-                <span v-else>OAuth flow — URL display, callback wait, confirmation</span>
-              </figcaption>
-            </figure>
+            <p v-if="$i18n.locale === 'fr'">
+              Le token est ensuite stocké localement dans <code>~/.config/spotCLI/token.json</code> avec sa date d'obtention. À chaque démarrage, le programme vérifie si le token a expiré (marge de 5 minutes) et le rafraîchit automatiquement si nécessaire. L'utilisateur ne se reconnecte qu'une seule fois.
+            </p>
+            <p v-else>
+              The token is then stored locally in <code>~/.config/spotCLI/token.json</code> with its acquisition timestamp. On every startup, the program checks if the token is expired (with a 5-minute margin) and refreshes it automatically. The user only authenticates once.
+            </p>
           </div>
 
           <blockquote class="callout callout--success" style="margin-top: 40px;">
@@ -285,10 +210,10 @@
               <span v-else>Raw C callback server</span>
             </span>
             <span v-if="$i18n.locale === 'fr'">
-              Écrire un serveur TCP minimaliste m'a forcé à comprendre les sockets POSIX à un niveau que je n'avais pas eu l'occasion de pratiquer. <code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>, <code>read()</code>, <code>write()</code> — la séquence complète, sans abstraction.
+              Écrire un serveur TCP minimaliste m'a forcé à comprendre les sockets POSIX à un niveau que je n'avais pas eu l'occasion de pratiquer. <code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>, <code>read()</code>, <code>write()</code> - la séquence complète, sans abstraction.
             </span>
             <span v-else>
-              Writing a minimal TCP server forced me to understand POSIX sockets at a level I had not practiced before. <code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>, <code>read()</code>, <code>write()</code> — the full sequence, with no abstraction layer.
+              Writing a minimal TCP server forced me to understand POSIX sockets at a level I had not practiced before. <code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>, <code>read()</code>, <code>write()</code> - the full sequence, with no abstraction layer.
             </span>
           </blockquote>
 
@@ -311,6 +236,56 @@
         </div>
       </section>
 
+      <!-- ── 03 · ARCHITECTURE ─────────────────────────────────────────── -->
+      <section id="architecture" class="spotcli-section" aria-labelledby="h-architecture">
+        <div class="spotcli-section__inner">
+          <header class="section-header">
+            <span class="section-header__num" aria-hidden="true">03</span>
+            <h2 class="section-header__title" id="h-architecture">
+              <span v-if="$i18n.locale === 'fr'">Architecture</span>
+              <span v-else>Architecture</span>
+            </h2>
+          </header>
+
+          <p class="section-lead" v-if="$i18n.locale === 'fr'">
+            Le projet suit une séparation stricte entre couches. Chaque domaine de l'API Spotify a son propre header et son propre fichier source. La couche HTTP est complètement isolée dans <code>http.c</code> - le reste du code ne touche jamais à curl directement.
+          </p>
+          <p class="section-lead" v-else>
+            The project enforces a strict layer separation. Each Spotify API domain has its own header and source file. The HTTP layer is fully contained in <code>http.c</code> - nothing else in the codebase touches curl directly.
+          </p>
+
+          <div class="arch-tree">
+            <div class="arch-tree__group" v-for="group in archGroups" :key="group.label">
+              <span class="arch-tree__group-label">{{ group.label }}</span>
+              <div class="arch-tree__files">
+                <div class="arch-tree__file" v-for="file in group.files" :key="file.name">
+                  <span class="arch-tree__filename">{{ file.name }}</span>
+                  <span class="arch-tree__filedesc">
+                    {{ $i18n.locale === 'fr' ? file.fr : file.en }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-block" style="max-width: 720px; margin-top: 48px;">
+            <p v-if="$i18n.locale === 'fr'">
+              Chaque module expose un pattern identique : une fonction qui alloue et retourne une structure, et une fonction <code>spotify_free_*</code> correspondante qui libère la mémoire. C'est une convention simple, mais elle rend la gestion mémoire prévisible et facile à auditer.
+            </p>
+            <p v-else>
+              Every module exposes the same pattern: a function that allocates and returns a struct, and a matching <code>spotify_free_*</code> function that releases the memory. It is a simple convention, but it makes memory management predictable and easy to audit.
+            </p>
+
+            <p v-if="$i18n.locale === 'fr'">
+              Les parsers JSON sont centralisés dans <code>parsers.c</code>. Quand Spotify change un champ dans sa réponse, un seul endroit dans le code est à modifier. Les fonctions <code>parse_track_json</code>, <code>parse_artist_json</code>, <code>parse_playlist_json</code> sont réutilisées partout dans le projet.
+            </p>
+            <p v-else>
+              JSON parsers are centralized in <code>parsers.c</code>. When Spotify changes a field in its response, there is exactly one place to update. The <code>parse_track_json</code>, <code>parse_artist_json</code>, and <code>parse_playlist_json</code> functions are reused across the entire codebase.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- ── 04 · HTTP LAYER ───────────────────────────────────────────── -->
       <section id="http" class="spotcli-section spotcli-section--tinted" aria-labelledby="h-http">
         <div class="spotcli-section__inner">
@@ -329,57 +304,33 @@
             The Spotify API uses GET, PUT, POST, and DELETE with different behaviors per endpoint: some return JSON, others return 204 No Content, others 200 with an empty body. A variant was needed for each case.
           </p>
 
-          <div class="http-grid">
-            <div class="http-chip" v-for="fn in httpFunctions" :key="fn.name">
-              <span class="http-chip__method" :class="`http-chip__method--${fn.method.toLowerCase()}`">{{ fn.method }}</span>
-              <span class="http-chip__name">{{ fn.name }}</span>
-              <span class="http-chip__desc">{{ $i18n.locale === 'fr' ? fn.fr : fn.en }}</span>
-            </div>
-          </div>
+          <div class="text-block" style="max-width: 720px;">
+            <p v-if="$i18n.locale === 'fr'">
+              Toutes les réponses passent par un <code>write_callback</code> qui accumule les chunks dans un buffer alloué dynamiquement. curl appelle cette fonction autant de fois que nécessaire jusqu'à ce que la réponse soit complète. Le buffer est ensuite parsé par json-c et libéré.
+            </p>
+            <p v-else>
+              All responses go through a <code>write_callback</code> that accumulates chunks into a dynamically allocated buffer. curl calls this function as many times as needed until the response is complete. The buffer is then parsed by json-c and freed.
+            </p>
 
-          <div class="two-col" style="margin-top: 48px;">
-            <figure class="project-figure">
-              <img
-                src="../assets/projects/spotcli/spotcli-http.png"
-                alt="HTTP layer source code"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 03:</span>
-                <span v-if="$i18n.locale === 'fr'">Extrait de <code>http.c</code> — pattern write_callback</span>
-                <span v-else>Excerpt from <code>http.c</code> — write_callback pattern</span>
-              </figcaption>
-            </figure>
+            <p v-if="$i18n.locale === 'fr'">
+              Le piège, c'est que l'API Spotify impose des codes HTTP différents selon les opérations : mettre en pause retourne 204, créer une playlist retourne 201, sauvegarder des albums retourne 200. J'ai fini par écrire une variante de requête pour chaque cas - un GET qui parse du JSON, un PUT sans corps qui attend un 204, un POST qui renvoie un 201 - chaque wrapper vérifiant le code exact plutôt que de se contenter d'un <code>2xx</code>.
+            </p>
+            <p v-else>
+              The trap is that the Spotify API enforces different HTTP codes per operation: pausing playback returns 204, creating a playlist returns 201, saving albums returns 200. I ended up writing a request variant for each case - a GET that parses JSON, a bodyless PUT that expects 204, a POST that returns 201 - each wrapper checking the exact code rather than accepting any <code>2xx</code>.
+            </p>
 
-            <div class="text-block">
-              <p v-if="$i18n.locale === 'fr'">
-                Toutes les réponses passent par un <code>write_callback</code> qui accumule les chunks dans un buffer alloué dynamiquement. curl appelle cette fonction autant de fois que nécessaire jusqu'à ce que la réponse soit complète. Le buffer est ensuite parsé par json-c et libéré.
-              </p>
-              <p v-else>
-                All responses go through a <code>write_callback</code> that accumulates chunks into a dynamically allocated buffer. curl calls this function as many times as needed until the response is complete. The buffer is then parsed by json-c and freed.
-              </p>
-
-              <p v-if="$i18n.locale === 'fr'">
-                Un point délicat : l'API Spotify impose des codes HTTP différents selon les opérations. Mettre en pause retourne 204, créer une playlist retourne 201, sauvegarder des albums retourne 200. Chaque wrapper vérifie le code exact plutôt que de se contenter de <code>2xx</code>.
-              </p>
-              <p v-else>
-                One subtlety: the Spotify API enforces different HTTP codes per operation. Pausing playback returns 204, creating a playlist returns 201, saving albums returns 200. Each wrapper checks the exact code rather than accepting any <code>2xx</code>.
-              </p>
-
-              <blockquote class="callout callout--warning">
-                <span class="callout__label">
-                  <span v-if="$i18n.locale === 'fr'">Gestion mémoire</span>
-                  <span v-else>Memory management</span>
-                </span>
-                <span v-if="$i18n.locale === 'fr'">
-                  Chaque objet json-c doit être libéré manuellement avec <code>json_object_put()</code>. Oublier un seul appel crée une fuite. Travailler sans garbage collector a rendu chaque chemin de retour explicite.
-                </span>
-                <span v-else>
-                  Every json-c object must be manually released with <code>json_object_put()</code>. Missing a single call creates a leak. Working without a garbage collector made every return path explicit.
-                </span>
-              </blockquote>
-            </div>
+            <blockquote class="callout callout--warning">
+              <span class="callout__label">
+                <span v-if="$i18n.locale === 'fr'">Gestion mémoire</span>
+                <span v-else>Memory management</span>
+              </span>
+              <span v-if="$i18n.locale === 'fr'">
+                Chaque objet json-c doit être libéré manuellement avec <code>json_object_put()</code>. Oublier un seul appel crée une fuite. Travailler sans garbage collector a rendu chaque chemin de retour explicite.
+              </span>
+              <span v-else>
+                Every json-c object must be manually released with <code>json_object_put()</code>. Missing a single call creates a leak. Working without a garbage collector made every return path explicit.
+              </span>
+            </blockquote>
           </div>
         </div>
       </section>
@@ -395,132 +346,36 @@
             </h2>
           </header>
 
-          <div class="two-col">
-            <div class="text-block">
-              <p v-if="$i18n.locale === 'fr'">
-                Le mode interactif est le cœur de l'outil. Un menu numéroté de 38 options couvrant la bibliothèque, la recherche, les playlists et le player. Chaque option déclenche une séquence : l'utilisateur saisit une requête, le programme affiche les résultats, l'utilisateur choisit un numéro.
-              </p>
-              <p v-else>
-                The interactive mode is the core of the tool. A numbered menu of 38 options covering the library, search, playlists, and the player. Each option triggers a sequence: the user types a query, the program displays results, the user picks a number.
-              </p>
+          <div class="text-block" style="max-width: 720px;">
+            <p v-if="$i18n.locale === 'fr'">
+              Le mode interactif est le cœur de l'outil. Un menu numéroté de 38 options couvrant la bibliothèque, la recherche, les playlists et le player. Chaque option déclenche une séquence : l'utilisateur saisit une requête, le programme affiche les résultats, l'utilisateur choisit un numéro.
+            </p>
+            <p v-else>
+              The interactive mode is the core of the tool. A numbered menu of 38 options covering the library, search, playlists, and the player. Each option triggers a sequence: the user types a query, the program displays results, the user picks a number.
+            </p>
 
-              <p v-if="$i18n.locale === 'fr'">
-                Le mode ligne de commande permet d'utiliser spotCLI sans passer par le menu. <code>spotCLI "Bohemian Rhapsody"</code> lance une recherche de piste directement. Des flags permettent de changer le type : <code>-a</code> pour les artistes, <code>-A</code> pour les albums, <code>-l</code> pour lister la bibliothèque sauvegardée.
-              </p>
-              <p v-else>
-                The CLI mode lets you use spotCLI without going through the menu. <code>spotCLI "Bohemian Rhapsody"</code> runs a track search directly. Flags change the type: <code>-a</code> for artists, <code>-A</code> for albums, <code>-l</code> to list the saved library.
-              </p>
-            </div>
+            <p v-if="$i18n.locale === 'fr'">
+              Les 38 commandes se répartissent en quatre groupes - bibliothèque, recherche, playlists et lecteur - et couvrent presque tout ce qu'on fait dans l'app : sauvegarder et vérifier des pistes, parcourir les albums et top tracks d'un artiste, un CRUD complet sur les playlists, et le contrôle complet de la lecture (transfert entre appareils et file d'attente compris).
+            </p>
+            <p v-else>
+              The 38 commands fall into four groups - library, search, playlists, and the player - and cover nearly everything you'd do in the app: saving and checking tracks, browsing an artist's albums and top tracks, full CRUD on playlists, and complete playback control (device transfer and the queue included).
+            </p>
 
-            <figure class="project-figure">
-              <img
-                src="../assets/projects/spotcli/spotcli-menu.png"
-                alt="spotCLI interactive menu"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 04:</span>
-                <span v-if="$i18n.locale === 'fr'">Menu interactif avec les 38 commandes disponibles</span>
-                <span v-else>Interactive menu with all 38 available commands</span>
-              </figcaption>
-            </figure>
-          </div>
-
-          <!-- Commands breakdown -->
-          <h3 class="subsection-title">
-            <span v-if="$i18n.locale === 'fr'">Commandes disponibles</span>
-            <span v-else>Available commands</span>
-          </h3>
-          <div class="commands-grid">
-            <div class="commands-group" v-for="group in commandGroups" :key="group.label">
-              <span class="commands-group__label">{{ group.label }}</span>
-              <ul class="commands-list">
-                <li v-for="cmd in group.commands" :key="cmd">{{ cmd }}</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="image-pair" style="margin-top: 40px;">
-            <figure class="project-figure">
-              <img
-                src="../assets/projects/spotcli/spotcli-search.png"
-                alt="Track search in spotCLI"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 05:</span>
-                <span v-if="$i18n.locale === 'fr'">Résultats de recherche — sélection d'une piste</span>
-                <span v-else>Search results — track selection</span>
-              </figcaption>
-            </figure>
-
-            <figure class="project-figure">
-              <img
-                src="../assets/projects/spotcli/spotcli-player.png"
-                alt="Player state in spotCLI"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 06:</span>
-                <span v-if="$i18n.locale === 'fr'">État du player — barre de progression en ASCII</span>
-                <span v-else>Player state — ASCII progress bar</span>
-              </figcaption>
-            </figure>
+            <p v-if="$i18n.locale === 'fr'">
+              Le mode ligne de commande permet d'utiliser spotCLI sans passer par le menu. <code>spotCLI "Bohemian Rhapsody"</code> lance une recherche de piste directement. Des flags permettent de changer le type : <code>-a</code> pour les artistes, <code>-A</code> pour les albums, <code>-l</code> pour lister la bibliothèque sauvegardée.
+            </p>
+            <p v-else>
+              The CLI mode lets you use spotCLI without going through the menu. <code>spotCLI "Bohemian Rhapsody"</code> runs a track search directly. Flags change the type: <code>-a</code> for artists, <code>-A</code> for albums, <code>-l</code> to list the saved library.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- ── 06 · RESULT ───────────────────────────────────────────────── -->
-      <section id="result" class="spotcli-section spotcli-section--tinted" aria-labelledby="h-result">
+      <!-- ── 06 · WHAT I LEARNED ──────────────────────────────────────── -->
+      <section id="learning" class="spotcli-section spotcli-section--tinted" aria-labelledby="h-learning">
         <div class="spotcli-section__inner">
           <header class="section-header">
             <span class="section-header__num" aria-hidden="true">06</span>
-            <h2 class="section-header__title" id="h-result">
-              <span v-if="$i18n.locale === 'fr'">Résultat</span>
-              <span v-else>Result</span>
-            </h2>
-          </header>
-
-          <div class="final-gallery">
-            <figure class="project-figure project-figure--large">
-              <img
-                src="../assets/projects/spotcli/spotcli-final-1.png"
-                alt="spotCLI full session — search, save, player"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 07:</span>
-                <span v-if="$i18n.locale === 'fr'">Session complète — recherche, sauvegarde, état du player</span>
-                <span v-else>Full session — search, save, player state</span>
-              </figcaption>
-            </figure>
-
-            <figure class="project-figure project-figure--large">
-              <img
-                src="../assets/projects/spotcli/spotcli-final-2.png"
-                alt="spotCLI playlist management"
-                class="project-figure__img"
-                loading="lazy"
-              />
-              <figcaption>
-                <span aria-hidden="true">Fig. 08:</span>
-                <span v-if="$i18n.locale === 'fr'">Gestion de playlist — ajout, suppression, reorder</span>
-                <span v-else>Playlist management — add, remove, reorder</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 07 · WHAT I LEARNED ──────────────────────────────────────── -->
-      <section id="learning" class="spotcli-section" aria-labelledby="h-learning">
-        <div class="spotcli-section__inner">
-          <header class="section-header">
-            <span class="section-header__num" aria-hidden="true">07</span>
             <h2 class="section-header__title" id="h-learning">
               <span v-if="$i18n.locale === 'fr'">Ce que j'ai appris</span>
               <span v-else>What I learned</span>
@@ -542,20 +397,20 @@
               <span v-else>Looking back</span>
             </span>
             <span v-if="$i18n.locale === 'fr'">
-              Ce projet m'a confirmé que choisir un langage plus difficile que nécessaire est parfois la bonne décision. Écrire ce wrapper en C plutôt qu'en Python ou TypeScript a rendu chaque partie du code plus consciente : l'allocation, les codes de retour, les pointeurs nuls. Ces contraintes sont inconfortables — elles sont aussi là où on apprend le plus.
+              Ce projet m'a confirmé que choisir un langage plus difficile que nécessaire est parfois la bonne décision. Écrire ce wrapper en C plutôt qu'en Python ou TypeScript a rendu chaque partie du code plus consciente : l'allocation, les codes de retour, les pointeurs nuls. Ces contraintes sont inconfortables - elles sont aussi là où on apprend le plus.
             </span>
             <span v-else>
-              This project confirmed that choosing a harder language than necessary is sometimes the right call. Writing this wrapper in C rather than Python or TypeScript made every part of the code more deliberate: allocation, return codes, null pointers. Those constraints are uncomfortable — they are also where the most learning happens.
+              This project confirmed that choosing a harder language than necessary is sometimes the right call. Writing this wrapper in C rather than Python or TypeScript made every part of the code more deliberate: allocation, return codes, null pointers. Those constraints are uncomfortable - they are also where the most learning happens.
             </span>
           </blockquote>
         </div>
       </section>
 
-      <!-- ── 08 · ARCHIVAL & IMPROVEMENTS ─────────────────────────────── -->
-      <section id="archival" class="spotcli-section spotcli-section--tinted" aria-labelledby="h-archival">
+      <!-- ── 07 · ARCHIVAL & IMPROVEMENTS ─────────────────────────────── -->
+      <section id="archival" class="spotcli-section" aria-labelledby="h-archival">
         <div class="spotcli-section__inner">
           <header class="section-header">
-            <span class="section-header__num" aria-hidden="true">08</span>
+            <span class="section-header__num" aria-hidden="true">07</span>
             <h2 class="section-header__title" id="h-archival">
               <span v-if="$i18n.locale === 'fr'">Archivage &amp; améliorations</span>
               <span v-else>Archival &amp; improvements</span>
@@ -599,10 +454,10 @@
               <span v-else>MIT License</span>
             </span>
             <span v-if="$i18n.locale === 'fr'">
-              Toute l'architecture — la couche HTTP, le serveur OAuth, le système de parseurs — est réutilisable pour n'importe quelle API REST en C. Si vous voulez construire un client CLI pour une autre plateforme, la structure est prête.
+              Toute l'architecture - la couche HTTP, le serveur OAuth, le système de parseurs - est réutilisable pour n'importe quelle API REST en C. Si vous voulez construire un client CLI pour une autre plateforme, la structure est prête.
             </span>
             <span v-else>
-              The entire architecture — the HTTP layer, the OAuth server, the parser system — is reusable for any REST API in C. If you want to build a CLI client for another platform, the structure is ready.
+              The entire architecture - the HTTP layer, the OAuth server, the parser system - is reusable for any REST API in C. If you want to build a CLI client for another platform, the structure is ready.
             </span>
           </blockquote>
         </div>
@@ -627,7 +482,7 @@ const archGroups = [
   {
     label: 'src/core/',
     files: [
-      { name: 'auth.c', fr: 'OAuth 2.0 — échange de tokens, refresh', en: 'OAuth 2.0 — token exchange, refresh' },
+      { name: 'auth.c', fr: 'OAuth 2.0 - échange de tokens, refresh', en: 'OAuth 2.0 - token exchange, refresh' },
       { name: 'callback_server.c', fr: 'Serveur TCP POSIX pour le redirect OAuth', en: 'POSIX TCP server for OAuth redirect' },
       { name: 'dotenv.c', fr: 'Chargement des variables d\'environnement', en: 'Environment variable loader' },
     ],
@@ -635,7 +490,7 @@ const archGroups = [
   {
     label: 'src/spotify/core/',
     files: [
-      { name: 'http.c', fr: 'Toutes les requêtes curl — GET, PUT, POST, DELETE', en: 'All curl requests — GET, PUT, POST, DELETE' },
+      { name: 'http.c', fr: 'Toutes les requêtes curl - GET, PUT, POST, DELETE', en: 'All curl requests - GET, PUT, POST, DELETE' },
       { name: 'parsers.c', fr: 'Désérialisation JSON vers structs C', en: 'JSON deserialization into C structs' },
       { name: 'auth.c', fr: 'Récupération de l\'user ID courant', en: 'Current user ID retrieval' },
     ],
@@ -698,116 +553,6 @@ const authSteps = [
   },
 ]
 
-const httpFunctions = [
-  {
-    name: 'spotify_api_get()',
-    method: 'GET',
-    fr: 'Retourne un objet json_object parsé',
-    en: 'Returns a parsed json_object',
-  },
-  {
-    name: 'spotify_api_put()',
-    method: 'PUT',
-    fr: 'Corps JSON, vérifie 200',
-    en: 'JSON body, checks for 200',
-  },
-  {
-    name: 'spotify_api_put_empty()',
-    method: 'PUT',
-    fr: 'Sans corps, vérifie 204',
-    en: 'No body, checks for 204',
-  },
-  {
-    name: 'spotify_api_put_json()',
-    method: 'PUT',
-    fr: 'Corps JSON, retourne la réponse JSON',
-    en: 'JSON body, returns JSON response',
-  },
-  {
-    name: 'spotify_api_post()',
-    method: 'POST',
-    fr: 'Corps optionnel, vérifie 204',
-    en: 'Optional body, checks for 204',
-  },
-  {
-    name: 'spotify_api_post_empty()',
-    method: 'POST',
-    fr: 'Sans corps, vérifie 204',
-    en: 'No body, checks for 204',
-  },
-  {
-    name: 'spotify_api_post_json()',
-    method: 'POST',
-    fr: 'Corps JSON, retourne la réponse JSON',
-    en: 'JSON body, returns JSON response',
-  },
-  {
-    name: 'spotify_api_delete_json()',
-    method: 'DELETE',
-    fr: 'Corps JSON, retourne la réponse JSON',
-    en: 'JSON body, returns JSON response',
-  },
-]
-
-const commandGroups = [
-  {
-    label: 'Library',
-    commands: [
-      'View saved tracks',
-      'Remove track from library',
-      'Check if track is saved',
-      'View saved albums',
-      'Save album',
-      'Remove album',
-      'Check if album is saved',
-    ],
-  },
-  {
-    label: 'Search',
-    commands: [
-      'Search tracks',
-      'Search artists',
-      'Search albums',
-      'View artist\'s albums',
-      'View artist\'s top tracks',
-      'View album details',
-    ],
-  },
-  {
-    label: 'Playlists',
-    commands: [
-      'View your playlists',
-      'View playlist details',
-      'Create playlist',
-      'Edit playlist details',
-      'Add track to playlist',
-      'Remove track from playlist',
-      'Reorder playlist tracks',
-      'Unfollow playlist',
-    ],
-  },
-  {
-    label: 'Player',
-    commands: [
-      'View player state',
-      'View currently playing',
-      'View recently played',
-      'Play / Pause',
-      'Next track',
-      'Previous track',
-      'Toggle shuffle',
-      'Cycle repeat mode',
-      'Set volume',
-      'Seek to position',
-      'View devices',
-      'Transfer playback',
-      'View queue',
-      'Add to queue',
-      'Add artist track to queue',
-    ],
-  },
-]
-
 const learningItems = [
   {
     domain: 'C Memory Management',
@@ -816,8 +561,8 @@ const learningItems = [
   },
   {
     domain: 'POSIX Networking',
-    fr: 'Écrire un serveur TCP minimal en C. socket(), bind(), listen(), accept() — la séquence complète sans couche d\'abstraction. Une bonne base pour comprendre HTTP en profondeur.',
-    en: 'Writing a minimal TCP server in C. socket(), bind(), listen(), accept() — the full sequence with no abstraction. A good foundation for understanding HTTP at depth.',
+    fr: 'Écrire un serveur TCP minimal en C. socket(), bind(), listen(), accept() - la séquence complète sans couche d\'abstraction. Une bonne base pour comprendre HTTP en profondeur.',
+    en: 'Writing a minimal TCP server in C. socket(), bind(), listen(), accept() - the full sequence with no abstraction. A good foundation for understanding HTTP at depth.',
   },
   {
     domain: 'OAuth 2.0',
@@ -826,8 +571,8 @@ const learningItems = [
   },
   {
     domain: 'REST API Design',
-    fr: 'Les APIs REST ne sont pas uniformes. Un même type d\'opération peut retourner 200, 201 ou 204 selon l\'endpoint. Lire la documentation ne suffit pas — il faut tester chaque cas.',
-    en: 'REST APIs are not uniform. The same type of operation can return 200, 201, or 204 depending on the endpoint. Reading docs is not enough — every case needs testing.',
+    fr: 'Les APIs REST ne sont pas uniformes. Un même type d\'opération peut retourner 200, 201 ou 204 selon l\'endpoint. Lire la documentation ne suffit pas - il faut tester chaque cas.',
+    en: 'REST APIs are not uniform. The same type of operation can return 200, 201, or 204 depending on the endpoint. Reading docs is not enough - every case needs testing.',
   },
 ]
 
@@ -836,8 +581,8 @@ const improvementItems = [
     id: '1',
     titleFr: 'Interface ncurses',
     titleEn: 'ncurses interface',
-    descFr: 'Remplacer le menu numéroté par une navigation au clavier avec ncurses. La structure de menu existe déjà dans menu.c — c\'est une étape logique.',
-    descEn: 'Replace the numbered menu with keyboard navigation using ncurses. The menu structure already exists in menu.c — it is a logical next step.',
+    descFr: 'Remplacer le menu numéroté par une navigation au clavier avec ncurses. La structure de menu existe déjà dans menu.c - c\'est une étape logique.',
+    descEn: 'Replace the numbered menu with keyboard navigation using ncurses. The menu structure already exists in menu.c - it is a logical next step.',
   },
   {
     id: '2',
@@ -1117,7 +862,7 @@ const improvementItems = [
   color: var(--text-2);
   margin: 0 0 40px;
   max-width: 720px;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Two-col ── */
@@ -1139,7 +884,7 @@ const improvementItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 .text-block strong {
@@ -1176,12 +921,17 @@ const improvementItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 .genesis-text strong {
   color: var(--text);
   font-weight: 600;
+}
+
+.genesis-text strong a {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 .genesis-text code {
@@ -1352,161 +1102,6 @@ const improvementItems = [
   line-height: 1.5;
 }
 
-/* ── HTTP grid ── */
-.http-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.http-chip {
-  background: var(--bg);
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: background 0.2s;
-}
-.http-chip:hover { background: var(--bg-tint); }
-
-.http-chip__method {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 2px 7px;
-  border-radius: 2px;
-  display: inline-block;
-  align-self: flex-start;
-}
-
-.http-chip__method--get    { background: #e8f4eb; color: #2e7d52; }
-.http-chip__method--put    { background: #eaf1fb; color: #2563a8; }
-.http-chip__method--post   { background: #fef3e2; color: #b45309; }
-.http-chip__method--delete { background: #fdf0ef; color: #b52a2a; }
-
-.http-chip__name {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.http-chip__desc {
-  font-size: 12px;
-  color: var(--text-3);
-  line-height: 1.5;
-}
-
-/* ── Commands grid ── */
-.commands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.commands-group {
-  background: var(--bg);
-  padding: 20px 24px;
-}
-
-.commands-group__label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-
-.commands-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.commands-list li {
-  font-size: 13px;
-  color: var(--text-2);
-  line-height: 1.4;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.commands-list li::before {
-  content: '';
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--border-mid);
-  flex-shrink: 0;
-}
-
-/* ── Figures ── */
-.project-figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.project-figure__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  background: var(--bg-inset);
-  transition: border-color 0.2s;
-}
-.project-figure__img:hover {
-  border-color: var(--border-mid);
-}
-
-.project-figure figcaption {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-3);
-  letter-spacing: 0.03em;
-  line-height: 1.4;
-}
-
-.project-figure--large .project-figure__img {
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-}
-
-/* Image pair */
-.image-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 32px;
-}
-
-/* Final gallery */
-.final-gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
 /* ── Callouts ── */
 .callout {
   border-left: 2px solid var(--border-mid);
@@ -1515,7 +1110,7 @@ const improvementItems = [
   font-size: 14px;
   color: var(--text-2);
   line-height: 1.75;
-  text-align: justify;
+  text-align: left;
 }
 
 .callout--accent {
@@ -1606,7 +1201,7 @@ const improvementItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Improvement list ── */
@@ -1643,7 +1238,7 @@ const improvementItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Back footer ── */
@@ -1664,10 +1259,7 @@ const improvementItems = [
   .spotcli-hero__grid { grid-template-columns: 1fr; }
   .genesis-layout { grid-template-columns: 1fr; gap: 32px; }
   .two-col { grid-template-columns: 1fr; gap: 32px; }
-  .image-pair { grid-template-columns: 1fr; }
-  .final-gallery { grid-template-columns: 1fr; }
   .arch-tree__file { grid-template-columns: 1fr; gap: 4px; }
-  .commands-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 680px) {
@@ -1682,9 +1274,7 @@ const improvementItems = [
 
   .spotcli-hero__title { font-size: clamp(3rem, 12vw, 5rem); }
 
-  .http-grid { grid-template-columns: 1fr 1fr; }
   .learning-grid { grid-template-columns: 1fr; }
-  .commands-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -162,6 +162,20 @@
             </div>
           </div> 
                                                                   
+          <figure class="project-figure" style="margin-top: 32px;">
+            <img
+              src="@/assets/projects/sagittarius/sagittarius-stream.GIF"
+              alt="Streaming response rendering live in Sagittarius"
+              class="project-figure__img"
+              loading="lazy"
+            />
+            <figcaption>
+              <span aria-hidden="true">Fig. 01:</span>
+              <span v-if="$i18n.locale === 'fr'">La réponse qui s'affiche en direct, au fil de la génération</span>
+              <span v-else>The response rendering live as it streams in</span>
+            </figcaption>
+          </figure>
+
           <figure class="project-figure" style="margin-top: 32px; width: fit-content;">
             <img                                              
               src="@/assets/projects/sagittarius/sagittarius-code.png"
@@ -362,7 +376,6 @@ const highlights = [
   { key: 'model'     },
   { key: 'streaming' },
   { key: 'markdown'  },
-  { key: 'history'   },
   { key: 'theme'     },
 ]
 
@@ -637,7 +650,7 @@ const nextItems = [
   color: var(--text-2);
   margin: 0 0 40px;
   max-width: 720px;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Prose column (genesis) ── */
@@ -653,7 +666,7 @@ const nextItems = [
   line-height: 1.85;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Workspaces ── */
@@ -725,7 +738,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-3);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Highlights ── */
@@ -767,7 +780,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Architecture ── */
@@ -825,7 +838,7 @@ const nextItems = [
   color: var(--text-2);
   margin: 0;
   padding-left: calc(11px + 16px + 20px); /* align with title */
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Callout ── */
@@ -946,7 +959,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Project figure (for screenshots) ── */
@@ -1018,7 +1031,7 @@ const nextItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Source ── */

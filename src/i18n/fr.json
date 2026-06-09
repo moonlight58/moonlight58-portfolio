@@ -190,10 +190,6 @@
           "name": "Lire correctement le code et les notes",
           "desc": "Sans Markdown ni coloration syntaxique, l'assistant devient vite pénible à utiliser pour du code. J'ai donc traité le rendu comme une partie centrale de l'expérience."
         },
-        "history": {
-          "name": "Ne pas perdre le contexte",
-          "desc": "Je voulais pouvoir changer d'usage sans repartir de zéro. Chaque espace garde son propre fil, ce qui évite de mélanger les intentions."
-        },
         "theme": {
           "name": "Faire une interface que j'ai envie d'ouvrir",
           "desc": "Comme c'est un outil personnel, l'interface compte beaucoup. Je l'ai écrite en CSS pur pour garder la main sur les détails, sans ajouter une librairie UI complète."
@@ -243,7 +239,7 @@
         "title": "Difficultés et apprentissages",
         "streaming": {
           "domain": "Interface streaming",
-          "text": "Consommer une réponse HTTP en streaming et la refléter en temps réel dans le DOM demande une coordination précise — chaque fragment parsé et ajouté sans re-rendu complet, avec un défilement qui reste en bas sans parasiter l'utilisateur s'il remonte."
+          "text": "C'est la partie que j'ai le plus sous-estimée. Faire s'afficher une réponse HTTP en streaming en direct dans le DOM n'avait rien d'intuitif — la réponse arrive comme un flot de fragments JSON, et mes premières tentatives soit re-rendaient tout le message à chaque fragment (saccadé à l'œil), soit perdaient des fragments en route. Il a fallu plusieurs réécritures avant que le texte s'affiche correctement, avec un défilement qui reste en bas pendant la génération sans me bloquer quand je remonte pour relire."
         },
         "state": {
           "domain": "Conception de l'état",
