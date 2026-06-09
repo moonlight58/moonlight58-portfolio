@@ -1,26 +1,16 @@
 {
   "nav": {
-    "about": "ABOUT",
-    "work": "WORK",
-    "skills": "SKILLS",
-    "contact": "CONTACT"
+    "about": "About",
+    "work": "Work",
+    "skills": "Skills",
+    "contact": "Contact"
   },
   "home": {
     "skills": {
-      "tier": {
-        "expert": "EXPERT",
-        "proficient": "PROFICIENT",
-        "learning": "FAMILIAR"
-      },
-      "legendTitle": "// PROFICIENCY_SCALE",
       "frontend": "FRONTEND",
       "backend": "BACKEND",
       "devops": "DEVOPS",
-      "tools": "TOOLS & DATA",
-      "panel": {
-        "marker": "CATEGORY",
-        "info": "MODULES_LOADED"
-      }
+      "tools": "TOOLS & DATA"
     },
     "panel": {
       "roleTitle": "ROLE",
@@ -33,25 +23,20 @@
       "butNote": "* BUT = University Bachelor of Technology"
     },
     "body": {
-      "downloadCV": "DOWNLOAD_CV",
+      "downloadCV": "Download my CV",
       "internship": {
         "title": "INTERNSHIP",
-        "viewDetails": "VIEW_DETAILS"
+        "viewDetails": "View details"
       },
       "school": {
         "title": "EDUCATION"
       },
-      "student": "Full-stack developer, cybersecurity enthusiast and open-source lover",
+      "student": "Full-stack developer, curious and dedicated open-source lover",
       "description": "My objective is to create projects that are useful to everyone and for everyone",
-      "terminalHint": "Type 'cat why_this_portfolio.txt' to learn more about me and this website !",
-      "terminalHint2": "Or: 'help' to see available commands",
-      "terminalHint3": "NB: Type 'clear' to reset the terminal and see the hints again",
-      "terminalFooter": "This terminal is just for fun and is not a real terminal ! (click on the terminal to gain focus)",
-      "why": "why_this_portfolio",
       "projects": "My projects",
       "why_desc": "This website is developed as part of my Portfolio project during the three years of my Computer Science degree. It will be continuously updated to reflect my academic and personal projects.",
-      "viewProject": "VIEW_PROJECT",
-      "viewAllProjects": "VIEW_ALL_PROJECTS"
+      "viewProject": "View project",
+      "viewAllProjects": "View all projects"
     },
     "internship": {
       "ani": {
@@ -96,7 +81,7 @@
     "contact": {
       "title": "LET'S WORK TOGETHER !",
       "description": "Have a project? Contact me to discuss.",
-      "toggleButton": "OPEN_CONTACT_FORM",
+      "toggleButton": "Contact form",
       "form": {
         "name": "NAME",
         "namePlaceholder": "Your name",
@@ -195,10 +180,6 @@
           "name": "Read code and notes properly",
           "desc": "Without Markdown and syntax highlighting, the assistant becomes painful to use for code. I treated rendering as a core part of the experience."
         },
-        "history": {
-          "name": "Avoid losing context",
-          "desc": "I wanted to switch between uses without starting from scratch. Each workspace keeps its own thread, which keeps the intentions separated."
-        },
         "theme": {
           "name": "Build an interface I want to open",
           "desc": "Because this is a personal tool, the interface matters a lot. I wrote it in custom CSS to keep control over the details without adding a full UI library."
@@ -248,7 +229,7 @@
         "title": "Difficulties and learnings",
         "streaming": {
           "domain": "Streaming UI",
-          "text": "Consuming a streamed HTTP response and reflecting it live in the DOM requires careful coordination — each chunk parsed and appended without a full re-render, scroll behaviour that stays at the bottom during generation but doesn't hijack the user if they scroll up."
+          "text": "This is the part I underestimated the most. Getting a streamed HTTP response to render live in the DOM was far from intuitive — the reply arrives as a flood of JSON fragments, and my first attempts either re-rendered the whole message on every chunk (visibly janky) or dropped fragments along the way. It took several rewrites before the text appeared smoothly, with the scroll staying at the bottom during generation without trapping me there when I scrolled up to re-read."
         },
         "state": {
           "domain": "State design",
@@ -565,31 +546,31 @@
       "title": "My Projects",
       "subtitle": "Archived",
       "stats": {
-        "total": "REPOSITORIES",
-        "stars": "TOTAL STARS",
-        "status": "STATUS",
-        "loading": "LOADING",
-        "ready": "READY"
+        "total": "Repositories",
+        "stars": "Total stars",
+        "status": "Status",
+        "loading": "Loading repositories...",
+        "ready": "Ready to explore my projects!"
       },
       "actions": {
-        "refresh": "REFRESH_DATA",
-        "syncing": "SYNCING..."
+        "refresh": "Refresh data",
+        "syncing": "Syncing..."
       }
     },
     "section": {
-      "marker": "REPOSITORIES",
-      "loading": "FETCHING_PROJECTS",
-      "retry": "RETRY_CONNECTION",
-      "empty": "NO_REPOSITORIES_FOUND"
+      "marker": "Repositories",
+      "loading": "Loading repositories...",
+      "retry": "Error loading repositories. Click to retry.",
+      "empty": "No repositories found."
     },
     "filter": {
-      "byStatus": "FILTER_BY_STATUS",
-      "byTech": "FILTER_BY_TECH",
+      "byStatus": "Filter by status",
+      "byTech": "Filter by technology",
       "searchPlaceholder": "Search technologies...",
       "reset": "Reset filters"
     },
     "card": {
-      "viewRepo": "VIEW_ON_GITHUB"
+      "viewRepo": "View on GitHub"
     },
     "footer": {
       "synced": "Data synced from GitHub API"

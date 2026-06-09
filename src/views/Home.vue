@@ -657,7 +657,6 @@ const skillCategories = computed(() => [
 
 .subsection-title {
   font-family: var(--font-serif);
-  width: 100vh;
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--text);
@@ -683,10 +682,6 @@ const skillCategories = computed(() => [
   padding: 48px 0;
   border-bottom: 1px solid var(--border);
   transition: background 0.2s;
-}
-
-.project:first-child {
-  border-top: 1px solid var(--border);
 }
 
 .project__image-wrap {
@@ -820,9 +815,7 @@ const skillCategories = computed(() => [
   border-bottom: 1px solid var(--border);
   transition: background 0.2s;
 }
-.internship-card:first-child {
-  border-top: 1px solid var(--border);
-}
+
 .internship-card:hover {
   color: inherit;
 }
@@ -904,9 +897,6 @@ const skillCategories = computed(() => [
   gap: 32px;
   padding: 24px 0;
   border-bottom: 1px solid var(--border);
-}
-.education-item:first-child {
-  border-top: 1px solid var(--border);
 }
 
 .education-item__left {
