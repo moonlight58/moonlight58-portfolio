@@ -89,10 +89,6 @@
         "name": "Read code and notes properly",
         "desc": "Without Markdown and syntax highlighting, the assistant becomes painful to use for code. I treated rendering as a core part of the experience."
       },
-      "history": {
-        "name": "Avoid losing context",
-        "desc": "I wanted to switch between uses without starting from scratch. Each workspace keeps its own thread, which keeps the intentions separated."
-      },
       "theme": {
         "name": "Build an interface I want to open",
         "desc": "Because this is a personal tool, the interface matters a lot. I wrote it in custom CSS to keep control over the details without adding a full UI library."
@@ -142,7 +138,7 @@
       "title": "Difficulties and learnings",
       "streaming": {
         "domain": "Streaming UI",
-        "text": "Consuming a streamed HTTP response and reflecting it live in the DOM requires careful coordination — each chunk parsed and appended without a full re-render, scroll behaviour that stays at the bottom during generation but doesn't hijack the user if they scroll up."
+        "text": "This is the part I underestimated the most. Getting a streamed HTTP response to render live in the DOM was far from intuitive — the reply arrives as a flood of JSON fragments, and my first attempts either re-rendered the whole message on every chunk (visibly janky) or dropped fragments along the way. It took several rewrites before the text appeared smoothly, with the scroll staying at the bottom during generation without trapping me there when I scrolled up to re-read."
       },
       "state": {
         "domain": "State design",

@@ -376,13 +376,6 @@
               <p v-else>
                 The config lives in a <code>.keymap</code> file and a board definition file. I kept the layout simple: one main 30-key layer, with special characters reached through combos or hold layers. Fewer layers, less mental overhead.
               </p>
-
-              <p v-if="$i18n.locale === 'fr'">
-                La durée de vie de la batterie était aussi quelque chose que je voulais soigner. La plupart des claviers bluetooth gamer ont un rétroéclairage LED qui réduit l'autonomie de moitié, parfois plus si c'est du RGB. J'ai décidé de ne pas en mettre. Avec deux batteries de manette PS3 de 1800 mAh chacune, le clavier tient jusqu'à trois mois sans recharge.
-              </p>
-              <p v-else>
-                Battery life was something I also wanted to get right. Most Bluetooth gaming keyboards have LED backlighting that cuts autonomy in half, sometimes worse with RGB. I chose not to include any. With two PS3 controller batteries at 1800 mAh each, the keyboard lasts up to three months between charges.
-              </p>
             </div>
 
             <figure class="project-figure">
@@ -829,7 +822,7 @@ const improvementItems = [
   color: var(--text-2);
   margin: 0 0 40px;
   max-width: 720px;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Two-col ── */
@@ -851,7 +844,7 @@ const improvementItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 .text-block strong {
@@ -888,7 +881,7 @@ const improvementItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 .genesis-text strong {
@@ -1008,7 +1001,7 @@ const improvementItems = [
   font-size: 14px;
   color: var(--text-2);
   line-height: 1.75;
-  text-align: justify;
+  text-align: left;
 }
 
 .callout--accent {
@@ -1128,7 +1121,7 @@ const improvementItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 .improvement-grid {
@@ -1169,7 +1162,7 @@ const improvementItems = [
   line-height: 1.8;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ── Back footer ── */
@@ -1212,7 +1205,7 @@ const improvementItems = [
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ══════════════════════════════════════
