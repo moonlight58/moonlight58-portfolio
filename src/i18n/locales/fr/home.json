@@ -1,0 +1,86 @@
+{
+  "panel": {
+    "roleTitle": "RÔLE",
+    "role": "Étudiant en BUT* informatique",
+    "focusTitle": "ÉTUDES",
+    "focus": "3ème année de BUT* Informatique",
+    "statusTitle": "STATUT",
+    "status": "Stage à ANI & Low-Tech terminé (12 Jan - 30 Avr)",
+    "locationTitle": "LOCALISATION",
+    "butNote": "* BUT = Bachelor Universitaire de Technologie"
+  },
+  "body": {
+    "downloadCV": "Téléchargez mon CV",
+    "internship": {
+      "title": "STAGES",
+      "viewDetails": "Voir les détails"
+    },
+    "school": {
+      "title": "ÉTUDES"
+    },
+    "student": "Développeur full-stack, curieux et passionné de l'open-source",
+    "description": "Mon objectif est de réaliser des projets qui sont utiles à tous et pour tous",
+    "projects": "Mes projets",
+    "why_desc": "Ce site est développé dans le cadre de mon projet de Portfolio durant les trois années du BUT. Il sera continuellement mis à jour pour refléter mes projets académiques et personnels.",
+    "viewProject": "Voir le projet",
+    "viewAllProjects": "Voir tous les projets"
+  },
+  "internship": {
+    "ani": {
+      "badge": "EN COURS",
+      "mission": "Intégration dans le service ANI & Low-Tech, assistance technique au CROUS BFC et au développement d'une IA locale.",
+      "date": "Janvier 2026 - Avril 2026"
+    },
+    "euphron": {
+      "badge": "TERMINÉ",
+      "mission": "Réalisation d'une application de troc d'objets sportif pour étudiants en STAPS.",
+      "date": "Avril 2025 - Mai 2025"
+    }
+  },
+  "school": {
+    "univ": {
+      "name": "Université de Franche-Comté",
+      "location": "Besançon, France",
+      "description": "Obtention du diplôme universitaire de technologie (DUT) en informatique en 2025. Actuellement en troisième année de BUT Informatique.",
+      "status": "En cours"
+    },
+    "lycee": {
+      "name": "Lycée Polyvalent Edouard Belin",
+      "location": "Besançon, France",
+      "description": "Obtention du baccalauréat scientifique (STI2D) avec mention bien en 2023.",
+      "status": "Terminé"
+    }
+  },
+  "projects": {
+    "sagittarius": {
+      "description": "Un assistant privé, indépendant du modèle, pour le travail que vous effectuez chaque jour. Exécutez vos propres modèles. Maîtrisez votre contexte.",
+      "status": "En Développement"
+    },
+    "spotcli": {
+      "description": "Une interface en ligne de commande pour Spotify, permettant aux utilisateurs de contrôler leur musique et gérer leurs playlists directement depuis le terminal.",
+      "status": "Archivé"
+    },
+    "pluto": {
+      "description": "Un clavier mécanique split que j'ai conçu et fabriqué de zéro avec Ergogen, KiCAD, FreeCAD, ZMK et un boîtier en PETG imprimé en 3D.",
+      "status": "Terminé"
+    }
+  },
+  "contact": {
+    "title": "TRAVAILLONS ENSEMBLE !",
+    "description": "Vous avez un projet ? Contactez-moi pour en discuter.",
+    "toggleButton": "Ouvrir le formulaire de contact",
+    "form": {
+      "name": "NOM",
+      "namePlaceholder": "Votre nom",
+      "email": "EMAIL",
+      "emailPlaceholder": "Votre adresse email",
+      "message": "MESSAGE",
+      "messagePlaceholder": "Votre message...",
+      "submit": "Envoyer",
+      "submitting": "Envoi en cours...",
+      "preventSpam": "Pour éviter le spam, vous devrez attendre",
+      "success": "Message envoyé avec succès ! Je vous répondrai dès que possible.",
+      "error": "Erreur lors de l'envoi du message. Veuillez réessayer plus tard."
+    }
+  }
+}

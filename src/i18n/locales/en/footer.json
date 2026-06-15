@@ -1,0 +1,14 @@
+{
+  "description": "Full-stack developer & cybersecurity enthusiast",
+  "aboutLink": "About",
+  "contactLink": "Contact",
+  "projectsLink": "Projects",
+  "connectHeading": "Connect",
+  "github": "GitHub",
+  "instagram": "Instagram",
+  "email": "Email",
+  "copyright": "© 2026 Gaël Röthlin",
+  "allRightsReserved": "All rights reserved",
+  "backToTop": "Top",
+  "credit": "Designed & built with Vue.js"
+}

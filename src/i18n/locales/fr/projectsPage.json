@@ -1,0 +1,178 @@
+{
+  "pluto": {
+    "hero": {
+      "eyebrow": "Projet hardware personnel",
+      "statusLabel": "Statut",
+      "status": "Terminé",
+      "typeLabel": "Type",
+      "type": "Clavier mécanique split",
+      "keysLabel": "Touches",
+      "keys": "touches par moitié"
+    },
+    "improvement": {
+      "1": {
+        "title": "Amélioration de la stabilité du firmware",
+        "desc": "Après les premiers tests, j'ai identifié des problèmes de stabilité avec le firmware ZMK, notamment des plantages aléatoires. J'ai corrigé plusieurs bugs critiques dans le code source de ZMK, améliorant ainsi la fiabilité du clavier."
+      },
+      "2": {
+        "title": "Amélioration de la qualité du chassis du clavier",
+        "desc": "Le premier prototype imprimé en 3D présentait des problèmes de solidité et de finition. Ça m'a permit au moins d'itérer sur le design du boîtier, mais pour passer au niveau supérieur j'aimerais m'orienter vers une fabrication CNC ou un moulage pour obtenir une qualité de finition professionnelle et une durabilité accrue."
+      },
+      "3": {
+        "title": "Ajout de composants personnalisés",
+        "desc": "Pour améliorer l'ergonomie et la fonctionnalité du clavier, j'ajouterai des composants personnalisés comme un trackpad sur la moitié droite, des chargeurs à inductions pour éviter de les brancher plus souvent."
+      }
+    }
+  },
+  "spotcli": {
+    "hero": {
+      "eyebrow": "Projet logiciel personnel",
+      "statusLabel": "Statut",
+      "status": "Archivé (plus maintenu)",
+      "typeLabel": "Type"
+    }
+  },
+  "sagittarius": {
+    "hero": {
+      "eyebrow": "Projet logiciel personnel",
+      "subtitle": "Un assistant IA local que j'ai construit pour garder mes outils et mes conversations sur ma machine.",
+      "statusLabel": "Statut",
+      "status": "En développement",
+      "typeLabel": "Type",
+      "type": "Application web · Assistant IA",
+      "stackLabel": "Stack",
+      "previewLabel": "Démo en ligne",
+      "preview": "sagittarius.grothlin.fr"
+    },
+    "genesis": {
+      "title": "Genèse",
+      "p1": "J'utilise souvent les assistants IA, surtout pour comprendre du code ou débloquer une idée. Mais je n'aimais pas dépendre d'un abonnement, d'un service distant et d'une politique de données que je ne maîtrise pas vraiment.",
+      "p2": "Sagittarius est parti de ce besoin très simple : avoir un assistant que je peux lancer chez moi, avec les modèles que je choisis, sans envoyer mes conversations ailleurs. Je ne voulais pas faire une vitrine d'IA, je voulais un outil assez propre pour m'en servir réellement.",
+      "p3": "Le projet est donc resté volontairement personnel. Chaque choix vient d'un usage concret : réduire la friction, garder le contrôle, et éviter d'ajouter de la complexité juste pour donner l'impression que le projet est plus gros."
+    },
+    "workspaces": {
+      "title": "L'expérience que j'ai construite",
+      "intro": "J'ai organisé l'application autour d'espaces de travail, parce que je ne voulais pas mélanger une question de code, un brouillon de mail et une conversation plus générale dans le même fil. Chaque espace garde son contexte et son historique.",
+      "code": {
+        "name": "Code",
+        "desc": "L'espace que j'utilise pour expliquer un morceau de code, chercher une erreur ou poser une question technique sans perdre le fil du projet en cours."
+      },
+      "mail": {
+        "name": "Mail",
+        "desc": "Un espace dédié aux formulations plus propres : reformuler un message, garder un ton professionnel, ou préparer une réponse sans mélanger ça avec le reste."
+      },
+      "calendar": {
+        "name": "Calendrier",
+        "desc": "Un espace pensé pour la planification et les rappels. L'idée est de pouvoir raisonner sur mon agenda local sans passer par un service externe."
+      },
+      "notes": {
+        "name": "Notes",
+        "desc": "Un espace encore en développement pour capturer des idées, préparer des listes et retrouver plus facilement des notes prises rapidement.",
+        "badge": "en developpement"
+      }
+    },
+    "highlights": {
+      "title": "Ce que je voulais vraiment",
+      "privacy": {
+        "name": "Garder les données chez moi",
+        "desc": "Le point de départ était non négociable : les conversations devaient rester sur ma machine. Ollama me permet de faire tourner le modèle localement, sans serveur applicatif entre les deux."
+      },
+      "model": {
+        "name": "Choisir le modèle selon le besoin",
+        "desc": "Je voulais pouvoir tester Mistral, LLaMA, Gemma ou d'autres modèles sans reconstruire l'application. Le modèle devient un réglage, pas une dépendance figée."
+      },
+      "streaming": {
+        "name": "Avoir une réponse qui arrive tout de suite",
+        "desc": "Même en local, attendre une réponse complète donne vite une impression de lenteur. Le streaming rend l'outil plus agréable, parce qu'on voit la réponse se construire."
+      },
+      "markdown": {
+        "name": "Lire correctement le code et les notes",
+        "desc": "Sans Markdown ni coloration syntaxique, l'assistant devient vite pénible à utiliser pour du code. J'ai donc traité le rendu comme une partie centrale de l'expérience."
+      },
+      "history": {
+        "name": "Ne pas perdre le contexte",
+        "desc": "Je voulais pouvoir changer d'usage sans repartir de zéro. Chaque espace garde son propre fil, ce qui évite de mélanger les intentions."
+      },
+      "theme": {
+        "name": "Faire une interface que j'ai envie d'ouvrir",
+        "desc": "Comme c'est un outil personnel, l'interface compte beaucoup. Je l'ai écrite en CSS pur pour garder la main sur les détails, sans ajouter une librairie UI complète."
+      }
+    },
+    "architecture": {
+      "title": "Le fonctionnement local",
+      "intro": "Sagittarius est un frontend Vue 3 qui communique directement avec une instance Ollama locale. J'ai gardé cette architecture simple parce que le projet n'avait pas besoin d'un backend supplémentaire.",
+      "frontend": {
+        "title": "Frontend",
+        "desc": "L'application est construite avec Vue 3, la Composition API et script setup. L'état reste local aux composants quand c'est possible : chaque espace possède ses messages et son contexte, sans imposer une librairie d'état globale."
+      },
+      "ollama": {
+        "title": "Intégration Ollama",
+        "desc": "Ollama expose une API HTTP locale. Sagittarius envoie l'historique de la conversation à /api/chat, puis lit la réponse en streaming pour afficher le texte au fur et à mesure."
+      },
+      "streaming": {
+        "title": "Implémentation du streaming",
+        "desc": "La réponse arrive sous forme de fragments JSON séparés par des retours à la ligne. Chaque fragment est parsé, ajouté au message courant, puis reflété dans l'interface sans attendre la fin complète de la génération."
+      },
+      "note": "J'aurais pu ajouter un backend pour rendre l'architecture plus classique, mais il aurait surtout ajouté de la latence, du déploiement et de la maintenance. Pour ce projet, le serveur important est déjà là : c'est Ollama, sur la machine."
+    },
+    "stack": {
+      "title": "Choix d'interface et de stack",
+      "vue": {
+        "name": "Vue 3",
+        "desc": "Composition API, script setup, état réactif"
+      },
+      "css": {
+        "name": "CSS pur",
+        "desc": "Styles écrits à la main pour garder une interface légère et maîtrisée"
+      },
+      "ollama": {
+        "name": "Ollama",
+        "desc": "Moteur de modèles local, API HTTP en streaming"
+      },
+      "markdown": {
+        "name": "Markdown-it",
+        "desc": "Rendu Markdown et blocs de code"
+      },
+      "router": {
+        "name": "Vue Router",
+        "desc": "Navigation entre espaces, mode history"
+      }
+    },
+    "learning": {
+      "title": "Difficultés et apprentissages",
+      "streaming": {
+        "domain": "Interface streaming",
+        "text": "Consommer une réponse HTTP en streaming et la refléter en temps réel dans le DOM demande une coordination précise — chaque fragment parsé et ajouté sans re-rendu complet, avec un défilement qui reste en bas sans parasiter l'utilisateur s'il remonte."
+      },
+      "state": {
+        "domain": "Conception de l'état",
+        "text": "Gérer plusieurs fils de conversation indépendants sans librairie d'état globale m'a poussé à réfléchir à la responsabilité des composants. Chaque espace possède son historique en ref local, conservé entre les navigations."
+      },
+      "product": {
+        "domain": "Design d'un outil quotidien",
+        "text": "Le plus dur n'était pas seulement de faire fonctionner l'IA en local, mais de réduire les petites frictions qui donnent envie d'abandonner un outil après deux jours. Un projet personnel est impitoyable : si quelque chose gêne, je le ressens à chaque utilisation."
+      },
+      "css": {
+        "domain": "Architecture CSS",
+        "text": "Concevoir un système de tokens dès le départ (espacement, échelle typographique, variables couleur) a rendu chaque nouvel espace de travail bien plus rapide à construire sans dériver du style global."
+      }
+    },
+    "status": {
+      "title": "Où en est le projet",
+      "current": "Sagittarius est utilisable dans son état actuel, surtout pour le code, la rédaction et les échanges généraux. Il reste en évolution : certaines idées sont déjà intégrées, d'autres sont encore au stade de piste ou de prototype.",
+      "next1": {
+        "title": "Espace de travail Calendrier",
+        "desc": "Le prochain espace planifié. Permettra l'intégration avec des données de calendrier locales pour la planification, les rappels et la gestion d'événements en langage naturel."
+      },
+      "next2": {
+        "title": "Support des pièces jointes",
+        "desc": "Possibilité de déposer un fichier dans la conversation et de faire raisonner le modèle sur son contenu — utile pour la revue de code, la synthèse de documents et l'analyse de données."
+      },
+      "next3": {
+        "title": "Prompt système par espace",
+        "desc": "Chaque espace de travail porterait un prompt système personnalisable, rendant le comportement de l'assistant plus ciblé sans que l'utilisateur ait à répéter ses instructions."
+      },
+      "reflection": "Ce projet a changé ma façon de penser les outils que je construis pour moi-même. Le seuil d'exigence pour un logiciel à usage quotidien est bien plus élevé que pour une démo. Chaque aspérité devient une friction que l'on ressent chaque jour."
+    }
+  }
+}
