@@ -1,13 +1,10 @@
 {
-  "description": "Développeur full-stack & intrigué en cybersécurité",
-  "aboutLink": "À Propos",
-  "contactLink": "Contact",
-  "projectsLink": "Projets",
-  "connectHeading": "Connecter",
+  "description": "Développeur full-stack & passionné d'open-source",
+  "projectsLink": "Tous mes projets",
+  "connectHeading": "Social",
   "github": "GitHub",
   "instagram": "Instagram",
   "email": "E-mail",
-  "copyright": "© 2026 Gaël Röthlin",
   "allRightsReserved": "Tous droits réservés",
   "backToTop": "Haut",
   "credit": "Conçu & développé avec Vue.js"
