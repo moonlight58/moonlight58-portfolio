@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title": "My Projects",
+    "subtitle": "Archived",
+    "stats": {
+      "total": "Repositories",
+      "stars": "Total stars",
+      "status": "Status",
+      "loading": "Loading repositories...",
+      "ready": "Ready to explore my projects!"
+    },
+    "actions": {
+      "refresh": "Refresh data",
+      "syncing": "Syncing..."
+    }
+  },
+  "section": {
+    "marker": "Repositories",
+    "loading": "Loading repositories...",
+    "retry": "Error loading repositories. Click to retry.",
+    "empty": "No repositories found."
+  },
+  "filter": {
+    "byStatus": "Filter by status",
+    "byTech": "Filter by technology",
+    "searchPlaceholder": "Search technologies...",
+    "reset": "Reset filters"
+  },
+  "card": {
+    "viewRepo": "View on GitHub"
+  },
+  "footer": {
+    "synced": "Data synced from GitHub API"
+  }
+}

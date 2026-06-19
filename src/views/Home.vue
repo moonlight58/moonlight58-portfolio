@@ -10,8 +10,8 @@
           <div class="hero__actions">
             <a href="#work" class="btn btn--primary">{{ $t('nav.work') }}</a>
             <a
-              href="/cv.pdf"
-              download="Gael_Rothlin_CV.pdf"
+              :href="cvFile"
+              :download="cvDownloadName"
               class="btn btn--ghost"
               aria-label="Download CV as PDF"
               >{{ $t('home.body.downloadCV') }}
@@ -271,7 +271,12 @@ import { useI18n } from 'vue-i18n'
 import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
 import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+// ── CV download ─────────────────────────────────────────────────────────────
+// Serve the CV in the portfolio's current language at download time.
+const cvFile = computed(() => `/Gael_ROTHLIN_CV_${locale.value.toUpperCase()}.pdf`)
+const cvDownloadName = computed(() => `Gael_Rothlin_CV_${locale.value.toUpperCase()}.pdf`)
 
 // ── Contact form ───────────────────────────────────────────────────────────
 const showForm = ref(false)

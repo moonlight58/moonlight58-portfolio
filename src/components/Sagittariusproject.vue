@@ -922,9 +922,8 @@ const nextItems = [
 
 /* ── Learning ── */
 .learning-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  columns: 280px 2;
+  column-gap: 20px;
 }
 
 .learning-card {
@@ -935,6 +934,8 @@ const nextItems = [
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 20px;
+  break-inside: avoid;
   transition: border-color 0.2s, background 0.2s;
 }
 
@@ -1118,7 +1119,7 @@ const nextItems = [
 
   .workspace-grid { grid-template-columns: 1fr; }
   .highlights-grid { grid-template-columns: 1fr; }
-  .learning-grid { grid-template-columns: 1fr; }
+  .learning-grid { columns: 1; }
 
   .stack-table__header,
   .stack-row {

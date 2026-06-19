@@ -1,0 +1,92 @@
+{
+  "skills": {
+    "frontend": "FRONTEND",
+    "backend": "BACKEND",
+    "devops": "DEVOPS",
+    "tools": "TOOLS & DATA"
+  },
+  "panel": {
+    "roleTitle": "ROLE",
+    "role": "French Computer Science student",
+    "focusTitle": "FOCUS",
+    "focus": "3rd year of BUT* in Computer Science",
+    "statusTitle": "STATUS",
+    "status": "Internship at ANI & Low-Tech finished (12 Jan - 30 Apr)",
+    "locationTitle": "LOCATION",
+    "butNote": "* BUT = University Bachelor of Technology"
+  },
+  "body": {
+    "downloadCV": "Download my CV",
+    "internship": {
+      "title": "INTERNSHIP",
+      "viewDetails": "View details"
+    },
+    "school": {
+      "title": "EDUCATION"
+    },
+    "student": "Full-stack developer, curious and dedicated open-source lover",
+    "description": "My objective is to create projects that are useful to everyone and for everyone",
+    "projects": "My projects",
+    "why_desc": "This website is developed as part of my Portfolio project during the three years of my Computer Science degree. It will be continuously updated to reflect my academic and personal projects.",
+    "viewProject": "View project",
+    "viewAllProjects": "View all projects"
+  },
+  "internship": {
+    "ani": {
+      "badge": "ONGOING",
+      "mission": "Integration in the ANI & Low-Tech service, technical assistance at CROUS BFC and development of a local AI.",
+      "date": "January 2026 - April 2026"
+    },
+    "euphron": {
+      "badge": "COMPLETED",
+      "mission": "Development of a sports equipment exchange application for STAPS students.",
+      "date": "April 2025 - May 2025"
+    }
+  },
+  "school": {
+    "univ": {
+      "name": "Université de Franche-Comté",
+      "location": "Besançon, France",
+      "description": "Currently in the 3rd year of a Computer Science degree (BUT Informatique), with a focus on software development and digital innovation.",
+      "status": "Ongoing"
+    },
+    "lycee": {
+      "name": "Lycée Polyvalent Edouard Belin",
+      "location": "Besançon, France",
+      "description": "Obtained the scientific baccalaureate (STI2D) with a mention of 'Bien' in 2023.",
+      "status": "Completed"
+    }
+  },
+  "projects": {
+    "sagittarius": {
+      "description": "A private, model-agnostic assistant for the work you do evert day. Run your own models. Own your context.",
+      "status": "In Development"
+    },
+    "spotcli": {
+      "description": "A command-line interface for Spotify, allowing users to control their music and manage playlists directly from the terminal.",
+      "status": "Archived"
+    },
+    "pluto": {
+      "description": "A custom split mechanical keyboard I designed and built from scratch with Ergogen, KiCAD, FreeCAD, ZMK, and a 3D-printed PETG case.",
+      "status": "Completed"
+    }
+  },
+  "contact": {
+    "title": "LET'S WORK TOGETHER !",
+    "description": "Have a project? Contact me to discuss.",
+    "toggleButton": "Contact form",
+    "form": {
+      "name": "NAME",
+      "namePlaceholder": "Your name",
+      "email": "EMAIL",
+      "emailPlaceholder": "Your email address",
+      "message": "MESSAGE",
+      "messagePlaceholder": "Your message...",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "preventSpam": "To prevent spam, you'll need to wait",
+      "success": "Message sent successfully! I'll get back to you as soon as possible.",
+      "error": "An error occurred while sending your message. Please try again later."
+    }
+  }
+}
