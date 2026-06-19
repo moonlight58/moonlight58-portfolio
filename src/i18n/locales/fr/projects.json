@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title": "Mes Projets",
+    "subtitle": "Archivés",
+    "stats": {
+      "total": "Dépôts",
+      "stars": "Étoiles",
+      "status": "Statut",
+      "loading": "Chargement...",
+      "ready": "Prêt"
+    },
+    "actions": {
+      "refresh": "Rafraîchir",
+      "syncing": "Synchronisation..."
+    }
+  },
+  "section": {
+    "marker": "Dépôts GitHub",
+    "loading": "Récupération des projets...",
+    "retry": "Réessayer",
+    "empty": "Aucun projet trouvé. Essayez de réinitialiser les filtres."
+  },
+  "filter": {
+    "byStatus": "Filtrer par statut",
+    "byTech": "Filtrer par technologie",
+    "searchPlaceholder": "Chercher une technologie...",
+    "reset": "Réinitialiser les filtres"
+  },
+  "card": {
+    "viewRepo": "Voir sur GitHub"
+  },
+  "footer": {
+    "synced": "Données synchronisées depuis l'API GitHub"
+  }
+}
