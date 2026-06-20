@@ -671,13 +671,13 @@ const improvementItems = [
 
 /* Archive notice */
 .hero-archive-notice {
-  border-left: 2px solid #b45309;
-  background: #fef3e2;
+  border-left: 2px solid var(--warning);
+  background: var(--warning-bg);
   border-radius: 0 4px 4px 0;
   padding: 14px 18px;
   margin: 0;
   font-size: 13px;
-  color: #7c3d0e;
+  color: var(--warning-text);
   line-height: 1.65;
 }
 
@@ -688,7 +688,7 @@ const improvementItems = [
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #b45309;
+  color: var(--warning);
   margin-bottom: 6px;
 }
 
@@ -742,15 +742,15 @@ const improvementItems = [
 }
 
 .status-badge--archived {
-  background: #fef3e2;
-  color: #7c3d0e;
+  background: var(--warning-bg);
+  color: var(--warning-text);
 }
 .status-badge--archived::before {
   content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #b45309;
+  background: var(--warning);
 }
 
 .meta-stack {
@@ -1120,24 +1120,24 @@ const improvementItems = [
 }
 
 .callout--success {
-  border-left-color: #2e7d52;
-  background: #edf7f0;
+  border-left-color: var(--success);
+  background: var(--success-bg);
   border-radius: 0 4px 4px 0;
-  color: #1a4d32;
+  color: var(--success-text);
 }
 
 .callout--warning {
-  border-left-color: #b45309;
-  background: #fef3e2;
+  border-left-color: var(--warning);
+  background: var(--warning-bg);
   border-radius: 0 4px 4px 0;
-  color: #7c3d0e;
+  color: var(--warning-text);
 }
 
 .callout--info {
-  border-left-color: #2563a8;
-  background: #eaf1fb;
+  border-left-color: var(--info);
+  background: var(--info-bg);
   border-radius: 0 4px 4px 0;
-  color: #1a3a5c;
+  color: var(--info-text);
 }
 
 .callout__label {
@@ -1151,14 +1151,14 @@ const improvementItems = [
 }
 
 .callout--accent .callout__label { color: var(--accent); }
-.callout--success .callout__label { color: #2e7d52; }
-.callout--warning .callout__label { color: #b45309; }
-.callout--info .callout__label { color: #2563a8; }
+.callout--success .callout__label { color: var(--success); }
+.callout--warning .callout__label { color: var(--warning); }
+.callout--info .callout__label { color: var(--info); }
 
 .callout code {
   font-family: var(--font-mono);
   font-size: 0.85em;
-  background: rgba(0,0,0,0.06);
+  background: var(--code-bg);
   padding: 1px 5px;
   border-radius: 2px;
 }

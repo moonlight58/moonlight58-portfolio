@@ -37,9 +37,7 @@
             rel="noopener noreferrer"
             class="footer__link"
           >{{ $t('footer.instagram') }} ↗</a>
-          <a href="mailto:gael.rothlin@edu.univ-fcomte.fr" class="footer__link">{{
-            $t('footer.email')
-          }}</a>
+          <a :href="mailto" class="footer__link">{{ $t('footer.email') }}</a>
         </div>
       </div>
 
@@ -57,6 +55,8 @@
 </template>
 
 <script setup>
+import { mailto } from '@/utils/contact'
+
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }

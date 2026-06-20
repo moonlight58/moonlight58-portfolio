@@ -524,15 +524,15 @@ const nextItems = [
 }
 
 .status-badge--active {
-  background: #fdf3e3;
-  color: #92580a;
+  background: var(--warning-bg);
+  color: var(--warning);
 }
 .status-badge--active::before {
   content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #92580a;
+  background: var(--warning);
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 

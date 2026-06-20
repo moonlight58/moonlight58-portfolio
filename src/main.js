@@ -3,6 +3,7 @@ import { createApp, watch } from 'vue'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
+import { initSystemThemeSync } from './composables/useTheme'
 
 const app = createApp(App)
 
@@ -16,5 +17,8 @@ const applyHtmlLang = (locale) => {
 }
 applyHtmlLang(i18n.global.locale.value)
 watch(i18n.global.locale, applyHtmlLang)
+
+// Follow OS theme changes when the user hasn't set an explicit preference.
+initSystemThemeSync()
 
 app.mount('#app')
