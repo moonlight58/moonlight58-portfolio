@@ -40,6 +40,10 @@ const closeMobileMenu = () => {
       <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__link">
         {{ $t('nav.contact') }}
       </RouterLink>
+      <RouterLink to="/notes" class="nav__link">
+        {{ $t('nav.notes') }}
+      </RouterLink>
+
     </nav>
 
     <div class="nav__right">
@@ -82,6 +86,10 @@ const closeMobileMenu = () => {
       <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__mobile-link" @click="closeMobileMenu">
         {{ $t('nav.contact') }}
       </RouterLink>
+      <RouterLink to="/notes" class="nav__mobile-link" @click="closeMobileMenu">
+        {{ $t('nav.notes') }}
+      </RouterLink>
+
     </nav>
   </header>
 </template>

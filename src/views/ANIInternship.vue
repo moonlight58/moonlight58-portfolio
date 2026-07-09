@@ -276,6 +276,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -287,7 +289,18 @@
 </template>
 
 <script setup>
-// Purely presentational — all content via i18n
+import { computed } from 'vue' 
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue'
+import { getPrevNext } from '@/data/projectOrder.js'
+
+useHead({
+  title: 'Innov Crous (ANI) · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Stage de 3ème année de BUT Informatique.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('ani')
 </script>
 
 <style scoped>

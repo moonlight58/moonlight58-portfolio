@@ -194,6 +194,7 @@
                   type="text"
                   id="name"
                   name="name"
+                  ref="nameInputRef"
                   v-model="formData.name"
                   :placeholder="$t('home.contact.form.namePlaceholder')"
                   required
@@ -264,11 +265,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
 import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
 import { email, mailto } from '@/utils/contact'
+import { ref, computed, onBeforeUnmount, nextTick, watch } from 'vue'
+
 
 const { t, locale } = useI18n()
 
@@ -279,6 +281,15 @@ const cvDownloadName = computed(() => `Gael_Rothlin_CV_${locale.value.toUpperCas
 
 // ── Contact form ───────────────────────────────────────────────────────────
 const showForm = ref(false)
+const nameInputRef = ref(null)
+
+watch(showForm, async (open) => {
+  if (open) {
+    await nextTick()
+    nameInputRef.value?.focus()
+  }
+})
+
 const formData = ref({ name: '', email: '', message: '' })
 const isSubmitting = ref(false)
 const statusMessage = ref('')

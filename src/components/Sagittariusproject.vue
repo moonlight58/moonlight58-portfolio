@@ -351,6 +351,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -362,6 +364,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue' 
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue'
+import { getPrevNext } from '@/data/projectOrder.js'  
+
 const tools = ['Vue 3', 'Ollama', 'CSS', 'Vue Router']
 
 const workspaces = [
@@ -405,6 +412,14 @@ const nextItems = [
   { key: 'next2' },
   { key: 'next3' },
 ]
+
+useHead({
+  title: 'Sagittarius · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Un projet de démonstration en ligne pour l\'interface Sagittarius.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('sagittarius')
 </script>
 
 <style scoped>

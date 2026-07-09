@@ -465,6 +465,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -476,6 +478,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue' 
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue' 
+import { getPrevNext } from '@/data/projectOrder.js'  
+
 const tools = ['C', 'libcurl', 'json-c', 'Make', 'OAuth 2.0', 'POSIX']
 
 const archGroups = [
@@ -599,6 +606,14 @@ const improvementItems = [
     descEn: 'The HTTP + OAuth + parsers architecture is platform-agnostic. Tidal, Deezer, or Bandcamp could be alternative targets.',
   },
 ]
+
+useHead({
+  title: 'SpotCLI · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Un projet de client CLI pour Spotify.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('spotcli')
 </script>
 
 <style scoped>

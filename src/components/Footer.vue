@@ -21,6 +21,9 @@
           <RouterLink to="/projects" class="footer__link">{{
             $t('footer.projectsLink')
           }}</RouterLink>
+          <RouterLink to="/notes" class="footer__link">
+            {{ $t('nav.notes') }}
+          </RouterLink>
         </nav>
 
         <div class="footer__col">

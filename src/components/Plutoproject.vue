@@ -518,6 +518,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -529,6 +531,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue'
+import { getPrevNext } from '@/data/projectOrder.js'
+
 const tools = ['Ergogen', 'KiCAD', 'FreeCAD', 'ZMK', 'PETG']
 
 const firmwareItems = [
@@ -582,6 +589,14 @@ const improvementItems = [
   { id: '2' },
   { id: '3' },
 ]
+
+useHead({
+  title: 'Pluto · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Un projet de clavier mécanique DIY.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('pluto')
 </script>
 
 <style scoped>
