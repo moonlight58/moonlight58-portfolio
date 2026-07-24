@@ -250,7 +250,7 @@ const load = async (force = false) => {
     rawProjects.value = await getPublicProjectsWithDescription(force)
     parseProjects()
   } catch {
-    error.value = 'Could not fetch repositories. Please retry.'
+    error.value = t('projects.section.empty')
   } finally {
     loading.value = false
   }

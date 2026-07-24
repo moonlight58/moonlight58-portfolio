@@ -1,4 +1,10 @@
 {
+  "skills": {
+    "frontend": "FRONTEND",
+    "backend": "BACKEND",
+    "devops": "DEVOPS",
+    "tools": "OUTILS & DONNÉES"
+  },
   "panel": {
     "roleTitle": "RÔLE",
     "role": "Étudiant en BUT* informatique",
