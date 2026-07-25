@@ -35,7 +35,7 @@
         <span class="hero__meta-sep" aria-hidden="true">—</span>
         <span>{{ $t('home.panel.focus') }}</span>
         <span class="hero__meta-sep" aria-hidden="true">—</span>
-        <span class="hero__status">
+        <span class="hero__status" v-if="current_stage">
           <span class="hero__status-dot" aria-hidden="true"></span>
           {{ $t('home.panel.status') }}
         </span>
@@ -282,6 +282,7 @@ const cvDownloadName = computed(() => `Gael_Rothlin_CV_${locale.value.toUpperCas
 // ── Contact form ───────────────────────────────────────────────────────────
 const showForm = ref(false)
 const nameInputRef = ref(null)
+const current_stage = ref(false)
 
 watch(showForm, async (open) => {
   if (open) {

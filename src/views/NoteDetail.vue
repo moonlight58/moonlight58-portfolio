@@ -3,7 +3,7 @@
     <template v-if="note">
       <header class="note-hero">
         <div class="note-hero__inner">
-          <RouterLink to="/notes" class="back-link">← {{ $t('notes.backToNotes') }}</RouterLink>
+          <RouterLink to="/notes" class="back-link">{{ $t('notes.backToNotes') }}</RouterLink>
           <span class="note-hero__date">{{ formatDate(note.date) }}</span>
           <h1 class="note-hero__title">{{ localized(note.title) }}</h1>
           <ul class="note-hero__tags" aria-label="Tags">
