@@ -6,13 +6,9 @@
     "tools": "TOOLS & DATA"
   },
   "panel": {
-    "roleTitle": "ROLE",
-    "role": "French Computer Science student",
-    "focusTitle": "FOCUS",
-    "focus": "3rd year of BUT* in Computer Science",
-    "statusTitle": "STATUS",
+    "role": "French master's student in the Internet of Things",
+    "focus": "Graduated from a BUT* in Computer Science",
     "status": "Internship at ANI & Low-Tech finished (12 Jan - 30 Apr)",
-    "locationTitle": "LOCATION",
     "butNote": "* BUT = University Bachelor of Technology"
   },
   "body": {

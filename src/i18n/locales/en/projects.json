@@ -26,6 +26,12 @@
     "searchPlaceholder": "Search technologies...",
     "reset": "Reset filters"
   },
+  "sort": {
+    "label": "Sort by",
+    "recent": "Most recent",
+    "stars": "Most stars",
+    "name": "Name (A→Z)"
+  },
   "card": {
     "viewRepo": "View on GitHub"
   },

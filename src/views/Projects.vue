@@ -62,6 +62,15 @@
             >{{ $t('projects.filter.reset') }}</button>
           </div>
 
+          <div class="toolbar__sort">
+            <label for="sort-select" class="toolbar__sort-label">{{ $t('projects.sort.label') }}</label>
+            <select id="sort-select" v-model="sortBy" class="sort-select">
+              <option value="recent">{{ $t('projects.sort.recent') }}</option>
+              <option value="stars">{{ $t('projects.sort.stars') }}</option>
+              <option value="name">{{ $t('projects.sort.name') }}</option>
+            </select>
+          </div>
+
           <p v-if="hasActiveFilters && !loading" class="toolbar__count">
             {{ filteredProjects.length }} / {{ projects.length }}
           </p>
@@ -86,14 +95,14 @@
         </div>
 
         <!-- EMPTY -->
-        <div v-else-if="filteredProjects.length === 0" class="state-empty">
+        <div v-else-if="sortedProjects.length === 0" class="state-empty">
           <p class="state-empty__msg">{{ $t('projects.section.empty') }}</p>
         </div>
 
         <!-- REPO LIST -->
         <ol v-else class="repo-list" aria-label="GitHub repositories">
           <li
-            v-for="(project, i) in filteredProjects"
+            v-for="(project, i) in sortedProjects"
             :key="project.id"
             class="repo-row"
           >
@@ -144,8 +153,9 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import { getPublicProjectsWithDescription, clearProjectsCache } from '@/services/githubService.js'
 import { useI18n } from 'vue-i18n'
+import { useHead } from '@unhead/vue'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const rawProjects      = ref([])
 const projects         = ref([])
@@ -153,6 +163,7 @@ const loading          = ref(false)
 const error            = ref(null)
 const techSearch       = ref('')
 const selectedStatuses = ref([])
+const sortBy           = ref('recent') // 'recent' | 'stars' | 'name'
 
 const totalStars = computed(() =>
   projects.value.reduce((s, p) => s + (p.stars || 0), 0)
@@ -179,6 +190,19 @@ const filteredProjects = computed(() =>
     return true
   })
 )
+
+const sortedProjects = computed(() => {
+  const list = [...filteredProjects.value]
+  switch (sortBy.value) {
+    case 'stars':
+      return list.sort((a, b) => (b.stars || 0) - (a.stars || 0))
+    case 'name':
+      return list.sort((a, b) => a.name.localeCompare(b.name))
+    case 'recent':
+    default:
+      return list.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+  }
+})
 
 const toggleStatus = (s) => {
   const i = selectedStatuses.value.indexOf(s)
@@ -226,7 +250,7 @@ const load = async (force = false) => {
     rawProjects.value = await getPublicProjectsWithDescription(force)
     parseProjects()
   } catch {
-    error.value = 'Could not fetch repositories. Please retry.'
+    error.value = t('projects.section.empty')
   } finally {
     loading.value = false
   }
@@ -244,6 +268,11 @@ const refresh = () => {
 }
 
 onMounted(() => load())
+
+useHead({
+  title: computed(() => `${t('projects.hero.title')} · Gaël Röthlin`),
+  meta: [{ name: 'description', content: computed(() => t('projects.footer.synced')) }],
+})
 </script>
 
 <style scoped>
@@ -432,6 +461,37 @@ onMounted(() => load())
   color: var(--accent);
 }
 .filter-chip--reset:hover { text-decoration: underline; }
+
+.toolbar__sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar__sort-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.sort-select {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-2);
+  background: var(--bg-tint);
+  border: 1px solid var(--border-mid);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.sort-select:hover,
+.sort-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
 
 .toolbar__count {
   font-family: var(--font-mono);
@@ -648,47 +708,6 @@ onMounted(() => load())
 }
 
 /* ─────────────────────────────────────────
-   FOOTER
-───────────────────────────────────────── */
-.footer {
-  padding: 32px 40px;
-  border-top: 1px solid var(--border);
-  background: var(--bg);
-}
-
-.footer__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.footer__copy,
-.footer__credit {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-3);
-  letter-spacing: 0.04em;
-}
-
-.footer__nav {
-  display: flex;
-  gap: 24px;
-}
-
-.footer__link {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-3);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer__link:hover { color: var(--text); }
-
-/* ─────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -702,10 +721,11 @@ onMounted(() => load())
 @media (max-width: 680px) {
   .page-header  { padding: 80px 20px 48px; }
   .projects-section { padding: 40px 20px 60px; }
-  .footer { padding: 24px 20px; }
 
   .page-header__meta { gap: 24px; }
   .refresh-btn { margin-left: 0; }
+
+  .toolbar__sort { width: 100%; justify-content: space-between; }
 
   /* Stack name + desc, hide desc on mobile */
   .repo-row__link {
@@ -715,9 +735,6 @@ onMounted(() => load())
   }
   .repo-row__desc { display: none; }
   .repo-row__right { display: none; }
-
-  .footer__inner { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .footer__nav   { flex-wrap: wrap; gap: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

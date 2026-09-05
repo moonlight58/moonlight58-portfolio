@@ -26,6 +26,12 @@
     "searchPlaceholder": "Chercher une technologie...",
     "reset": "Réinitialiser les filtres"
   },
+  "sort": {
+    "label": "Trier par",
+    "recent": "Plus récent",
+    "stars": "Plus d'étoiles",
+    "name": "Nom (A→Z)"
+  },
   "card": {
     "viewRepo": "Voir sur GitHub"
   },

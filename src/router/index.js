@@ -6,6 +6,9 @@ import ANIInternship from '../views/ANIInternship.vue'
 import Pluto from '../components/Plutoproject.vue'
 import Sagittarius from '../components/Sagittariusproject.vue'
 import SpotCLI from '../components/SpotCLIproject.vue'
+import Notes from '../views/Notes.vue'
+import NoteDetail from '../views/NoteDetail.vue'
+import NotFound from '../views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,7 +47,24 @@ const router = createRouter({
       path: '/internship/ani',
       name: 'ANI Internship',
       component: ANIInternship,
-    }
+    },
+    {
+      path: '/notes',
+      name: 'Notes',
+      component: Notes,
+    },
+    {
+      path: '/notes/:slug',
+      name: 'NoteDetail',
+      component: NoteDetail,
+      props: true,
+    },
+    // Catch-all — doit rester en dernier
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFound,
+    },
   ],
   scrollBehavior(to) {
     if (to.hash) {

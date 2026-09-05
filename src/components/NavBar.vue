@@ -1,8 +1,10 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useTheme } from '@/composables/useTheme'
 
 const { locale } = useI18n()
+const { theme, toggleTheme } = useTheme()
 const isScrolled = ref(false)
 const mobileOpen = ref(false)
 
@@ -38,9 +40,21 @@ const closeMobileMenu = () => {
       <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__link">
         {{ $t('nav.contact') }}
       </RouterLink>
+      <RouterLink to="/notes" class="nav__link">
+        {{ $t('nav.notes') }}
+      </RouterLink>
+
     </nav>
 
     <div class="nav__right">
+      <button
+        class="theme-toggle"
+        @click="toggleTheme"
+        :aria-label="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+        :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
+      >
+        <span aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span>
+      </button>
       <button
         class="lang-toggle"
         @click="changeLang($i18n.locale === 'fr' ? 'en' : 'fr')"
@@ -72,6 +86,10 @@ const closeMobileMenu = () => {
       <RouterLink :to="{ path: '/', hash: '#contact' }" class="nav__mobile-link" @click="closeMobileMenu">
         {{ $t('nav.contact') }}
       </RouterLink>
+      <RouterLink to="/notes" class="nav__mobile-link" @click="closeMobileMenu">
+        {{ $t('nav.notes') }}
+      </RouterLink>
+
     </nav>
   </header>
 </template>
@@ -173,6 +191,27 @@ const closeMobileMenu = () => {
   letter-spacing: 0.05em;
 }
 .lang-toggle:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 28px;
+  font-size: 15px;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  color: var(--text-3);
+  border-radius: 3px;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+.theme-toggle:hover {
   border-color: var(--text);
   color: var(--text);
 }

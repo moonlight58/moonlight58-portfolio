@@ -351,6 +351,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -362,6 +364,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue' 
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue'
+import { getPrevNext } from '@/data/projectOrder.js'  
+
 const tools = ['Vue 3', 'Ollama', 'CSS', 'Vue Router']
 
 const workspaces = [
@@ -405,6 +412,14 @@ const nextItems = [
   { key: 'next2' },
   { key: 'next3' },
 ]
+
+useHead({
+  title: 'Sagittarius · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Un projet de démonstration en ligne pour l\'interface Sagittarius.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('sagittarius')
 </script>
 
 <style scoped>
@@ -524,15 +539,15 @@ const nextItems = [
 }
 
 .status-badge--active {
-  background: #fdf3e3;
-  color: #92580a;
+  background: var(--warning-bg);
+  color: var(--warning);
 }
 .status-badge--active::before {
   content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #92580a;
+  background: var(--warning);
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 

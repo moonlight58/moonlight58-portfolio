@@ -341,6 +341,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -352,7 +354,18 @@
 </template>
 
 <script setup>
-// No local state needed — purely presentational with i18n
+import { computed } from 'vue' 
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue'
+import { getPrevNext } from '@/data/projectOrder.js'
+
+useHead({
+  title: 'Euphron · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Stage de 2ème année de BUT Informatique.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('euphron')
 </script>
 
 <style scoped>

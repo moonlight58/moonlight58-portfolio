@@ -518,6 +518,8 @@
 
     </main>
 
+    <ProjectNav :prev="prev" :next="next" />
+
     <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
     <div class="back-footer">
       <div class="back-footer__inner">
@@ -529,6 +531,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useHead } from '@unhead/vue'
+import ProjectNav from '@/components/ProjectNav.vue'
+import { getPrevNext } from '@/data/projectOrder.js'
+
 const tools = ['Ergogen', 'KiCAD', 'FreeCAD', 'ZMK', 'PETG']
 
 const firmwareItems = [
@@ -582,6 +589,14 @@ const improvementItems = [
   { id: '2' },
   { id: '3' },
 ]
+
+useHead({
+  title: 'Pluto · Gaël Röthlin',
+  meta: [{ name: 'description', content: 'Un projet de clavier mécanique DIY.' }],
+})
+
+// Uniquement pour les pages projet (pas les stages) :
+const { prev, next } = getPrevNext('pluto')
 </script>
 
 <style scoped>
@@ -701,15 +716,15 @@ const improvementItems = [
 }
 
 .status-badge--done {
-  background: #edf7f0;
-  color: #2e7d52;
+  background: var(--success-bg);
+  color: var(--success);
 }
 .status-badge--done::before {
   content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2e7d52;
+  background: var(--success);
 }
 
 .meta-stack {
@@ -1011,17 +1026,17 @@ const improvementItems = [
 }
 
 .callout--success {
-  border-left-color: #2e7d52;
-  background: #edf7f0;
+  border-left-color: var(--success);
+  background: var(--success-bg);
   border-radius: 0 4px 4px 0;
-  color: #1a4d32;
+  color: var(--success-text);
 }
 
 .callout--warning {
-  border-left-color: #b45309;
-  background: #fef3e2;
+  border-left-color: var(--warning);
+  background: var(--warning-bg);
   border-radius: 0 4px 4px 0;
-  color: #7c3d0e;
+  color: var(--warning-text);
 }
 
 .callout__label {
@@ -1035,16 +1050,16 @@ const improvementItems = [
 }
 
 .callout--info {
-  border-left-color: #2563a8;
-  background: #eaf1fb;
+  border-left-color: var(--info);
+  background: var(--info-bg);
   border-radius: 0 4px 4px 0;
-  color: #1a3a5c;
+  color: var(--info-text);
 }
 
 .callout--accent .callout__label { color: var(--accent); }
-.callout--success .callout__label { color: #2e7d52; }
-.callout--warning .callout__label { color: #b45309; }
-.callout--info .callout__label { color: #2563a8; }
+.callout--success .callout__label { color: var(--success); }
+.callout--warning .callout__label { color: var(--warning); }
+.callout--info .callout__label { color: var(--info); }
 
 
 /* ── Firmware ── */

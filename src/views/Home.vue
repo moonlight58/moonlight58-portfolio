@@ -17,7 +17,7 @@
               >{{ $t('home.body.downloadCV') }}
               <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Interface / Download">
-                <path id="Vector" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="Vector" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 </svg>
               </a
@@ -35,7 +35,7 @@
         <span class="hero__meta-sep" aria-hidden="true">—</span>
         <span>{{ $t('home.panel.focus') }}</span>
         <span class="hero__meta-sep" aria-hidden="true">—</span>
-        <span class="hero__status">
+        <span class="hero__status" v-if="current_stage">
           <span class="hero__status-dot" aria-hidden="true"></span>
           {{ $t('home.panel.status') }}
         </span>
@@ -154,9 +154,7 @@
 
         <div class="contact-layout">
           <div class="contact-info">
-            <a href="mailto:gael.rothlin@edu.univ-fcomte.fr" class="contact-email">
-              gael.rothlin@edu.univ-fcomte.fr
-            </a>
+            <a :href="mailto" class="contact-email">{{ email }}</a>
             <div class="contact-social">
               <a
                 href="https://github.com/moonlight58"
@@ -196,6 +194,7 @@
                   type="text"
                   id="name"
                   name="name"
+                  ref="nameInputRef"
                   v-model="formData.name"
                   :placeholder="$t('home.contact.form.namePlaceholder')"
                   required
@@ -266,10 +265,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
 import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
+import { email, mailto } from '@/utils/contact'
+import { ref, computed, onBeforeUnmount, nextTick, watch } from 'vue'
+
 
 const { t, locale } = useI18n()
 
@@ -280,6 +281,16 @@ const cvDownloadName = computed(() => `Gael_Rothlin_CV_${locale.value.toUpperCas
 
 // ── Contact form ───────────────────────────────────────────────────────────
 const showForm = ref(false)
+const nameInputRef = ref(null)
+const current_stage = ref(false)
+
+watch(showForm, async (open) => {
+  if (open) {
+    await nextTick()
+    nameInputRef.value?.focus()
+  }
+})
+
 const formData = ref({ name: '', email: '', message: '' })
 const isSubmitting = ref(false)
 const statusMessage = ref('')
@@ -1109,6 +1120,15 @@ const skillCategories = computed(() => [
 .form-status.error {
   background: #fdecea;
   color: #b91c1c;
+}
+
+[data-theme='dark'] .form-status.success {
+  background: rgba(61, 143, 95, 0.15);
+  color: #6fc593;
+}
+[data-theme='dark'] .form-status.error {
+  background: rgba(185, 28, 28, 0.15);
+  color: #f08a8a;
 }
 
 /* 

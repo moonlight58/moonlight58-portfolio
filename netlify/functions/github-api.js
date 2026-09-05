@@ -56,6 +56,7 @@ export const handler = async (event) => {
         "X-Cache": "HIT",
         "X-Cache-Age": Math.floor((now - cachedData.timestamp) / 1000),
         "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=60, stale-while-revalidate=300",
       },
       body: JSON.stringify(cachedData.data),
     };
@@ -84,6 +85,7 @@ export const handler = async (event) => {
       headers: {
         "X-Cache": "MISS",
         "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=60, stale-while-revalidate=300",
       },
       body: JSON.stringify(response.data),
     };
@@ -97,6 +99,7 @@ export const handler = async (event) => {
           "X-Cache": "STALE",
           "X-Cache-Age": Math.floor((now - cachedData.timestamp) / 1000),
           "Content-Type": "application/json",
+          "Cache-Control": "public, max-age=30, stale-while-revalidate=300",
         },
         body: JSON.stringify(cachedData.data),
       };
@@ -104,6 +107,9 @@ export const handler = async (event) => {
 
     return {
       statusCode: 500,
+      headers: {
+        "Cache-Control": "no-store",
+      },
       body: JSON.stringify({ error: error.message }),
     };
   }

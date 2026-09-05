@@ -1,12 +1,14 @@
 {
+  "skills": {
+    "frontend": "FRONTEND",
+    "backend": "BACKEND",
+    "devops": "DEVOPS",
+    "tools": "OUTILS & DONNÉES"
+  },
   "panel": {
-    "roleTitle": "RÔLE",
-    "role": "Étudiant en BUT* informatique",
-    "focusTitle": "ÉTUDES",
-    "focus": "3ème année de BUT* Informatique",
-    "statusTitle": "STATUT",
+    "role": "Étudiant en Master d'Internet of Things",
+    "focus": "Diplômé d'un BUT* Informatique",
     "status": "Stage à ANI & Low-Tech terminé (12 Jan - 30 Avr)",
-    "locationTitle": "LOCALISATION",
     "butNote": "* BUT = Bachelor Universitaire de Technologie"
   },
   "body": {

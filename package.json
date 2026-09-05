@@ -10,6 +10,7 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@unhead/vue": "^3.1.7",
     "axios": "^1.16.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.0",
@@ -18,7 +19,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.6",
-    "netlify-cli": "^26.0.2",
+    "netlify-cli": "^26.2.0",
     "prettier": "3.8.3",
     "vite": "^8.0.8",
     "vite-plugin-vue-devtools": "^8.1.1"
