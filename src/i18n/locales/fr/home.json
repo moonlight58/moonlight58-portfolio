@@ -30,14 +30,20 @@
     }
   },
   "school": {
+    "master": {
+      "name": "International Master IoT (Internet of Things) of the Graduated School Eiphi",
+      "location": "Montbéliard, France",
+      "date": "2026 - Maintenant",
+      "description": "En première année de Master IoT"
+    },
     "univ": {
-      "name": "Université de Franche-Comté",
-      "location": "Besançon, France",
+      "name": "Institut Universitaire de Technologie d'Informatique",
+      "location": "Belfort, France",
       "description": "Obtention du Bachelor Universitaire de Technologie (BUT) en informatique en 2026. Actuellement en troisième année de BUT Informatique."
     },
     "lycee": {
       "name": "Lycée Polyvalent Edouard Belin",
-      "location": "Besançon, France",
+      "location": "Vesoul, France",
       "description": "Obtention du baccalauréat scientifique (STI2D) avec mention bien en 2023."
     }
   },

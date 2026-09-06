@@ -103,6 +103,7 @@
             <div v-for="school in schools" :key="school.name" class="education-item">
               <div class="education-item__left">
                 <span class="education-item__date">{{ school.date }}</span>
+                <span class="education-item__location">{{ school.location }}</span>
               </div>
               <div class="education-item__right">
                 <h4 class="education-item__name">{{ school.name }}</h4>
@@ -380,16 +381,22 @@ const internships = computed(() => [
 
 const schools = computed(() => [
   {
+    name: t('home.school.master.name'),
+    description: t('home.school.master.description'),
+    location: t('home.school.master.location'),
+    date: t('home.school.master.date'),
+  },
+  {
     name: t('home.school.univ.name'),
     description: t('home.school.univ.description'),
+    location: t('home.school.univ.location'),
     date: '2023 – 2026',
-    status: t('home.school.univ.status'),
   },
   {
     name: t('home.school.lycee.name'),
     description: t('home.school.lycee.description'),
+    location: t('home.school.lycee.location'),
     date: '2021 – 2023',
-    status: t('home.school.lycee.status'),
   },
 ])
 
@@ -511,12 +518,11 @@ const skillCategories = computed(() => [
 }
 
 .hero__eyebrow {
+  letter-spacing: 0.04em;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
@@ -831,8 +837,8 @@ const skillCategories = computed(() => [
 
 .internship-card__date {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 14px;
   color: var(--text-3);
   letter-spacing: 0.04em;
   margin-bottom: 6px;
@@ -847,7 +853,7 @@ const skillCategories = computed(() => [
 }
 
 .internship-card__mission {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-3);
   line-height: 1.6;
 }
@@ -906,15 +912,15 @@ const skillCategories = computed(() => [
 }
 
 .education-item__date {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 16px;
   color: var(--text-3);
   letter-spacing: 0.04em;
 }
 
-.education-item__status {
-  font-family: var(--font-mono);
-  font-size: 10px;
+.education-item__location {
+  font-family: var(--font-sans);
+  font-size: 13px;
   color: var(--accent);
   letter-spacing: 0.04em;
 }

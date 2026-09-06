@@ -30,9 +30,15 @@
     }
   },
   "school": {
+    "master": {
+      "name": "International Master IoT (Internet of Things) of the Graduated School Eiphi",
+      "location": "Montbéliard, France",
+      "date": "2026 - Now",
+      "description": "Currently in first year"
+    },
     "univ": {
-      "name": "Université de Franche-Comté",
-      "location": "Besançon, France",
+      "name": "University Institute of Computer Science",
+      "location": "Belfort, France",
       "description": "Obtained the university Bachelor in Technology of Computer Science degree (BUT Informatique), with a focus on software development and digital innovation."
     },
     "lycee": {

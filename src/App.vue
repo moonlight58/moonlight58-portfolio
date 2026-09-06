@@ -44,7 +44,7 @@ import Footer from '@/components/Footer.vue'
 
   --font-serif: 'Lora', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'DM Mono', 'Fira Code', monospace;
+  --font-mono: 'Fira Code', monospace;
   --max-w: 1160px;
   --section-gap: 120px;
 
