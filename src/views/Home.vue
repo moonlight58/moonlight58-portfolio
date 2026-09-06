@@ -31,14 +31,9 @@
       </div>
 
       <div class="hero__meta">
-        <span>Besançon, France</span>
+        <span>Montbéliard, France</span>
         <span class="hero__meta-sep" aria-hidden="true">—</span>
         <span>{{ $t('home.panel.focus') }}</span>
-        <span class="hero__meta-sep" aria-hidden="true">—</span>
-        <span class="hero__status" v-if="current_stage">
-          <span class="hero__status-dot" aria-hidden="true"></span>
-          {{ $t('home.panel.status') }}
-        </span>
       </div>
     </section>
 
@@ -108,7 +103,7 @@
             <div v-for="school in schools" :key="school.name" class="education-item">
               <div class="education-item__left">
                 <span class="education-item__date">{{ school.date }}</span>
-                <span class="education-item__status">{{ school.status }}</span>
+                <span class="education-item__location">{{ school.location }}</span>
               </div>
               <div class="education-item__right">
                 <h4 class="education-item__name">{{ school.name }}</h4>
@@ -386,45 +381,29 @@ const internships = computed(() => [
 
 const schools = computed(() => [
   {
+    name: t('home.school.master.name'),
+    description: t('home.school.master.description'),
+    location: t('home.school.master.location'),
+    date: t('home.school.master.date'),
+  },
+  {
     name: t('home.school.univ.name'),
     description: t('home.school.univ.description'),
+    location: t('home.school.univ.location'),
     date: '2023 – 2026',
-    status: t('home.school.univ.status'),
   },
   {
     name: t('home.school.lycee.name'),
     description: t('home.school.lycee.description'),
-    date: '2020 – 2023',
-    status: t('home.school.lycee.status'),
+    location: t('home.school.lycee.location'),
+    date: '2021 – 2023',
   },
 ])
 
 const skillCategories = computed(() => [
   {
-    id: 'frontend',
-    label: t('home.skills.frontend'),
-    skills: [
-      {
-        name: 'Vue.js',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-      },
-      {
-        name: 'CSS',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-      },
-      {
-        name: 'Quasar',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/quasar/quasar-plain.svg',
-      },
-      {
-        name: 'Babylon.js',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babylonjs/babylonjs-original.svg',
-      },
-    ],
-  },
-  {
-    id: 'backend',
-    label: t('home.skills.backend'),
+    id: 'software',
+    label: t('home.skills.software'),
     skills: [
       {
         name: 'Python',
@@ -435,16 +414,8 @@ const skillCategories = computed(() => [
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
       },
       {
-        name: 'Node.js',
+        name: 'NodeJS',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-      },
-      {
-        name: 'C',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
-      },
-      {
-        name: 'Java',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
       },
       {
         name: 'PHP',
@@ -459,21 +430,18 @@ const skillCategories = computed(() => [
       {
         name: 'Linux',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-        tier: 'expert',
-      },
-      {
-        name: 'Git',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-        tier: 'expert',
-      },
-      {
-        name: 'Docker',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg',
-        tier: 'proficient',
       },
       {
         name: 'Bash',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg',
+      },
+      {
+        name: 'Git',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+      },
+      {
+        name: 'Docker',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg',
       },
       {
         name: 'Kubernetes',
@@ -482,27 +450,49 @@ const skillCategories = computed(() => [
     ],
   },
   {
-    id: 'tools',
-    label: t('home.skills.tools'),
+    id: 'iot',
+    label: t('home.skills.iot'),
     skills: [
       {
-        name: 'MySQL',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        name: 'C++',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
       },
       {
-        name: 'MongoDB',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+        name: 'C',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
       },
       {
-        name: 'Figma',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+        name: 'Java',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
       },
       {
-        name: 'Netlify',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg',
+        name: 'Qt',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg',
       },
     ],
   },
+  {
+    id: 'mobile',
+    label: t('home.skills.mobile'),
+    skills: [
+      {
+        name: 'Kotlin',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg',
+      },
+      {
+        name: 'Swift',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg',
+      },
+      {
+        name: 'React Native',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactnative/reactnative-original.svg',
+      },
+      { 
+        name: 'Quasar',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/quasar/quasar-original.svg',
+      },
+    ],
+  }
 ])
 </script>
 
@@ -528,12 +518,11 @@ const skillCategories = computed(() => [
 }
 
 .hero__eyebrow {
+  letter-spacing: 0.04em;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
@@ -848,8 +837,8 @@ const skillCategories = computed(() => [
 
 .internship-card__date {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 14px;
   color: var(--text-3);
   letter-spacing: 0.04em;
   margin-bottom: 6px;
@@ -864,7 +853,7 @@ const skillCategories = computed(() => [
 }
 
 .internship-card__mission {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-3);
   line-height: 1.6;
 }
@@ -923,15 +912,15 @@ const skillCategories = computed(() => [
 }
 
 .education-item__date {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 16px;
   color: var(--text-3);
   letter-spacing: 0.04em;
 }
 
-.education-item__status {
-  font-family: var(--font-mono);
-  font-size: 10px;
+.education-item__location {
+  font-family: var(--font-sans);
+  font-size: 13px;
   color: var(--accent);
   letter-spacing: 0.04em;
 }

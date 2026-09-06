@@ -1,15 +1,7 @@
 {
-  "skills": {
-    "frontend": "FRONTEND",
-    "backend": "BACKEND",
-    "devops": "DEVOPS",
-    "tools": "OUTILS & DONNÉES"
-  },
   "panel": {
     "role": "Étudiant en Master d'Internet of Things",
-    "focus": "Diplômé d'un BUT* Informatique",
-    "status": "Stage à ANI & Low-Tech terminé (12 Jan - 30 Avr)",
-    "butNote": "* BUT = Bachelor Universitaire de Technologie"
+    "focus": "Diplômé d'un Bachelor Universitaire de Technologie Informatique"
   },
   "body": {
     "downloadCV": "Téléchargez mon CV",
@@ -29,28 +21,30 @@
   },
   "internship": {
     "ani": {
-      "badge": "EN COURS",
       "mission": "Intégration dans le service ANI & Low-Tech, assistance technique au CROUS BFC et au développement d'une IA locale.",
       "date": "Janvier 2026 - Avril 2026"
     },
     "euphron": {
-      "badge": "TERMINÉ",
       "mission": "Réalisation d'une application de troc d'objets sportif pour étudiants en STAPS.",
       "date": "Avril 2025 - Mai 2025"
     }
   },
   "school": {
+    "master": {
+      "name": "International Master IoT (Internet of Things) of the Graduated School Eiphi",
+      "location": "Montbéliard, France",
+      "date": "2026 - Maintenant",
+      "description": "En première année de Master IoT"
+    },
     "univ": {
-      "name": "Université de Franche-Comté",
-      "location": "Besançon, France",
-      "description": "Obtention du diplôme universitaire de technologie (DUT) en informatique en 2025. Actuellement en troisième année de BUT Informatique.",
-      "status": "En cours"
+      "name": "Institut Universitaire de Technologie d'Informatique",
+      "location": "Belfort, France",
+      "description": "Obtention du Bachelor Universitaire de Technologie (BUT) en informatique en 2026. Actuellement en troisième année de BUT Informatique."
     },
     "lycee": {
       "name": "Lycée Polyvalent Edouard Belin",
-      "location": "Besançon, France",
-      "description": "Obtention du baccalauréat scientifique (STI2D) avec mention bien en 2023.",
-      "status": "Terminé"
+      "location": "Vesoul, France",
+      "description": "Obtention du baccalauréat scientifique (STI2D) avec mention bien en 2023."
     }
   },
   "projects": {
@@ -66,6 +60,12 @@
       "description": "Un clavier mécanique split que j'ai conçu et fabriqué de zéro avec Ergogen, KiCAD, FreeCAD, ZMK et un boîtier en PETG imprimé en 3D.",
       "status": "Terminé"
     }
+  },
+  "skills": {
+    "software": "LOGICIEL",
+    "devops": "DEVOPS",
+    "iot": "INTERNET DES OBJETS",
+    "mobile": "MOBILE"
   },
   "contact": {
     "title": "TRAVAILLONS ENSEMBLE !",
