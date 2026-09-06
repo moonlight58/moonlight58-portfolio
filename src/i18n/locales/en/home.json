@@ -1,15 +1,7 @@
 {
-  "skills": {
-    "frontend": "FRONTEND",
-    "backend": "BACKEND",
-    "devops": "DEVOPS",
-    "tools": "TOOLS & DATA"
-  },
   "panel": {
     "role": "French master's student in the Internet of Things",
-    "focus": "Graduated from a BUT* in Computer Science",
-    "status": "Internship at ANI & Low-Tech finished (12 Jan - 30 Apr)",
-    "butNote": "* BUT = University Bachelor of Technology"
+    "focus": "Graduated from a University Bachelor of Technology in Computer Science"
   },
   "body": {
     "downloadCV": "Download my CV",
@@ -29,12 +21,10 @@
   },
   "internship": {
     "ani": {
-      "badge": "ONGOING",
       "mission": "Integration in the ANI & Low-Tech service, technical assistance at CROUS BFC and development of a local AI.",
       "date": "January 2026 - April 2026"
     },
     "euphron": {
-      "badge": "COMPLETED",
       "mission": "Development of a sports equipment exchange application for STAPS students.",
       "date": "April 2025 - May 2025"
     }
@@ -43,14 +33,12 @@
     "univ": {
       "name": "Université de Franche-Comté",
       "location": "Besançon, France",
-      "description": "Currently in the 3rd year of a Computer Science degree (BUT Informatique), with a focus on software development and digital innovation.",
-      "status": "Ongoing"
+      "description": "Obtained the university Bachelor in Technology of Computer Science degree (BUT Informatique), with a focus on software development and digital innovation."
     },
     "lycee": {
       "name": "Lycée Polyvalent Edouard Belin",
       "location": "Besançon, France",
-      "description": "Obtained the scientific baccalaureate (STI2D) with a mention of 'Bien' in 2023.",
-      "status": "Completed"
+      "description": "Obtained the scientific baccalaureate (STI2D) with a mention of 'Bien' in 2023."
     }
   },
   "projects": {
@@ -66,6 +54,12 @@
       "description": "A custom split mechanical keyboard I designed and built from scratch with Ergogen, KiCAD, FreeCAD, ZMK, and a 3D-printed PETG case.",
       "status": "Completed"
     }
+  },  
+  "skills": {
+    "software": "SOFTWARE",
+    "devops": "DEVOPS",
+    "iot": "INTERNET OF THINGS",
+    "mobile": "MOBILE"
   },
   "contact": {
     "title": "LET'S WORK TOGETHER !",

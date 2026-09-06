@@ -31,14 +31,9 @@
       </div>
 
       <div class="hero__meta">
-        <span>Besançon, France</span>
+        <span>Montbéliard, France</span>
         <span class="hero__meta-sep" aria-hidden="true">—</span>
         <span>{{ $t('home.panel.focus') }}</span>
-        <span class="hero__meta-sep" aria-hidden="true">—</span>
-        <span class="hero__status" v-if="current_stage">
-          <span class="hero__status-dot" aria-hidden="true"></span>
-          {{ $t('home.panel.status') }}
-        </span>
       </div>
     </section>
 
@@ -108,7 +103,6 @@
             <div v-for="school in schools" :key="school.name" class="education-item">
               <div class="education-item__left">
                 <span class="education-item__date">{{ school.date }}</span>
-                <span class="education-item__status">{{ school.status }}</span>
               </div>
               <div class="education-item__right">
                 <h4 class="education-item__name">{{ school.name }}</h4>
@@ -394,37 +388,15 @@ const schools = computed(() => [
   {
     name: t('home.school.lycee.name'),
     description: t('home.school.lycee.description'),
-    date: '2020 – 2023',
+    date: '2021 – 2023',
     status: t('home.school.lycee.status'),
   },
 ])
 
 const skillCategories = computed(() => [
   {
-    id: 'frontend',
-    label: t('home.skills.frontend'),
-    skills: [
-      {
-        name: 'Vue.js',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-      },
-      {
-        name: 'CSS',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-      },
-      {
-        name: 'Quasar',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/quasar/quasar-plain.svg',
-      },
-      {
-        name: 'Babylon.js',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babylonjs/babylonjs-original.svg',
-      },
-    ],
-  },
-  {
-    id: 'backend',
-    label: t('home.skills.backend'),
+    id: 'software',
+    label: t('home.skills.software'),
     skills: [
       {
         name: 'Python',
@@ -435,16 +407,8 @@ const skillCategories = computed(() => [
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
       },
       {
-        name: 'Node.js',
+        name: 'NodeJS',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-      },
-      {
-        name: 'C',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
-      },
-      {
-        name: 'Java',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
       },
       {
         name: 'PHP',
@@ -459,21 +423,18 @@ const skillCategories = computed(() => [
       {
         name: 'Linux',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-        tier: 'expert',
-      },
-      {
-        name: 'Git',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-        tier: 'expert',
-      },
-      {
-        name: 'Docker',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg',
-        tier: 'proficient',
       },
       {
         name: 'Bash',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg',
+      },
+      {
+        name: 'Git',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+      },
+      {
+        name: 'Docker',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg',
       },
       {
         name: 'Kubernetes',
@@ -482,27 +443,49 @@ const skillCategories = computed(() => [
     ],
   },
   {
-    id: 'tools',
-    label: t('home.skills.tools'),
+    id: 'iot',
+    label: t('home.skills.iot'),
     skills: [
       {
-        name: 'MySQL',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        name: 'C++',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
       },
       {
-        name: 'MongoDB',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+        name: 'C',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
       },
       {
-        name: 'Figma',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+        name: 'Java',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
       },
       {
-        name: 'Netlify',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg',
+        name: 'Qt',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg',
       },
     ],
   },
+  {
+    id: 'mobile',
+    label: t('home.skills.mobile'),
+    skills: [
+      {
+        name: 'Kotlin',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg',
+      },
+      {
+        name: 'Swift',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg',
+      },
+      {
+        name: 'React Native',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactnative/reactnative-original.svg',
+      },
+      { 
+        name: 'Quasar',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/quasar/quasar-original.svg',
+      },
+    ],
+  }
 ])
 </script>
 
