@@ -26,7 +26,6 @@
               <div class="meta-row">
                 <dt>{{ $t('internshipPage.euphron.hero.statusLabel') }}</dt>
                 <dd class="meta-row__status">
-                  <span class="status-dot" aria-hidden="true"></span>
                   {{ $t('internshipPage.euphron.hero.status') }}
                 </dd>
               </div>

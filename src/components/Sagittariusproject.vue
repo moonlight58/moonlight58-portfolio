@@ -542,19 +542,6 @@ const { prev, next } = getPrevNext('sagittarius')
   background: var(--warning-bg);
   color: var(--warning);
 }
-.status-badge--active::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--warning);
-  animation: pulse-dot 2.4s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.35; }
-}
 
 .meta-stack {
   display: flex;

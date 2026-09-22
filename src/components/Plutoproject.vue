@@ -719,13 +719,6 @@ const { prev, next } = getPrevNext('pluto')
   background: var(--success-bg);
   color: var(--success);
 }
-.status-badge--done::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--success);
-}
 
 .meta-stack {
   display: flex;

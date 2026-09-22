@@ -26,7 +26,6 @@
               <div class="meta-row">
                 <dt>{{ $t('internshipPage.ani.hero.statusLabel') }}</dt>
                 <dd class="meta-row__status">
-                  <span class="status-dot" aria-hidden="true"></span>
                   {{ $t('internshipPage.ani.hero.status') }}
                 </dd>
               </div>

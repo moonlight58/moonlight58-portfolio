@@ -263,6 +263,7 @@
 import { useI18n } from 'vue-i18n'
 import plutoProjectImage from '@/assets/projects/pluto/pluto-final-2.jpg'
 import sagittariusProjectImage from '@/assets/projects/sagittarius/sagittarius-cover.png'
+import spotcliProjectImage from '@/assets/projects/spotcli/spotcli-banner.png'
 import { email, mailto } from '@/utils/contact'
 import { ref, computed, onBeforeUnmount, nextTick, watch } from 'vue'
 
@@ -353,8 +354,7 @@ const projects = computed(() => [
   },
   {
     name: 'SpotCLI',
-    image:
-      'https://raw.githubusercontent.com/moonlight58/extra/refs/heads/main/projects/personal/spotcli.png',
+    image: spotcliProjectImage,
     description: t('home.projects.spotcli.description'),
     tech: ['C', 'libcurl', 'Spotify API'],
     status: t('home.projects.spotcli.status'),
