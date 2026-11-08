@@ -4,7 +4,7 @@
     <!-- ── HERO ─────────────────────────────────────────────────────────── -->
     <header class="sag-hero">
       <div class="sag-hero__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
 
         <div class="sag-hero__grid">
           <div class="sag-hero__text">
@@ -18,22 +18,8 @@
           <aside class="sag-hero__meta">
             <dl class="meta-list">
               <div class="meta-row">
-                <dt>{{ $t('projectsPage.sagittarius.hero.statusLabel') }}</dt>
-                <dd>
-                  <span class="status-badge status-badge--active">
-                    {{ $t('projectsPage.sagittarius.hero.status') }}
-                  </span>
-                </dd>
-              </div>
-              <div class="meta-row">
                 <dt>{{ $t('projectsPage.sagittarius.hero.typeLabel') }}</dt>
                 <dd>{{ $t('projectsPage.sagittarius.hero.type') }}</dd>
-              </div>
-              <div class="meta-row">
-                <dt>{{ $t('projectsPage.sagittarius.hero.stackLabel') }}</dt>
-                <dd class="meta-stack">
-                  <span v-for="tool in tools" :key="tool" class="meta-tag">{{ tool }}</span>
-                </dd>
               </div>
               <div class="meta-row">
                 <dt>{{ $t('projectsPage.sagittarius.hero.previewLabel') }}</dt>
@@ -44,7 +30,7 @@
                     rel="noopener noreferrer"
                     class="meta-link"
                   >
-                    {{ $t('projectsPage.sagittarius.hero.preview') }} ↗
+                    {{ $t('projectsPage.sagittarius.hero.preview') }} <ArrowIcon direction="external" />
                   </a>
                 </dd>
               </div>
@@ -324,7 +310,7 @@
                 rel="noopener noreferrer"
                 class="source-link"
               >
-                github.com/moonlight58/sagittarius ↗
+                github.com/moonlight58/sagittarius <ArrowIcon direction="external" />
               </a>
             </div>
             <div class="source-card">
@@ -342,7 +328,7 @@
                 rel="noopener noreferrer"
                 class="source-link"
               >
-                sagittarius.grothlin.fr ↗
+                sagittarius.grothlin.fr <ArrowIcon direction="external" />
               </a>
             </div>
           </div>
@@ -353,13 +339,6 @@
 
     <ProjectNav :prev="prev" :next="next" />
 
-    <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
-    <div class="back-footer">
-      <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -369,7 +348,6 @@ import { useHead } from '@unhead/vue'
 import ProjectNav from '@/components/ProjectNav.vue'
 import { getPrevNext } from '@/data/projectOrder.js'  
 
-const tools = ['Vue 3', 'Ollama', 'CSS', 'Vue Router']
 
 const workspaces = [
   { key: 'code',     icon: '{}',  planned: false },
@@ -541,19 +519,6 @@ const { prev, next } = getPrevNext('sagittarius')
 .status-badge--active {
   background: var(--warning-bg);
   color: var(--warning);
-}
-.status-badge--active::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--warning);
-  animation: pulse-dot 2.4s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.35; }
 }
 
 .meta-stack {
@@ -1100,17 +1065,6 @@ const { prev, next } = getPrevNext('sagittarius')
 
 .source-link:hover { opacity: 0.75; }
 
-/* ── Back footer ── */
-.back-footer {
-  padding: 32px 40px 64px;
-  border-top: 1px solid var(--border);
-}
-
-.back-footer__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
@@ -1123,7 +1077,6 @@ const { prev, next } = getPrevNext('sagittarius')
 @media (max-width: 680px) {
   .sag-hero { padding: 80px 20px 0; }
   .sag-section { padding: 64px 20px; }
-  .back-footer { padding: 24px 20px 48px; }
 
   .sag-hero__image-wrap {
     margin: 0 -20px;

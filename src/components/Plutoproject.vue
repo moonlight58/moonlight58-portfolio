@@ -4,7 +4,7 @@
     <!-- ── HERO ─────────────────────────────────────────────────────────── -->
     <header class="pluto-hero">
       <div class="pluto-hero__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
 
         <div class="pluto-hero__grid">
           <div class="pluto-hero__text">
@@ -23,26 +23,12 @@
           <aside class="pluto-hero__meta">
             <dl class="meta-list">
               <div class="meta-row">
-                <dt>{{ $t('projectsPage.pluto.hero.statusLabel') }}</dt>
-                <dd>
-                  <span class="status-badge status-badge--done">
-                    {{ $t('projectsPage.pluto.hero.status') }}
-                  </span>
-                </dd>
-              </div>
-              <div class="meta-row">
                 <dt>{{ $t('projectsPage.pluto.hero.typeLabel') }}</dt>
                 <dd>{{ $t('projectsPage.pluto.hero.type') }}</dd>
               </div>
               <div class="meta-row">
                 <dt>{{ $t('projectsPage.pluto.hero.keysLabel') }}</dt>
                 <dd>30 {{ $t('projectsPage.pluto.hero.keys') }}</dd>
-              </div>
-              <div class="meta-row">
-                <dt>Stack</dt>
-                <dd class="meta-stack">
-                  <span v-for="tool in tools" :key="tool" class="meta-tag">{{ tool }}</span>
-                </dd>
               </div>
             </dl>
           </aside>
@@ -520,13 +506,6 @@
 
     <ProjectNav :prev="prev" :next="next" />
 
-    <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
-    <div class="back-footer">
-      <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -536,7 +515,6 @@ import { useHead } from '@unhead/vue'
 import ProjectNav from '@/components/ProjectNav.vue'
 import { getPrevNext } from '@/data/projectOrder.js'
 
-const tools = ['Ergogen', 'KiCAD', 'FreeCAD', 'ZMK', 'PETG']
 
 const firmwareItems = [
   {
@@ -718,13 +696,6 @@ const { prev, next } = getPrevNext('pluto')
 .status-badge--done {
   background: var(--success-bg);
   color: var(--success);
-}
-.status-badge--done::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--success);
 }
 
 .meta-stack {
@@ -1180,17 +1151,6 @@ const { prev, next } = getPrevNext('pluto')
   text-align: left;
 }
 
-/* ── Back footer ── */
-.back-footer {
-  padding: 32px 40px 64px;
-  border-top: 1px solid var(--border);
-}
-
-.back-footer__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-
 .improvement-list {
   list-style: none;
   padding: 0;
@@ -1239,7 +1199,6 @@ const { prev, next } = getPrevNext('pluto')
 @media (max-width: 680px) {
   .pluto-hero { padding: 80px 20px 0; }
   .pluto-section { padding: 64px 20px; }
-  .back-footer { padding: 24px 20px 48px; }
 
   .pluto-hero__image-wrap {
     margin: 0 -20px;

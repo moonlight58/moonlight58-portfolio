@@ -184,7 +184,7 @@ const closeMobileMenu = () => {
   background: transparent;
   border: 1px solid var(--border-mid);
   color: var(--text-3);
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
   transition:
     border-color 0.2s,
     color 0.2s;
@@ -206,7 +206,7 @@ const closeMobileMenu = () => {
   background: transparent;
   border: 1px solid var(--border-mid);
   color: var(--text-3);
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
   transition:
     border-color 0.2s,
     color 0.2s;

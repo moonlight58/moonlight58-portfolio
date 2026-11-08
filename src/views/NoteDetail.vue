@@ -3,7 +3,7 @@
     <template v-if="note">
       <header class="note-hero">
         <div class="note-hero__inner">
-          <RouterLink to="/notes" class="back-link">{{ $t('notes.backToNotes') }}</RouterLink>
+          <RouterLink to="/notes" class="back-link"><ArrowIcon direction="left" /> {{ $t('notes.backToNotes') }}</RouterLink>
           <span class="note-hero__date">{{ formatDate(note.date) }}</span>
           <h1 class="note-hero__title">{{ localized(note.title) }}</h1>
           <ul class="note-hero__tags" aria-label="Tags">
@@ -21,12 +21,12 @@
 
     <div v-else class="note-missing">
       <p>{{ $t('notes.empty') }}</p>
-      <RouterLink to="/notes" class="btn btn--ghost">{{ $t('notes.backToNotes') }}</RouterLink>
+      <RouterLink to="/notes" class="btn btn--ghost"><ArrowIcon direction="left" /> {{ $t('notes.backToNotes') }}</RouterLink>
     </div>
 
     <div class="back-footer">
       <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
       </div>
     </div>
   </div>

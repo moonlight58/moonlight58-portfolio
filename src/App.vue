@@ -24,11 +24,13 @@ import Footer from '@/components/Footer.vue'
   --bg-inset: #edeae4;
   --text: #1c1917;
   --text-2: #44403c;
-  --text-3: #6b645f;
+  --text-3: #5f5751;
   --border: rgba(28, 25, 23, 0.1);
   --border-mid: rgba(28, 25, 23, 0.18);
   --accent: #c2693a;
   --accent-light: #f5e8e0;
+  --radius-sm: 3px;
+  --radius-md: 6px;
 
   /* Semantic callout tokens (shared by project pages) */
   --success: #2e7d52;
@@ -66,7 +68,7 @@ import Footer from '@/components/Footer.vue'
   --bg-inset: #2a2622;
   --text: #f4f1ec;
   --text-2: #c4bcb2;
-  --text-3: #9a9088;
+  --text-3: #aaa198;
   --border: rgba(244, 241, 236, 0.1);
   --border-mid: rgba(244, 241, 236, 0.2);
   --accent: #db8a59;

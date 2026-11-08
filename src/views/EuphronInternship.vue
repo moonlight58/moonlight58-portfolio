@@ -4,7 +4,7 @@
     <!-- ── HERO ─────────────────────────────────────────────────────────── -->
     <header class="intern-hero">
       <div class="intern-hero__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
 
         <div class="intern-hero__grid">
           <div class="intern-hero__text">
@@ -26,7 +26,6 @@
               <div class="meta-row">
                 <dt>{{ $t('internshipPage.euphron.hero.statusLabel') }}</dt>
                 <dd class="meta-row__status">
-                  <span class="status-dot" aria-hidden="true"></span>
                   {{ $t('internshipPage.euphron.hero.status') }}
                 </dd>
               </div>
@@ -315,19 +314,19 @@
             <div class="learning-group">
               <h3 class="learning-group__title">{{ $t('internshipPage.euphron.learning.technicalTitle') }}</h3>
               <ul class="arrow-list">
-                <li>{{ $t('internshipPage.euphron.learning.technical1') }}</li>
-                <li>{{ $t('internshipPage.euphron.learning.technical2') }}</li>
-                <li>{{ $t('internshipPage.euphron.learning.technical3') }}</li>
-                <li>{{ $t('internshipPage.euphron.learning.technical4') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.technical1') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.technical2') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.technical3') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.technical4') }}</li>
               </ul>
             </div>
             <div class="learning-group">
               <h3 class="learning-group__title">{{ $t('internshipPage.euphron.learning.softTitle') }}</h3>
               <ul class="arrow-list">
-                <li>{{ $t('internshipPage.euphron.learning.soft1') }}</li>
-                <li>{{ $t('internshipPage.euphron.learning.soft2') }}</li>
-                <li>{{ $t('internshipPage.euphron.learning.soft3') }}</li>
-                <li>{{ $t('internshipPage.euphron.learning.soft4') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.soft1') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.soft2') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.soft3') }}</li>
+                <li><ArrowIcon direction="right" /> {{ $t('internshipPage.euphron.learning.soft4') }}</li>
               </ul>
             </div>
           </div>
@@ -342,13 +341,6 @@
     </main>
 
     <ProjectNav :prev="prev" :next="next" />
-
-    <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
-    <div class="back-footer">
-      <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
-      </div>
-    </div>
 
   </div>
 </template>
@@ -1079,28 +1071,16 @@ const { prev, next } = getPrevNext('euphron')
   font-size: 13px;
   line-height: 1.65;
   color: var(--text-2);
-  padding-left: 18px;
-  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
-.arrow-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
+.arrow-list li > :deep(.arrow-icon) {
+  width: 12px;
+  height: 12px;
   color: var(--accent);
-  font-size: 11px;
-  top: 1px;
-}
-
-/* ── Back footer ── */
-.back-footer {
-  padding: 32px 40px 64px;
-  border-top: 1px solid var(--border);
-}
-
-.back-footer__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
+  margin-top: 3px;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1129,7 +1109,6 @@ const { prev, next } = getPrevNext('euphron')
 @media (max-width: 680px) {
   .intern-hero  { padding: 80px 20px 56px; }
   .page-section { padding: 64px 20px; }
-  .back-footer  { padding: 24px 20px 48px; }
 
   .intern-hero__title {
     font-size: clamp(2.4rem, 10vw, 3.5rem);
