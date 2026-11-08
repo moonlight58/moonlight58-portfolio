@@ -3,7 +3,7 @@
     <!-- HEADER -->
     <section class="page-header">
       <div class="page-header__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
         <div class="page-header__text">
           <p class="page-header__eyebrow">{{ $t('projects.hero.subtitle') }}</p>
           <h1 class="page-header__title">{{ $t('projects.hero.title') }}</h1>
@@ -23,7 +23,7 @@
             :disabled="loading"
             :aria-label="loading ? $t('projects.hero.actions.syncing') : $t('projects.hero.actions.refresh')"
           >
-            <span class="refresh-btn__icon" :class="{ spinning: loading }">↻</span>
+            <ArrowIcon direction="refresh" class="refresh-btn__icon" :class="{ spinning: loading }" />
             {{ loading ? $t('projects.hero.actions.syncing') : $t('projects.hero.actions.refresh') }}
           </button>
         </div>
@@ -138,7 +138,7 @@
               </div>
 
               <!-- Arrow -->
-              <span class="repo-row__arrow" aria-hidden="true">→</span>
+              <ArrowIcon direction="right" class="repo-row__arrow" />
             </a>
           </li>
         </ol>

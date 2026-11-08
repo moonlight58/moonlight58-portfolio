@@ -1,7 +1,7 @@
 {
   "panel": {
     "role": "Étudiant en Master d'Internet of Things",
-    "focus": "Diplômé d'un Bachelor Universitaire de Technologie Informatique"
+    "focus": "Logiciels open-source · IoT · matériel sur mesure"
   },
   "body": {
     "downloadCV": "Téléchargez mon CV",
@@ -12,12 +12,14 @@
     "school": {
       "title": "ÉTUDES"
     },
-    "student": "Développeur full-stack, curieux et passionné de l'open-source",
+    "student": "Je conçois des logiciels open-source et des objets connectés, des outils en ligne de commande au matériel sur mesure.",
     "description": "Mon objectif est de réaliser des projets qui sont utiles à tous et pour tous",
     "projects": "Mes projets",
     "why_desc": "Ce site est développé dans le cadre de mon projet de Portfolio durant les trois années du BUT. Il sera continuellement mis à jour pour refléter mes projets académiques et personnels.",
     "viewProject": "Voir le projet",
-    "viewAllProjects": "Voir tous les projets"
+    "viewAllProjects": "Voir tous les projets",
+    "exploreWork": "Découvrir mes projets",
+    "featuredProject": "Projet à la une"
   },
   "internship": {
     "ani": {

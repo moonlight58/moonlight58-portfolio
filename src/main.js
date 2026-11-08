@@ -2,11 +2,13 @@ import { createApp, watch } from 'vue'
 import { createHead } from '@unhead/vue/client'
 
 import App from './App.vue'
+import ArrowIcon from './components/ArrowIcon.vue'
 import router from './router'
 import i18n from './i18n'
 import { initSystemThemeSync } from './composables/useTheme'
 
 const app = createApp(App)
+app.component('ArrowIcon', ArrowIcon)
 const head = createHead()
 
 app.use(router)

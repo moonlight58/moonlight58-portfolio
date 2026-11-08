@@ -4,7 +4,7 @@
     <!-- ── HERO ─────────────────────────────────────────────────────────── -->
     <header class="spotcli-hero">
       <div class="spotcli-hero__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
 
         <div class="spotcli-hero__grid">
           <div class="spotcli-hero__text">
@@ -35,14 +35,6 @@
 
           <aside class="spotcli-hero__meta">
             <dl class="meta-list">
-              <div class="meta-row">
-                <dt>{{ $t('projectsPage.spotcli.hero.statusLabel') }}</dt>
-                <dd>
-                  <span class="status-badge status-badge--archived">
-                    {{ $t('projectsPage.spotcli.hero.status') }}
-                  </span>
-                </dd>
-              </div>
               <div class="meta-row">
                 <dt>{{ $t('projectsPage.spotcli.hero.typeLabel') }}</dt>
                 <dd>
@@ -467,13 +459,6 @@
 
     <ProjectNav :prev="prev" :next="next" />
 
-    <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
-    <div class="back-footer">
-      <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -483,7 +468,6 @@ import { useHead } from '@unhead/vue'
 import ProjectNav from '@/components/ProjectNav.vue' 
 import { getPrevNext } from '@/data/projectOrder.js'  
 
-const tools = ['C', 'libcurl', 'json-c', 'Make', 'OAuth 2.0', 'POSIX']
 
 const archGroups = [
   {
@@ -1249,17 +1233,6 @@ const { prev, next } = getPrevNext('spotcli')
   text-align: left;
 }
 
-/* ── Back footer ── */
-.back-footer {
-  padding: 32px 40px 64px;
-  border-top: 1px solid var(--border);
-}
-
-.back-footer__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
@@ -1273,7 +1246,6 @@ const { prev, next } = getPrevNext('spotcli')
 @media (max-width: 680px) {
   .spotcli-hero { padding: 80px 20px 0; }
   .spotcli-section { padding: 64px 20px; }
-  .back-footer { padding: 24px 20px 48px; }
 
   .spotcli-hero__image-wrap {
     margin: 0 -20px;

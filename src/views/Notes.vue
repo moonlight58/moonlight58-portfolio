@@ -2,7 +2,7 @@
   <div>
     <header class="notes-header">
       <div class="notes-header__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
         <p class="notes-header__eyebrow">{{ $t('notes.hero.eyebrow') }}</p>
         <h1 class="notes-header__title">{{ $t('notes.hero.title') }}</h1>
         <p class="notes-header__subtitle">{{ $t('notes.hero.subtitle') }}</p>
@@ -22,7 +22,7 @@
               <ul class="note-row__tags" aria-label="Tags">
                 <li v-for="tag in note.tags" :key="tag" class="note-row__tag">{{ tag }}</li>
               </ul>
-              <span class="note-row__arrow" aria-hidden="true">→</span>
+              <ArrowIcon direction="right" class="note-row__arrow" />
             </RouterLink>
           </li>
         </ol>
@@ -32,7 +32,7 @@
 
     <div class="back-footer">
       <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
       </div>
     </div>
   </div>

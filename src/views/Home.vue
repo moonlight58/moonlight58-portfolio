@@ -5,10 +5,10 @@
       <div class="hero__inner">
         <div class="hero__text">
           <p class="hero__eyebrow">{{ $t('home.panel.role') }}</p>
-          <h1 class="hero__name" id="hero-name">Gaël<br />Röthlin</h1>
+          <h1 class="hero__name" id="hero-name">Gaël Röthlin</h1>
           <p class="hero__bio">{{ $t('home.body.student') }}</p>
           <div class="hero__actions">
-            <a href="#work" class="btn btn--primary">{{ $t('nav.work') }}</a>
+            <a href="#work" class="btn btn--primary">{{ $t('home.body.exploreWork') }} <ArrowIcon direction="right" /></a>
             <a
               :href="cvFile"
               :download="cvDownloadName"
@@ -43,21 +43,23 @@
         <header class="section__header">
           <h2 class="section__title" id="work-heading">{{ $t('nav.work') }}</h2>
           <RouterLink to="/projects" class="section__more">
-            {{ $t('home.body.viewAllProjects') }} →
+            {{ $t('home.body.viewAllProjects') }} <ArrowIcon direction="right" />
           </RouterLink>
         </header>
 
         <!-- Featured projects -->
         <div class="projects">
-          <article v-for="(project, i) in projects" :key="project.name" class="project">
+          <article
+            v-for="(project, i) in projects"
+            :key="project.name"
+            class="project"
+            :class="{ 'project--featured': i === 0 }"
+          >
             <div class="project__image-wrap">
               <img :src="project.image" :alt="project.name" class="project__image" loading="lazy" />
             </div>
             <div class="project__body">
-              <div class="project__meta">
-                <span class="project__index">0{{ i + 1 }}</span>
-                <span class="project__status">{{ project.status }}</span>
-              </div>
+              <p v-if="i === 0" class="project__eyebrow">{{ $t('home.body.featuredProject') }}</p>
               <h3 class="project__name">{{ project.name }}</h3>
               <p class="project__desc">{{ project.description }}</p>
               <ul class="project__tech" aria-label="Technologies used">
@@ -65,7 +67,7 @@
               </ul>
               <!-- redirect to project page and not modal because deprecated -->
               <RouterLink :to="`/${project.name.toLowerCase()}`" class="project__cta">
-                {{ $t('home.body.viewProject') }} →
+                {{ $t('home.body.viewProject') }} <ArrowIcon direction="right" />
               </RouterLink>
             </div>
           </article>
@@ -90,7 +92,7 @@
                 <ul class="internship-card__tech" aria-label="Technologies">
                   <li v-for="t in internship.tech" :key="t">{{ t }}</li>
                 </ul>
-                <span class="internship-card__arrow" aria-hidden="true">→</span>
+                <ArrowIcon direction="right" class="internship-card__arrow" />
               </div>
             </RouterLink>
           </div>
@@ -157,7 +159,7 @@
                 rel="noopener noreferrer"
                 class="contact-social__link"
               >
-                GitHub ↗
+                GitHub <ArrowIcon direction="external" />
               </a>
               <a
                 href="https://www.instagram.com/osiris._25"
@@ -165,7 +167,7 @@
                 rel="noopener noreferrer"
                 class="contact-social__link"
               >
-                Instagram ↗
+                Instagram <ArrowIcon direction="external" />
               </a>
             </div>
           </div>
@@ -343,21 +345,18 @@ const projects = computed(() => [
     image: plutoProjectImage,
     description: t('home.projects.pluto.description'),
     tech: ['Ergogen', 'ZMK', 'KiCAD', '3D Printing'],
-    status: t('home.projects.pluto.status'),
   },
   {
     name: 'Sagittarius',
     image: sagittariusProjectImage,
     description: t('home.projects.sagittarius.description'),
     tech: ['Ollama', 'Vue 3'],
-    status: t('home.projects.sagittarius.status'),
   },
   {
     name: 'SpotCLI',
     image: spotcliProjectImage,
     description: t('home.projects.spotcli.description'),
     tech: ['C', 'libcurl', 'Spotify API'],
-    status: t('home.projects.spotcli.status'),
   },
   
 ])
@@ -557,7 +556,7 @@ const skillCategories = computed(() => [
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   filter: grayscale(20%);
   transition: filter 0.4s;
 }
@@ -577,6 +576,7 @@ const skillCategories = computed(() => [
   font-size: 12px;
   color: var(--text-3);
   letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
 }
 
 .hero__meta-sep {
@@ -674,24 +674,32 @@ const skillCategories = computed(() => [
    PROJECTS
  */
 .projects {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 32px;
   margin-bottom: 80px;
 }
 
 .project {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.project--featured {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 56px;
-  padding: 48px 0;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+  gap: 48px;
+  align-items: center;
+  padding-bottom: 40px;
   border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
 }
 
 .project__image-wrap {
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background: var(--bg-inset);
 }
 
@@ -717,28 +725,11 @@ const skillCategories = computed(() => [
   gap: 0;
 }
 
-.project__meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.project__index {
+.project__eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-3);
-  letter-spacing: 0.06em;
-}
-
-.project__status {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent);
-  background: var(--accent-light);
-  padding: 3px 8px;
-  border-radius: 2px;
-  letter-spacing: 0.04em;
+  margin-bottom: 12px;
 }
 
 .project__name {
@@ -749,6 +740,13 @@ const skillCategories = computed(() => [
   letter-spacing: -0.01em;
   margin: 0 0 14px;
   line-height: 1.2;
+}
+.project--featured .project__name {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.project--featured .project__desc {
+  font-size: 16px;
+  max-width: 42rem;
 }
 
 .project__desc {
@@ -766,13 +764,10 @@ const skillCategories = computed(() => [
 }
 
 .project__tech li {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-3);
-  background: var(--bg-inset);
-  border: 1px solid var(--border);
-  padding: 4px 10px;
-  border-radius: 2px;
+  border-bottom: 1px solid var(--border-mid);
+  padding: 2px 0;
   letter-spacing: 0.03em;
   transition:
     border-color 0.2s,
@@ -841,6 +836,7 @@ const skillCategories = computed(() => [
   font-size: 14px;
   color: var(--text-3);
   letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
   margin-bottom: 6px;
 }
 
@@ -866,13 +862,10 @@ const skillCategories = computed(() => [
 }
 
 .internship-card__tech li {
-  font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-3);
-  background: var(--bg-inset);
-  border: 1px solid var(--border);
-  padding: 3px 8px;
-  border-radius: 2px;
+  border-bottom: 1px solid var(--border-mid);
+  padding: 2px 0;
 }
 
 .internship-card__arrow {
@@ -916,6 +909,7 @@ const skillCategories = computed(() => [
   font-size: 16px;
   color: var(--text-3);
   letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .education-item__location {
@@ -1131,10 +1125,7 @@ const skillCategories = computed(() => [
 }
 
 @media (max-width: 900px) {
-  .project {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+  .project--featured { grid-template-columns: 1fr; gap: 24px; }
 
   .hero__inner {
     grid-template-columns: 1fr;
@@ -1159,6 +1150,8 @@ const skillCategories = computed(() => [
 }
 
 @media (max-width: 680px) {
+  .projects { grid-template-columns: 1fr; gap: 36px; }
+  .project--featured { grid-column: auto; }
   .nav {
     padding: 0 20px;
   }

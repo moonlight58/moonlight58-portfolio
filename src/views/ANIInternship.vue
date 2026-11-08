@@ -4,7 +4,7 @@
     <!-- ── HERO ─────────────────────────────────────────────────────────── -->
     <header class="intern-hero">
       <div class="intern-hero__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
+        <RouterLink to="/" class="back-link"><ArrowIcon direction="left" /> {{ $t('common.back') }}</RouterLink>
 
         <div class="intern-hero__grid">
           <div class="intern-hero__text">
@@ -149,7 +149,7 @@
             <p class="highlight-box__desc">
               {{ $t('internshipPage.ani.open3d.repoDesc') }}
               <a href="https://github.com/moonlight58/open3D-viewer" target="_blank" rel="noopener noreferrer" class="inline-link">
-                github.com/moonlight58/open3D-viewer ↗
+                github.com/moonlight58/open3D-viewer <ArrowIcon direction="external" />
               </a>
             </p>
           </div>
@@ -255,13 +255,13 @@
             <div class="learning-group">
               <h3 class="learning-group__title">{{ $t('internshipPage.ani.learning.technicalTitle') }}</h3>
               <ul class="arrow-list">
-                <li v-for="n in 5" :key="`tech-${n}`">{{ $t(`internshipPage.ani.learning.technical${n}`) }}</li>
+                <li v-for="n in 5" :key="`tech-${n}`"><ArrowIcon direction="right" /> {{ $t(`internshipPage.ani.learning.technical${n}`) }}</li>
               </ul>
             </div>
             <div class="learning-group">
               <h3 class="learning-group__title">{{ $t('internshipPage.ani.learning.softTitle') }}</h3>
               <ul class="arrow-list">
-                <li v-for="n in 4" :key="`soft-${n}`">{{ $t(`internshipPage.ani.learning.soft${n}`) }}</li>
+                <li v-for="n in 4" :key="`soft-${n}`"><ArrowIcon direction="right" /> {{ $t(`internshipPage.ani.learning.soft${n}`) }}</li>
               </ul>
             </div>
           </div>
@@ -276,13 +276,6 @@
     </main>
 
     <ProjectNav :prev="prev" :next="next" />
-
-    <!-- ── FOOTER BACK ───────────────────────────────────────────────────── -->
-    <div class="back-footer">
-      <div class="back-footer__inner">
-        <RouterLink to="/" class="back-link">← {{ $t('common.back') }}</RouterLink>
-      </div>
-    </div>
 
   </div>
 </template>
@@ -777,26 +770,17 @@ const { prev, next } = getPrevNext('ani')
   font-size: 13px;
   line-height: 1.65;
   color: var(--text-2);
-  padding-left: 18px;
-  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
-.arrow-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
+.arrow-list li > :deep(.arrow-icon) {
+  width: 12px;
+  height: 12px;
   color: var(--accent);
-  font-size: 11px;
-  top: 1px;
+  margin-top: 3px;
 }
-
-/* ── Back footer ── */
-.back-footer {
-  padding: 32px 40px 64px;
-  border-top: 1px solid var(--border);
-}
-
-.back-footer__inner { max-width: var(--max-w); margin: 0 auto; }
 
 /* ══════════════════════════════════════
    RESPONSIVE
@@ -812,7 +796,6 @@ const { prev, next } = getPrevNext('ani')
 @media (max-width: 680px) {
   .intern-hero { padding: 80px 20px 56px; }
   .page-section { padding: 64px 20px; }
-  .back-footer { padding: 24px 20px 48px; }
   .intern-hero__title { font-size: clamp(2.4rem, 10vw, 3.5rem); }
   .feature-grid { grid-template-columns: 1fr; }
   .perf-grid { grid-template-columns: 1fr 1fr; }

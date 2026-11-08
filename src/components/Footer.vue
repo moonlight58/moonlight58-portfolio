@@ -33,13 +33,13 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer__link"
-          >{{ $t('footer.github') }} ↗</a>
+          >{{ $t('footer.github') }} <ArrowIcon direction="external" /></a>
           <a
             href="https://www.instagram.com/osiris._25"
             target="_blank"
             rel="noopener noreferrer"
             class="footer__link"
-          >{{ $t('footer.instagram') }} ↗</a>
+          >{{ $t('footer.instagram') }} <ArrowIcon direction="external" /></a>
           <a :href="mailto" class="footer__link">{{ $t('footer.email') }}</a>
         </div>
       </div>
@@ -50,7 +50,7 @@
         >
         <span class="footer__credit">{{ $t('footer.credit') }}</span>
         <button type="button" class="footer__top-btn" @click="scrollToTop">
-          ↑ {{ $t('footer.backToTop') }}
+          <ArrowIcon direction="up" /> {{ $t('footer.backToTop') }}
         </button>
       </div>
     </div>
